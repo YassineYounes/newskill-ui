@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ComponentsComponent } from './components.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ComponentsComponent} from './components.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ComponentsComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
 
       {
         path: 'blog',
@@ -44,4 +44,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ComponentsRoutingModule {}
+export class ComponentsRoutingModule {
+}

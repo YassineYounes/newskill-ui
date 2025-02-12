@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { passwordResponce, register } from 'src/app/models/register.model';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { newPassword } from 'src/app/models/model';
+import {Component} from '@angular/core';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {passwordResponce, register} from 'src/app/models/register.model';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {newPassword} from 'src/app/models/model';
+
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -50,6 +51,8 @@ export class NewPasswordComponent {
       },
     },
   };
+  typingStarted1 = false;
+  typingStarted2 = false;
 
   constructor(private DataService: DataService) {
     this.newPassword = this.DataService.newPassword;
@@ -180,8 +183,6 @@ export class NewPasswordComponent {
       }
     }
   }
-  typingStarted1 = false;
-  typingStarted2 = false;
 
   onInputChange1() {
     this.typingStarted1 = true;

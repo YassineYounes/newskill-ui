@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CourseWishlistRoutingModule } from './course-wishlist-routing.module';
-import { CourseWishlistComponent } from './course-wishlist.component';
-import { FeatherIconModule } from 'src/app/shared/module/feather.module';
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {CourseWishlistRoutingModule} from './course-wishlist-routing.module';
+import {CourseWishlistComponent} from './course-wishlist.component';
+import {FeatherIconModule} from 'src/app/shared/module/feather.module';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 @NgModule({
   declarations: [CourseWishlistComponent],
@@ -15,4 +15,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule,
   ],
 })
-export class CourseWishlistModule {}
+export class CourseWishlistModule {
+}

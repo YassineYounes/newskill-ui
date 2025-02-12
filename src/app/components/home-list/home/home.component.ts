@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { DataService } from 'src/app/shared/service/data/data.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {DataService} from 'src/app/shared/service/data/data.service';
 import * as AOS from 'aos';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {routes} from 'src/app/shared/service/routes/routes';
 import {
   topCategories,
   trendingCourses,
@@ -14,9 +14,11 @@ import {
   universitiesCompanies,
   testimonial,
 } from 'src/app/models/model';
+
 interface data {
   active?: boolean;
 }
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -132,11 +134,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    AOS.init({ duration: 1200, once: true });
+    AOS.init({duration: 1200, once: true});
   }
+
   toggleClass(slide: data) {
     slide.active = !slide.active;
   }
+
   directPath() {
     this.router.navigate(['/pages/course/course-list']);
   }

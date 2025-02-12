@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { UnderConstructionRoutingModule } from './under-construction-routing.module';
-import { UnderConstructionComponent } from './under-construction.component';
+import {UnderConstructionRoutingModule} from './under-construction-routing.module';
+import {UnderConstructionComponent} from './under-construction.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { UnderConstructionComponent } from './under-construction.component';
     UnderConstructionRoutingModule
   ]
 })
-export class UnderConstructionModule { }
+export class UnderConstructionModule {
+}

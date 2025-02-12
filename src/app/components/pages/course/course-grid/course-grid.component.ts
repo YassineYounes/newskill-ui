@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { courseGrid } from 'src/app/models/model';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {courseGrid} from 'src/app/models/model';
+
 interface data {
   active?: boolean;
 }
+
 @Component({
   selector: 'app-course-grid',
   templateUrl: './course-grid.component.html',
@@ -30,29 +32,13 @@ export class CourseGridComponent implements OnInit {
   public totalPages = 0;
   public courseGrid: courseGrid[] = [];
   selected = '1';
+
   constructor(private data: DataService) {
     // this.courseGrid = this.DataService.courseGrid;
   }
+
   ngOnInit(): void {
     this.getcourseGrid();
-  }
-  private getcourseGrid(): void {
-    this.courseGrid = [];
-    this.serialNumberArray = [];
-
-    this.data.gridCourseList().subscribe((res: courseGrid) => {
-      this.totalData = res.totalData;
-      res.data.map((res: courseGrid, index: number) => {
-        const serialNumber = index + 1;
-        if (index >= this.skip && serialNumber <= this.limit) {
-          res.totalData = serialNumber;
-          this.courseGrid.push(res);
-          this.serialNumberArray.push(serialNumber);
-        }
-      });
-      this.dataSource = new MatTableDataSource<courseGrid>(this.courseGrid);
-      this.calculateTotalPages(this.totalData, this.pageSize);
-    });
   }
 
   public searchData(value: string): void {
@@ -96,6 +82,29 @@ export class CourseGridComponent implements OnInit {
     this.getcourseGrid();
   }
 
+  toggleClass(data: data) {
+    data.active = !data.active;
+  }
+
+  private getcourseGrid(): void {
+    this.courseGrid = [];
+    this.serialNumberArray = [];
+
+    this.data.gridCourseList().subscribe((res: courseGrid) => {
+      this.totalData = res.totalData;
+      res.data.map((res: courseGrid, index: number) => {
+        const serialNumber = index + 1;
+        if (index >= this.skip && serialNumber <= this.limit) {
+          res.totalData = serialNumber;
+          this.courseGrid.push(res);
+          this.serialNumberArray.push(serialNumber);
+        }
+      });
+      this.dataSource = new MatTableDataSource<courseGrid>(this.courseGrid);
+      this.calculateTotalPages(this.totalData, this.pageSize);
+    });
+  }
+
   private calculateTotalPages(totalData: number, pageSize: number): void {
     this.pageNumberArray = [];
     this.totalPages = totalData / pageSize;
@@ -106,13 +115,11 @@ export class CourseGridComponent implements OnInit {
       const limit = pageSize * i;
       const skip = limit - pageSize;
       this.pageNumberArray.push(i);
-      this.pageSelection.push({ skip: skip, limit: limit });
+      this.pageSelection.push({skip: skip, limit: limit});
     }
   }
-  toggleClass(data: data) {
-    data.active = !data.active;
-  }
 }
+
 export interface pageSelection {
   skip: number;
   limit: number;

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { NavigationStart, Router, Event as RouterEvent } from '@angular/router';
-import { CommonService } from '../shared/service/common/common.service';
-import { SidebarService } from '../shared/service/sidebar/sidebar.service';
-import { url } from '../models/model';
+import {Component} from '@angular/core';
+import {NavigationStart, Router, Event as RouterEvent} from '@angular/router';
+import {CommonService} from '../shared/service/common/common.service';
+import {SidebarService} from '../shared/service/sidebar/sidebar.service';
+import {url} from '../models/model';
 
 @Component({
   selector: 'app-components',
@@ -24,6 +24,7 @@ export class ComponentsComponent {
   public routeStatus!: string;
   public routeStatusSub!: string;
   renderer: any;
+
   constructor(
     private Router: Router,
     private sidebar: SidebarService,
@@ -78,12 +79,12 @@ export class ComponentsComponent {
     });
     this.sidebar.themeMode.subscribe((res: string) => {
       if (this.showDark) {
-            document.body.classList.add('dark');
-          } else {
-            document.body.classList.remove('dark');
-          }
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
     });
-   
+
   }
 
   private setRouting(data: url): void {
@@ -132,5 +133,5 @@ export class ComponentsComponent {
       this.common.isAdminHeader.next(true);
     }
   }
- 
+
 }

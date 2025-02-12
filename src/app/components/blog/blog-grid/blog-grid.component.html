@@ -10,20 +10,20 @@
               <div class="blog grid-blog">
                 <div class="blog-image">
                   <a [routerLink]="routes.blog_details"><img class="img-fluid" [src]="data.img1"
-                  alt="Post Image"></a>
+                                                             alt="Post Image"></a>
                 </div>
                 <div class="blog-grid-box">
                   <div class="blog-info clearfix">
                     <div class="post-left">
                       <ul>
-                        <li><img class="img-fluid" [src]="data.img2" alt="">{{data.date}}</li>
-                        <li><img class="img-fluid" [src]="data.img3" alt="">{{data.sub}}</li>
+                        <li><img class="img-fluid" [src]="data.img2" alt="">{{ data.date }}</li>
+                        <li><img class="img-fluid" [src]="data.img3" alt="">{{ data.sub }}</li>
                       </ul>
                     </div>
                   </div>
-                  <h3 class="blog-title"><a [routerLink]="routes.blog_details">{{data.content}}</a></h3>
+                  <h3 class="blog-title"><a [routerLink]="routes.blog_details">{{ data.content }}</a></h3>
                   <div class="blog-content blog-read">
-                    <p>{{data.paragraph}}</p>
+                    <p>{{ data.paragraph }}</p>
                     <a [routerLink]="routes.blog_details" class="read-more btn btn-primary">Read More</a>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
             <ul class="pagination lms-page">
               <li class="page-item prev">
                 <a class="page-link" href="javascript:void(0)" tabindex="-1"><i
-                class="fas fa-angle-left"></i></a>
+                    class="fas fa-angle-left"></i></a>
               </li>
               <li class="page-item first-page active">
                 <a class="page-link" href="javascript:void(0)">1</a>
@@ -75,8 +75,8 @@
             <div class="card-body">
               <form class="search-form">
                 <div class="input-group">
-                  <input type="text" placeholder="Search..." class="form-control">
-                  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                  <input class="form-control" placeholder="Search..." type="text">
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
                 </div>
               </form>
             </div>
@@ -99,9 +99,9 @@
                     </div>
                     <div class="post-info">
                       <h4>
-                        <a [routerLink]="routes.blog_details">{{data.content}}</a>
+                        <a [routerLink]="routes.blog_details">{{ data.content }}</a>
                       </h4>
-                      <p><img class="img-fluid" [src]="data.img2" alt="">{{data.date}}</p>
+                      <p><img class="img-fluid" [src]="data.img2" alt="">{{ data.date }}</p>
                     </div>
                   </li>
                 }
@@ -121,56 +121,56 @@
                 <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Courses </a></li>
                 <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Education </a></li>
                 <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Graphics Design
-              </a></li>
-              <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Programming </a>
-            </li>
-            <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Web Design </a>
-          </li>
-        </ul>
+                </a></li>
+                <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Programming </a>
+                </li>
+                <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Web Design </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /Categories -->
+
+          <!-- Archives Categories -->
+          <div class="card category-widget blog-widget">
+            <div class="card-header">
+              <h4 class="card-title">Archives</h4>
+            </div>
+            <div class="card-body">
+              <ul class="categories">
+                <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> January 2022 </a>
+                </li>
+                <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> February 2022 </a>
+                </li>
+                <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> April 2022 </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /Archives Categories -->
+
+          <!-- Tags -->
+          <div class="card tags-widget blog-widget tags-card">
+            <div class="card-header">
+              <h4 class="card-title">Latest Tags</h4>
+            </div>
+            <div class="card-body">
+              <ul class="tags">
+                <li><a class="tag" href="javascript:void(0)">HTML</a></li>
+                <li><a class="tag" href="javascript:void(0)">Java Script</a></li>
+                <li><a class="tag" href="javascript:void(0)">Css</a></li>
+                <li><a class="tag" href="javascript:void(0)">Jquery</a></li>
+                <li><a class="tag" href="javascript:void(0)">Java</a></li>
+                <li><a class="tag" href="javascript:void(0)">React</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /Tags -->
+        </div>
       </div>
+      <!-- /Blog Sidebar -->
+
     </div>
-    <!-- /Categories -->
-
-    <!-- Archives Categories -->
-    <div class="card category-widget blog-widget">
-      <div class="card-header">
-        <h4 class="card-title">Archives</h4>
-      </div>
-      <div class="card-body">
-        <ul class="categories">
-          <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> January 2022 </a>
-        </li>
-        <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> February 2022 </a>
-      </li>
-      <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> April 2022 </a>
-    </li>
-  </ul>
-</div>
-</div>
-<!-- /Archives Categories -->
-
-<!-- Tags -->
-<div class="card tags-widget blog-widget tags-card">
-  <div class="card-header">
-    <h4 class="card-title">Latest Tags</h4>
   </div>
-  <div class="card-body">
-    <ul class="tags">
-      <li><a href="javascript:void(0)" class="tag">HTML</a></li>
-      <li><a href="javascript:void(0)" class="tag">Java Script</a></li>
-      <li><a href="javascript:void(0)" class="tag">Css</a></li>
-      <li><a href="javascript:void(0)" class="tag">Jquery</a></li>
-      <li><a href="javascript:void(0)" class="tag">Java</a></li>
-      <li><a href="javascript:void(0)" class="tag">React</a></li>
-    </ul>
-  </div>
-</div>
-<!-- /Tags -->
-</div>
-</div>
-<!-- /Blog Sidebar -->
-
-</div>
-</div>
 </section>
 <!-- /Blog Grid -->

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { PrivacyPolicyRoutingModule } from './privacy-policy-routing.module';
-import { PrivacyPolicyComponent } from './privacy-policy.component';
+import {PrivacyPolicyRoutingModule} from './privacy-policy-routing.module';
+import {PrivacyPolicyComponent} from './privacy-policy.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { PrivacyPolicyComponent } from './privacy-policy.component';
     PrivacyPolicyRoutingModule
   ]
 })
-export class PrivacyPolicyModule { }
+export class PrivacyPolicyModule {
+}

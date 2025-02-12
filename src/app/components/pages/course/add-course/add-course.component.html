@@ -11,7 +11,7 @@
                 <a [routerLink]="routes.dashboard_instructor" class="btn btn-black">Back to Course</a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="btn btn-success-dark">Save</a>
+                <a class="btn btn-success-dark" href="javascript:void(0)">Save</a>
               </li>
             </ul>
           </div>
@@ -40,7 +40,8 @@
               </ul>
             </div>
             <div class="widget-content multistep-form">
-              <fieldset id="first" [ngStyle]="{'display': activeIndex === 0 ? 'block' : (activeIndex ? 'none' : null) }">
+              <fieldset [ngStyle]="{'display': activeIndex === 0 ? 'block' : (activeIndex ? 'none' : null) }"
+                        id="first">
                 <div class="add-course-info mat-style">
                   <div class="add-course-inner-header">
                     <h4>Basic Information</h4>
@@ -48,38 +49,38 @@
                   <div class="add-course-form">
                     <form action="#">
                       <div class="input-block">
-                        <label for="course-title" class="add-course-label">Course Title</label>
-                        <input type="text" class="form-control" placeholder="Course Title" />
+                        <label class="add-course-label" for="course-title">Course Title</label>
+                        <input class="form-control" placeholder="Course Title" type="text"/>
                       </div>
                       <div class="input-block">
-                        <label for="course-category" class="add-course-label">Courses Category</label>
-                        <mat-select class="custom-mat-select select"   [(value)]="selected">
+                        <label class="add-course-label" for="course-category">Courses Category</label>
+                        <mat-select [(value)]="selected" class="custom-mat-select select">
                           <mat-option value="1">Category 01</mat-option>
                           <mat-option value="2">Category 02</mat-option>
                           <mat-option value="3">Category 03</mat-option>
                           <mat-option value="4">Category 04</mat-option>
                           <mat-option value="5">Category 05</mat-option>
-                          
+
                         </mat-select>
                       </div>
                       <div class="input-block">
-                        <label for="course-level" class="add-course-label">Courses Level</label>
-                        <mat-select class="custom-mat-select select"   [(value)]="selected2">
+                        <label class="add-course-label" for="course-level">Courses Level</label>
+                        <mat-select [(value)]="selected2" class="custom-mat-select select">
                           <mat-option value="1">Level 01</mat-option>
                           <mat-option value="2">Level 02</mat-option>
                           <mat-option value="3">Level 03</mat-option>
                           <mat-option value="4">Level 04</mat-option>
                           <mat-option value="5">Level 05</mat-option>
-                          
+
                         </mat-select>
                       </div>
                       <div class="input-block mb-0">
-                        <label for="course-description" class="add-course-label">Course Description</label>
+                        <label class="add-course-label" for="course-description">Course Description</label>
                         <div class="container">
                           <form>
                             <div class="editor">
                               <p-editor [(ngModel)]="text" [ngModelOptions]="{standalone: true}"
-                              [style]="{ height: '100px' }"></p-editor>
+                                        [style]="{ height: '100px' }"></p-editor>
                             </div>
                           </form>
                         </div>
@@ -88,11 +89,12 @@
                   </div>
                   <div class="widget-btn">
                     <a class="btn btn-black">Back</a>
-                    <a tabindex="0" (keydown)="onSubmit(1)" class="btn btn-info-light next_btn" (click)="onSubmit(1)">Continue</a>
+                    <a (click)="onSubmit(1)" (keydown)="onSubmit(1)" class="btn btn-info-light next_btn" tabindex="0">Continue</a>
                   </div>
                 </div>
               </fieldset>
-              <fieldset class="field-card" [ngStyle]="{'display': activeIndex === 1 ? 'block' : (activeIndex ? 'none' : null) }">
+              <fieldset [ngStyle]="{'display': activeIndex === 1 ? 'block' : (activeIndex ? 'none' : null) }"
+                        class="field-card">
                 <div class="add-course-info">
                   <div class="add-course-inner-header">
                     <h4>Courses Media</h4>
@@ -100,11 +102,11 @@
                   <div class="add-course-form">
                     <form action="#">
                       <div class="input-block">
-                        <label for="img" class="add-course-label">Course cover image</label>
+                        <label class="add-course-label" for="img">Course cover image</label>
                         <div class="relative-form">
                           <span>No File Selected</span>
                           <label class="relative-file-upload">
-                            Upload File <input type="file" />
+                            Upload File <input type="file"/>
                           </label>
                         </div>
                       </div>
@@ -116,7 +118,7 @@
                         </div>
                       </div>
                       <div class="input-block">
-                        <input type="text" class="form-control" placeholder="Video URL" />
+                        <input class="form-control" placeholder="Video URL" type="text"/>
                       </div>
                       <div class="input-block">
                         <div class="add-image-box add-video-box">
@@ -128,24 +130,26 @@
                     </form>
                   </div>
                   <div class="widget-btn">
-                    <a class="btn btn-black prev_btn" (click)="onBack(0)" tabindex="0" (keydown)="onBack(0)">Previous</a>
-                    <a class="btn btn-info-light next_btn" (click)="onSubmit(2)" tabindex="0" (keydown)="onSubmit(2)">Continue</a>
+                    <a (click)="onBack(0)" (keydown)="onBack(0)" class="btn btn-black prev_btn"
+                       tabindex="0">Previous</a>
+                    <a (click)="onSubmit(2)" (keydown)="onSubmit(2)" class="btn btn-info-light next_btn" tabindex="0">Continue</a>
                   </div>
                 </div>
               </fieldset>
-              <fieldset class="field-card" [ngStyle]="{'display': activeIndex === 2 ? 'block' : (activeIndex ? 'none' : null) }">
+              <fieldset [ngStyle]="{'display': activeIndex === 2 ? 'block' : (activeIndex ? 'none' : null) }"
+                        class="field-card">
                 <div class="add-course-info">
                   <div class="add-course-inner-header">
                     <h4>Curriculum</h4>
                   </div>
                   <div class="add-course-section">
-                    <a href="javascript:void(0)" class="btn">Add Section</a>
+                    <a class="btn" href="javascript:void(0)">Add Section</a>
                   </div>
                   <div class="add-course-form">
                     <div class="curriculum-grid">
                       <div class="curriculum-head">
                         <p>Section 1: Introduction</p>
-                        <a href="javascript:void(0)" class="btn">Add Lecture</a>
+                        <a class="btn" href="javascript:void(0)">Add Lecture</a>
                       </div>
                       <div class="curriculum-info">
                         <div id="accordion">
@@ -159,16 +163,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                            <div class="collapse" data-bs-parent="#accordion" id="collapseOne">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -183,16 +187,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                            <div class="collapse" data-bs-parent="#accordion" id="collapseTwo">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -207,16 +211,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                            <div class="collapse" data-bs-parent="#accordion" id="collapseThree">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -227,7 +231,7 @@
                     <div class="curriculum-grid mb-0">
                       <div class="curriculum-head">
                         <p>Section 1: JavaScript Beginnings</p>
-                        <a href="javascript:void(0)" class="btn">Add Lecture</a>
+                        <a class="btn" href="javascript:void(0)">Add Lecture</a>
                       </div>
                       <div class="curriculum-info">
                         <div id="accordion-one">
@@ -241,16 +245,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseFour" class="collapse" data-bs-parent="#accordion-one">
+                            <div class="collapse" data-bs-parent="#accordion-one" id="collapseFour">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -265,16 +269,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseFive" class="collapse" data-bs-parent="#accordion-one">
+                            <div class="collapse" data-bs-parent="#accordion-one" id="collapseFive">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -289,16 +293,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseSix" class="collapse" data-bs-parent="#accordion-one">
+                            <div class="collapse" data-bs-parent="#accordion-one" id="collapseSix">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -313,16 +317,16 @@
                                 <a href="javascript:void(0)">
                                   <i class="far fa-pen-to-square"></i>
                                 </a>
-                                <a href="javascript:void(0)" class="me-0">
+                                <a class="me-0" href="javascript:void(0)">
                                   <i class="far fa-trash-can"></i>
                                 </a>
                               </div>
                             </div>
-                            <div id="collapseSeven" class="collapse" data-bs-parent="#accordion-one">
+                            <div class="collapse" data-bs-parent="#accordion-one" id="collapseSeven">
                               <div class="faq-body">
                                 <div class="add-article-btns">
-                                  <a href="javascript:void(0)" class="btn">Add Article</a>
-                                  <a href="javascript:void(0)" class="btn me-0">Add Description</a>
+                                  <a class="btn" href="javascript:void(0)">Add Article</a>
+                                  <a class="btn me-0" href="javascript:void(0)">Add Description</a>
                                 </div>
                               </div>
                             </div>
@@ -332,12 +336,14 @@
                     </div>
                   </div>
                   <div class="widget-btn">
-                    <a class="btn btn-black prev_btn" (click)="onBack(1)" tabindex="0" (keydown)="onBack(1)">Previous</a>
-                    <a class="btn btn-info-light next_btn" (click)="onSubmit(3)" tabindex="0" (keydown)="onSubmit(3)">Continue</a>
+                    <a (click)="onBack(1)" (keydown)="onBack(1)" class="btn btn-black prev_btn"
+                       tabindex="0">Previous</a>
+                    <a (click)="onSubmit(3)" (keydown)="onSubmit(3)" class="btn btn-info-light next_btn" tabindex="0">Continue</a>
                   </div>
                 </div>
               </fieldset>
-              <fieldset class="field-card" [ngStyle]="{'display': activeIndex === 3 ? 'block' : (activeIndex ? 'none' : null) }">
+              <fieldset [ngStyle]="{'display': activeIndex === 3 ? 'block' : (activeIndex ? 'none' : null) }"
+                        class="field-card">
                 <div class="add-course-info">
                   <div class="add-course-inner-header">
                     <h4>Requirements</h4>
@@ -345,22 +351,24 @@
                   <div class="add-course-form">
                     <form action="#">
                       <div class="input-block form-group-tagsinput">
-                        <input type="text" data-role="tagsinput" class="input-tags form-control" name="html"
-                          value="jquery, bootstrap" id="html" />
+                        <input class="input-tags form-control" data-role="tagsinput" id="html" name="html"
+                               type="text" value="jquery, bootstrap"/>
                       </div>
                       <div class="input-block mb-0">
-                        <label for="price" class="add-course-label">Price</label>
-                        <input type="text" class="form-control" placeholder="10.00" />
+                        <label class="add-course-label" for="price">Price</label>
+                        <input class="form-control" placeholder="10.00" type="text"/>
                       </div>
                     </form>
                   </div>
                   <div class="widget-btn">
-                    <a class="btn btn-black prev_btn" (click)="onBack(2)" tabindex="0" (keydown)="onBack(2)">Previous</a>
-                    <a class="btn btn-info-light next_btn" (click)="onSubmit(4)" tabindex="0" (keydown)="onSubmit(4)">Continue</a>
+                    <a (click)="onBack(2)" (keydown)="onBack(2)" class="btn btn-black prev_btn"
+                       tabindex="0">Previous</a>
+                    <a (click)="onSubmit(4)" (keydown)="onSubmit(4)" class="btn btn-info-light next_btn" tabindex="0">Continue</a>
                   </div>
                 </div>
               </fieldset>
-              <fieldset class="field-card" [ngStyle]="{'display': activeIndex === 4 ? 'block' : (activeIndex ? 'none' : null) }">
+              <fieldset [ngStyle]="{'display': activeIndex === 4 ? 'block' : (activeIndex ? 'none' : null) }"
+                        class="field-card">
                 <div class="add-course-info">
                   <div class="add-course-msg">
                     <i class="fas fa-circle-check"></i>

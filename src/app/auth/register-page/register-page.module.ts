@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { RegisterPageRoutingModule } from './register-page-routing.module';
-import { RegisterPageComponent } from './register-page.component';
+import {RegisterPageRoutingModule} from './register-page-routing.module';
+import {RegisterPageComponent} from './register-page.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { RegisterPageComponent } from './register-page.component';
     RegisterPageRoutingModule
   ]
 })
-export class RegisterPageModule { }
+export class RegisterPageModule {
+}

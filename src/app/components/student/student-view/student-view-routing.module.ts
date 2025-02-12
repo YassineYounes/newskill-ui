@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { StudentViewComponent } from './student-view.component';
-import { StudentsListComponent } from './students-list/students-list.component';
-import { StudentsGridComponent } from './students-grid/students-grid.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {StudentViewComponent} from './student-view.component';
+import {StudentsListComponent} from './students-list/students-list.component';
+import {StudentsGridComponent} from './students-grid/students-grid.component';
 
 const routes: Routes = [
   {
@@ -25,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class StudentViewRoutingModule {}
+export class StudentViewRoutingModule {
+}

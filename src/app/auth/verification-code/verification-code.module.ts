@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { VerificationCodeRoutingModule } from './verification-code-routing.module';
-import { VerificationCodeComponent } from './verification-code.component';
-import { FormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {VerificationCodeRoutingModule} from './verification-code-routing.module';
+import {VerificationCodeComponent} from './verification-code.component';
+import {FormsModule} from '@angular/forms';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 
 @NgModule({
@@ -18,4 +18,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule
   ]
 })
-export class VerificationCodeModule { }
+export class VerificationCodeModule {
+}

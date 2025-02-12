@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { BlogGridRoutingModule } from './blog-grid-routing.module';
-import { BlogGridComponent } from './blog-grid.component';
+import {BlogGridRoutingModule} from './blog-grid-routing.module';
+import {BlogGridComponent} from './blog-grid.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { BlogGridComponent } from './blog-grid.component';
     BlogGridRoutingModule
   ]
 })
-export class BlogGridModule { }
+export class BlogGridModule {
+}

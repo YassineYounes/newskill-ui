@@ -7,8 +7,8 @@
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Pages</li>
-              <li class="breadcrumb-item" aria-current="page">Wishlists</li>
+              <li aria-current="page" class="breadcrumb-item">Pages</li>
+              <li aria-current="page" class="breadcrumb-item">Wishlists</li>
             </ol>
           </nav>
         </div>
@@ -40,19 +40,19 @@
                           <img alt="" [src]="data.img">
                         </a>
                         <div class="price-amt">
-                          <h4>{{data.price}}</h4>
+                          <h4>{{ data.price }}</h4>
                         </div>
                       </div>
                       <div class="wishlist-info">
-                        <h5><a [routerLink]="routes.page_course_details">{{data.content1}}</a></h5>
+                        <h5><a [routerLink]="routes.page_course_details">{{ data.content1 }}</a></h5>
                         <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
                           <div class="rating-img d-flex align-items-center">
                             <img src="assets/img/icon/icon-01.svg" alt="">
-                            <p>{{data.lesson}}</p>
+                            <p>{{ data.lesson }}</p>
                           </div>
                           <div class="course-view d-flex align-items-center">
                             <img src="assets/img/icon/icon-02.svg" alt="">
-                            <p>{{data.time}}</p>
+                            <p>{{ data.time }}</p>
                           </div>
                         </div>
                         <div class="rating">
@@ -61,14 +61,14 @@
                           <i class="fas fa-star filled me-1"></i>
                           <i class="fas fa-star filled me-1"></i>
                           <i class="fas fa-star me-1"></i>
-                          <span class="d-inline-block average-rating"><span>{{data.rating1}}</span> {{data.rating2}}</span>
+                          <span class="d-inline-block average-rating"><span>{{ data.rating1 }}</span> {{ data.rating2 }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="remove-btn">
-                      <a href="javascript:void(0)" class="btn">{{data.content2}}</a>
+                      <a href="javascript:void(0)" class="btn">{{ data.content2 }}</a>
                     </div>
                   </div>
                 </div>

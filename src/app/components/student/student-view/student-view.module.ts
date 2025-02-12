@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { StudentViewRoutingModule } from './student-view-routing.module';
-import { StudentViewComponent } from './student-view.component';
-import { StudentsListComponent } from './students-list/students-list.component';
-import { StudentsGridComponent } from './students-grid/students-grid.component';
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {StudentViewRoutingModule} from './student-view-routing.module';
+import {StudentViewComponent} from './student-view.component';
+import {StudentsListComponent} from './students-list/students-list.component';
+import {StudentsGridComponent} from './students-grid/students-grid.component';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 
 @NgModule({
@@ -20,4 +20,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule
   ]
 })
-export class StudentViewModule { }
+export class StudentViewModule {
+}

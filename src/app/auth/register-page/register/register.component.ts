@@ -1,27 +1,27 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { passwordResponce, register } from 'src/app/models/register.model';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {passwordResponce, register} from 'src/app/models/register.model';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent  {
+export class RegisterComponent {
   public routes = routes;
-  public registerForm:register={
+  public registerForm: register = {
     img: undefined,
     content1: undefined,
     content2: undefined,
     paragraph: undefined
   }
-  public passwordResponce:passwordResponce={};
+  public passwordResponce: passwordResponce = {};
 
   public register: register[] = [];
 
-  password= 'password';
+  password = 'password';
   show = true;
 
   public registerOwlOptions: OwlOptions = {
@@ -29,23 +29,30 @@ export class RegisterComponent  {
     nav: true,
     loop: true,
     responsive: {
-        0: {
-          items: 1
-        },
-        768 : {
-          items: 3
-        },
-        1170: {
-          items: 4
-        }
+      0: {
+        items: 1
+      },
+      768: {
+        items: 3
+      },
+      1170: {
+        items: 4
+      }
     },
   };
+  registerFormCustom: {
+    password: string;
+    confirmPassword: string;
+  } = {
+    password: '',
+    confirmPassword: '',
+  };
+  typingStarted = false;
 
   constructor(private DataService: DataService) {
     this.register = this.DataService.register;
   }
 
- 
   onClick() {
     if (this.password === 'password') {
       this.password = 'text';
@@ -56,22 +63,14 @@ export class RegisterComponent  {
     }
   }
 
-  registerFormCustom: {
-    password: string;
-    confirmPassword: string;
-  } = {
-    password: '',
-    confirmPassword: '',
-  };
- 
-  public onChangePassword(password:string){
-    if(password.match(/^$|\s+/)) {
+  public onChangePassword(password: string) {
+    if (password.match(/^$|\s+/)) {
       this.passwordResponce.passwordResponceText = "whitespaces are not allowed"
       this.passwordResponce.passwordResponceImage = ""
       this.passwordResponce.passwordResponceKey = ''
       return
     }
-    if(password.length == 0){
+    if (password.length == 0) {
       this.passwordResponce.passwordResponceText = ""
       this.passwordResponce.passwordResponceImage = ""
       this.passwordResponce.passwordResponceKey = ''
@@ -85,25 +84,24 @@ export class RegisterComponent  {
       this.passwordResponce.passwordResponceText = "Average. Must contain at least 1 upper case and number"
       this.passwordResponce.passwordResponceImage = "assets/img/icon/anguish.svg"
       this.passwordResponce.passwordResponceKey = '1'
-    } else if(password.search(/[A-Z]/) < 0) {
+    } else if (password.search(/[A-Z]/) < 0) {
       this.passwordResponce.passwordResponceText = "Average. Must contain at least 1 upper case and number"
       this.passwordResponce.passwordResponceImage = "assets/img/icon/anguish.svg"
       this.passwordResponce.passwordResponceKey = '1'
-    } else  if (password.search(/[0-9]/) < 0) {
-      this.passwordResponce.passwordResponceText= "Average. Must contain at least 1 upper case and number"
+    } else if (password.search(/[0-9]/) < 0) {
+      this.passwordResponce.passwordResponceText = "Average. Must contain at least 1 upper case and number"
       this.passwordResponce.passwordResponceImage = "assets/img/icon/anguish.svg"
       this.passwordResponce.passwordResponceKey = '1'
-    } else  if (password.search(/(?=.*?[#?!@$%^&*-])/) < 0) {
+    } else if (password.search(/(?=.*?[#?!@$%^&*-])/) < 0) {
       this.passwordResponce.passwordResponceText = "Almost. Must contain special symbol"
       this.passwordResponce.passwordResponceImage = "assets/img/icon/smile.svg"
       this.passwordResponce.passwordResponceKey = '2'
-    }else {
+    } else {
       this.passwordResponce.passwordResponceText = "Awesome! You have a secure password."
-        this.passwordResponce.passwordResponceImage = "assets/img/icon/smile.svg"
-         this.passwordResponce.passwordResponceKey = '3'
-     }
+      this.passwordResponce.passwordResponceImage = "assets/img/icon/smile.svg"
+      this.passwordResponce.passwordResponceKey = '3'
+    }
   }
-  typingStarted = false;
 
   onInputChange() {
     this.typingStarted = true;

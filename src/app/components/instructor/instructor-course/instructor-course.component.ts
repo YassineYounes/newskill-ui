@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { instructorCourse, instructorCourseList } from 'src/app/models/model';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {instructorCourse, instructorCourseList} from 'src/app/models/model';
+
 @Component({
   selector: 'app-instructor-course',
   templateUrl: './instructor-course.component.html',
@@ -27,30 +28,12 @@ export class InstructorCourseComponent implements OnInit {
   public pageSelection: Array<pageSelection> = [];
   public totalPages = 0;
   selected = '1';
-  constructor(private data: DataService) {}
+
+  constructor(private data: DataService) {
+  }
 
   ngOnInit(): void {
     this.getinstructorCourse();
-  }
-  private getinstructorCourse(): void {
-    this.instructorCourse = [];
-    this.serialNumberArray = [];
-
-    this.data.instructorCourseList().subscribe((res: instructorCourseList) => {
-      this.totalData = res.totalData;
-      res.data.map((res: instructorCourseList, index: number) => {
-        const serialNumber = index + 1;
-        if (index >= this.skip && serialNumber <= this.limit) {
-          res.totalData = serialNumber;
-          this.instructorCourse.push(res);
-          this.serialNumberArray.push(serialNumber);
-        }
-      });
-      this.dataSource = new MatTableDataSource<instructorCourse>(
-        this.instructorCourse
-      );
-      this.calculateTotalPages(this.totalData, this.pageSize);
-    });
   }
 
   public searchData(value: string): void {
@@ -94,6 +77,27 @@ export class InstructorCourseComponent implements OnInit {
     this.getinstructorCourse();
   }
 
+  private getinstructorCourse(): void {
+    this.instructorCourse = [];
+    this.serialNumberArray = [];
+
+    this.data.instructorCourseList().subscribe((res: instructorCourseList) => {
+      this.totalData = res.totalData;
+      res.data.map((res: instructorCourseList, index: number) => {
+        const serialNumber = index + 1;
+        if (index >= this.skip && serialNumber <= this.limit) {
+          res.totalData = serialNumber;
+          this.instructorCourse.push(res);
+          this.serialNumberArray.push(serialNumber);
+        }
+      });
+      this.dataSource = new MatTableDataSource<instructorCourse>(
+        this.instructorCourse
+      );
+      this.calculateTotalPages(this.totalData, this.pageSize);
+    });
+  }
+
   private calculateTotalPages(totalData: number, pageSize: number): void {
     this.pageNumberArray = [];
     this.totalPages = totalData / pageSize;
@@ -104,10 +108,11 @@ export class InstructorCourseComponent implements OnInit {
       const limit = pageSize * i;
       const skip = limit - pageSize;
       this.pageNumberArray.push(i);
-      this.pageSelection.push({ skip: skip, limit: limit });
+      this.pageSelection.push({skip: skip, limit: limit});
     }
   }
 }
+
 export interface pageSelection {
   skip: number;
   limit: number;

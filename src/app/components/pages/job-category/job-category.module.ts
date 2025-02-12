@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { JobCategoryRoutingModule } from './job-category-routing.module';
-import { JobCategoryComponent } from './job-category.component';
+import {JobCategoryRoutingModule} from './job-category-routing.module';
+import {JobCategoryComponent} from './job-category.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { JobCategoryComponent } from './job-category.component';
     JobCategoryRoutingModule
   ]
 })
-export class JobCategoryModule { }
+export class JobCategoryModule {
+}

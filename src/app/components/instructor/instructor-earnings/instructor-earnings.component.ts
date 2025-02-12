@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -8,7 +8,8 @@ import {
   ApexDataLabels,
   ApexPlotOptions,
 } from 'ng-apexcharts';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {routes} from 'src/app/shared/service/routes/routes';
+
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
   chart: ApexChart | any;
@@ -26,6 +27,14 @@ export class InstructorEarningsComponent implements OnInit {
   public routes = routes;
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions> | any;
+  bsValue = new Date();
+  bsRangeValue: Date[];
+  maxDate = new Date();
+
+  constructor() {
+    this.maxDate.setDate(this.maxDate.getDate() + 7);
+    this.bsRangeValue = [this.bsValue, this.maxDate];
+  }
 
   ngOnInit(): void {
     this.chartOptions = {
@@ -84,13 +93,5 @@ export class InstructorEarningsComponent implements OnInit {
         horizontalAlign: 'left',
       },
     };
-  }
-  bsValue = new Date();
-  bsRangeValue: Date[];
-  maxDate = new Date();
-
-  constructor(){
-    this.maxDate.setDate(this.maxDate.getDate() + 7);
-    this.bsRangeValue = [this.bsValue, this.maxDate];
   }
 }

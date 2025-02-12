@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { AddCourseRoutingModule } from './add-course-routing.module';
-import { AddCourseComponent } from './add-course.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {AddCourseRoutingModule} from './add-course-routing.module';
+import {AddCourseComponent} from './add-course.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,4 +19,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule
   ]
 })
-export class AddCourseModule { }
+export class AddCourseModule {
+}

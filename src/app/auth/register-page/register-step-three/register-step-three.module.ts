@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { RegisterStepThreeRoutingModule } from './register-step-three-routing.module';
-import { RegisterStepThreeComponent } from './register-step-three.component';
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {RegisterStepThreeRoutingModule} from './register-step-three-routing.module';
+import {RegisterStepThreeComponent} from './register-step-three.component';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule
   ]
 })
-export class RegisterStepThreeModule { }
+export class RegisterStepThreeModule {
+}

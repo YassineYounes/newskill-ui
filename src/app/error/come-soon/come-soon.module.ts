@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ComeSoonRoutingModule } from './come-soon-routing.module';
-import { ComeSoonComponent } from './come-soon.component';
+import {ComeSoonRoutingModule} from './come-soon-routing.module';
+import {ComeSoonComponent} from './come-soon.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { ComeSoonComponent } from './come-soon.component';
     ComeSoonRoutingModule
   ]
 })
-export class ComeSoonModule { }
+export class ComeSoonModule {
+}

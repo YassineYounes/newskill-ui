@@ -15,8 +15,8 @@
                     <img [src]="slide.img" class="img-fluid" alt="Logo">
                   </div>
                   <div class="mentor-course text-center">
-                    <h2>{{slide.content1}} <br>{{slide.content2}}</h2>
-                    <p>{{slide.paragraph}}</p>
+                    <h2>{{ slide.content1 }} <br>{{ slide.content2 }}</h2>
+                    <p>{{ slide.paragraph }}</p>
                   </div>
                 </div>
               </ng-template>
@@ -33,7 +33,7 @@
       <div class="login-wrapper">
         <div class="loginbox register-box">
           <div class="img-logo">
-            <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+            <img alt="Logo" class="img-fluid" src="assets/img/logo.svg">
             <div class="back-home">
               <a [routerLink]="routes.login">Back to Home</a>
             </div>
@@ -46,8 +46,8 @@
                   <div class="circle-progress-percent">100%</div>
                   <div class="circle-progress-text">4 of 4</div>
                 </div>
-                <circle-progress class="circle-progress-bar" [percent]="100" [clockwise]="true"
-                innerStrokeColor=#e7e8ea outerStrokeColor=#159F46></circle-progress>
+                <circle-progress [clockwise]="true" [percent]="100" class="circle-progress-bar"
+                                 innerStrokeColor=#e7e8ea outerStrokeColor=#159F46></circle-progress>
                 <h3>Profile Compleation</h3>
                 <div class="personal-detail d-flex align-items-center">
                   <span class="active-color"><i class="fa-solid fa-check"></i></span>
@@ -85,7 +85,7 @@
                 <div class="row">
                   <div class="col-auto">
                     <div class="world-img">
-                      <img src="assets/img/net-icon-02.png" class="img-fluid" alt="Logo">
+                      <img alt="Logo" class="img-fluid" src="assets/img/net-icon-02.png">
                     </div>
                   </div>
                   <div class="col-lg-10">
@@ -93,17 +93,17 @@
                       <div class="account-list">
                         <h4>Facebook</h4>
                         <p class="mb-0">Enable one-click login and receive more personalized
-                        course recommendations.</p>
+                          course recommendations.</p>
                       </div>
                       <div class="account-link">
-                        <a href="javascript:void(0)" class="btn btn-primary">Remove your
-                        facebook Account</a>
+                        <a class="btn btn-primary" href="javascript:void(0)">Remove your
+                          facebook Account</a>
                       </div>
                     </div>
                   </div>
                   <div class="col-auto">
                     <div class="world-img">
-                      <img src="assets/img/net-icon-01.png" class="img-fluid" alt="Logo">
+                      <img alt="Logo" class="img-fluid" src="assets/img/net-icon-01.png">
                     </div>
                   </div>
                   <div class="col-lg-10">
@@ -111,17 +111,17 @@
                       <div class="account-list">
                         <h4>Sign In using Google</h4>
                         <p class="mb-0">Enable one-click login and receive more personalized
-                        course recommendations.</p>
+                          course recommendations.</p>
                       </div>
                       <div class="google-link">
-                        <a href="javascript:void(0)" class="btn btn-primary">Link my google
-                        Account</a>
+                        <a class="btn btn-primary" href="javascript:void(0)">Link my google
+                          Account</a>
                       </div>
                     </div>
                   </div>
                   <div class="col-auto">
                     <div class="world-img">
-                      <img src="assets/img/net-icon-03.png" class="img-fluid" alt="Logo">
+                      <img alt="Logo" class="img-fluid" src="assets/img/net-icon-03.png">
                     </div>
                   </div>
                   <div class="col-lg-10">
@@ -129,17 +129,17 @@
                       <div class="account-list">
                         <h4>Github</h4>
                         <p class="mb-0">Enable one-click login and receive more personalized
-                        course recommendations.</p>
+                          course recommendations.</p>
                       </div>
                       <div class="google-link">
-                        <a href="javascript:void(0)" class="btn btn-primary">Link my google
-                        Account</a>
+                        <a class="btn btn-primary" href="javascript:void(0)">Link my google
+                          Account</a>
                       </div>
                     </div>
                   </div>
                   <div class="col-auto">
                     <div class="world-img">
-                      <img src="assets/img/net-icon-04.png" class="img-fluid" alt="Logo">
+                      <img alt="Logo" class="img-fluid" src="assets/img/net-icon-04.png">
                     </div>
                   </div>
                   <div class="col-lg-10">
@@ -147,22 +147,22 @@
                       <div class="account-list">
                         <h4>Twitter</h4>
                         <p class="mb-0">Enable one-click login and receive more personalized
-                        course recommendations.</p>
+                          course recommendations.</p>
                       </div>
                       <div class="google-link">
-                        <a href="javascript:void(0)" class="btn btn-primary">Link my google
-                        Account</a>
+                        <a class="btn btn-primary" href="javascript:void(0)">Link my google
+                          Account</a>
                       </div>
                     </div>
                   </div>
                   <div class="btn-group account-btn d-flex">
                     <div class="back-btn">
                       <a [routerLink]="routes.register3"
-                      class="btn btn-back">back</a>
+                         class="btn btn-back">back</a>
                     </div>
                     <div class="next-btn">
                       <a [routerLink]="routes.register5"
-                      class="btn btn-primary btn-start" [routerLink]="routes.register5">Next</a>
+                         [routerLink]="routes.register5" class="btn btn-primary btn-start">Next</a>
                     </div>
                   </div>
                 </div>

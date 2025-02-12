@@ -1,7 +1,6 @@
 <!-- Main Wrapper -->
 <div
-  class="main-wrapper"
-  [ngClass]="{
+    [ngClass]="{
     'menu-opened': showMiniSidebar === true,
     'home-three': routeStatus === 'home-three',
     'home-five': routeStatus === 'home-four',
@@ -10,7 +9,8 @@
      'dark':themeMode === 'dark_mode' ||
      showDark === true,
   }"
-  >
+    class="main-wrapper"
+>
   @if (isuserHeader === true) {
     <app-header></app-header>
   }

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { courseList, latestCourses } from 'src/app/models/model';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {courseList, latestCourses} from 'src/app/models/model';
+
 interface data {
   active?: boolean;
 }
+
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -39,24 +41,6 @@ export class CourseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getcourseList();
-  }
-  private getcourseList(): void {
-    this.courseList = [];
-    this.serialNumberArray = [];
-
-    this.data.allCourseList().subscribe((res: courseList) => {
-      this.totalData = res.totalData;
-      res.data.map((res: courseList, index: number) => {
-        const serialNumber = index + 1;
-        if (index >= this.skip && serialNumber <= this.limit) {
-          res.totalData = serialNumber;
-          this.courseList.push(res);
-          this.serialNumberArray.push(serialNumber);
-        }
-      });
-      this.dataSource = new MatTableDataSource<courseList>(this.courseList);
-      this.calculateTotalPages(this.totalData, this.pageSize);
-    });
   }
 
   public searchData(value: string): void {
@@ -100,6 +84,29 @@ export class CourseListComponent implements OnInit {
     this.getcourseList();
   }
 
+  toggleClass(data: data) {
+    data.active = !data.active;
+  }
+
+  private getcourseList(): void {
+    this.courseList = [];
+    this.serialNumberArray = [];
+
+    this.data.allCourseList().subscribe((res: courseList) => {
+      this.totalData = res.totalData;
+      res.data.map((res: courseList, index: number) => {
+        const serialNumber = index + 1;
+        if (index >= this.skip && serialNumber <= this.limit) {
+          res.totalData = serialNumber;
+          this.courseList.push(res);
+          this.serialNumberArray.push(serialNumber);
+        }
+      });
+      this.dataSource = new MatTableDataSource<courseList>(this.courseList);
+      this.calculateTotalPages(this.totalData, this.pageSize);
+    });
+  }
+
   private calculateTotalPages(totalData: number, pageSize: number): void {
     this.pageNumberArray = [];
     this.totalPages = totalData / pageSize;
@@ -110,13 +117,11 @@ export class CourseListComponent implements OnInit {
       const limit = pageSize * i;
       const skip = limit - pageSize;
       this.pageNumberArray.push(i);
-      this.pageSelection.push({ skip: skip, limit: limit });
+      this.pageSelection.push({skip: skip, limit: limit});
     }
   }
-  toggleClass(data: data) {
-    data.active = !data.active;
-  }
 }
+
 export interface pageSelection {
   skip: number;
   limit: number;

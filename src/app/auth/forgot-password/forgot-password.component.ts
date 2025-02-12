@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as Aos from 'aos';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Router } from '@angular/router';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { forgotPassword } from 'src/app/models/model';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {Router} from '@angular/router';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {forgotPassword} from 'src/app/models/model';
 
 @Component({
   selector: 'app-forgot-password',
@@ -40,6 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
     Aos.init();
   }
+
   directLogin() {
     this.router.navigate(['/auth/login']);
   }

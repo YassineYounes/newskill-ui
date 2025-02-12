@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavigationStart, Router, Event as RouterEvent } from '@angular/router';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {NavigationStart, Router, Event as RouterEvent} from '@angular/router';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-instructor',
@@ -10,9 +10,7 @@ import { routes } from 'src/app/shared/service/routes/routes';
 export class InstructorComponent {
   public routes = routes;
   last = '';
- 
 
-  
 
   constructor(private router: Router) {
     this.updateLastFromUrl(this.router.url);
@@ -33,19 +31,14 @@ export class InstructorComponent {
       this.last = 'My Courses';
     } else if (lastPart === 'chat') {
       this.last = 'Messages';
-    } else if (lastPart === 'quiz-attempts'){
+    } else if (lastPart === 'quiz-attempts') {
       this.last = 'My Quiz Attempts';
-    }
-    else if (lastPart === 'tickets'){
+    } else if (lastPart === 'tickets') {
       this.last = 'Support Tickets';
-    }
-    else if (lastPart === 'qa'){
+    } else if (lastPart === 'qa') {
       this.last = 'Question & Answer';
-    }
-   
-    
-    else {
+    } else {
       this.last = lastPart;
     }
   }
-  }
+}

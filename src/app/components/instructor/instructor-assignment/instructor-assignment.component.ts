@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { apiResultFormat, instructorAssignment } from 'src/app/models/model';
-import { PaginationService, pageSelection, tablePageSize } from 'src/app/shared/service/custom-pagination/pagination.service';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
+import {apiResultFormat, instructorAssignment} from 'src/app/models/model';
+import {
+  PaginationService,
+  pageSelection,
+  tablePageSize
+} from 'src/app/shared/service/custom-pagination/pagination.service';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-instructor-assignment',
@@ -26,6 +30,7 @@ export class InstructorAssignmentComponent {
   public searchDataValue = '';
   public tableDataCopy: Array<instructorAssignment> = [];
   public actualData: Array<instructorAssignment> = [];
+
   //** pagination variables
   constructor(
     private data: DataService,
@@ -36,14 +41,15 @@ export class InstructorAssignmentComponent {
       this.actualData = apiRes.data;
       this.pagination.tablePageSize.subscribe((res: tablePageSize) => {
         if (this.router.url == this.routes.instructorAssignment) {
-          this.getTableData({ skip: res.skip, limit: res.limit });
+          this.getTableData({skip: res.skip, limit: res.limit});
           this.pageSize = res.pageSize;
         }
       });
     });
-   
-   
+
+
   }
+
   private getTableData(pageOption: pageSelection): void {
     this.data.InstructorAssignment().subscribe((apiRes: apiResultFormat) => {
       this.tableData = [];

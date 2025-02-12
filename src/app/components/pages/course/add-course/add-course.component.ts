@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-add-course',

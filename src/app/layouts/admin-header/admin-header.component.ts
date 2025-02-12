@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { CommonService } from 'src/app/shared/service/common/common.service';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { SidebarService } from 'src/app/shared/service/sidebar/sidebar.service';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { SidebarItem } from 'src/app/models/model';
+import {Component} from '@angular/core';
+import {CommonService} from 'src/app/shared/service/common/common.service';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {SidebarService} from 'src/app/shared/service/sidebar/sidebar.service';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {SidebarItem} from 'src/app/models/model';
 
 @Component({
   selector: 'app-admin-header',
@@ -17,6 +17,8 @@ export class AdminHeaderComponent {
   public routes = routes;
   sidebar: SidebarItem[] = [];
   public showDark = false;
+  isDarkMode: boolean = false;
+
   constructor(
     private common: CommonService,
     private data: DataService,
@@ -44,10 +46,11 @@ export class AdminHeaderComponent {
   public toggleSidebar(): void {
     this.sidebarService.openSidebar();
   }
+
   public hideSidebar(): void {
     this.sidebarService.closeSidebar();
   }
-  isDarkMode: boolean = false;
+
   applyTheme() {
     if (this.isDarkMode) {
       document.body.classList.add('dark');
@@ -55,6 +58,7 @@ export class AdminHeaderComponent {
       document.body.classList.remove('dark');
     }
   }
+
   public themeChange(): void {
     this.sidebarService.themeColor();
     this.applyTheme();

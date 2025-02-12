@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { FaqRoutingModule } from './faq-routing.module';
-import { FaqComponent } from './faq.component';
+import {FaqRoutingModule} from './faq-routing.module';
+import {FaqComponent} from './faq.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { FaqComponent } from './faq.component';
     FaqRoutingModule
   ]
 })
-export class FaqModule { }
+export class FaqModule {
+}

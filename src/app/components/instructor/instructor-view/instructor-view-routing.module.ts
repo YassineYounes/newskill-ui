@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { InstructorViewComponent } from './instructor-view.component';
-import { InstructorGridComponent } from './instructor-grid/instructor-grid.component';
-import { InstructorListComponent } from './instructor-list/instructor-list.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {InstructorViewComponent} from './instructor-view.component';
+import {InstructorGridComponent} from './instructor-grid/instructor-grid.component';
+import {InstructorListComponent} from './instructor-list/instructor-list.component';
 
 const routes: Routes = [
   {
@@ -25,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class InstructorViewRoutingModule {}
+export class InstructorViewRoutingModule {
+}

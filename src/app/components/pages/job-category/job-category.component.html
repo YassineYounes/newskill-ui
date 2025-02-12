@@ -8,7 +8,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
               <li class="breadcrumb-item">Pages</li>
-              <li class="breadcrumb-item" >Categories</li>
+              <li class="breadcrumb-item">Categories</li>
             </ol>
           </nav>
         </div>
@@ -32,10 +32,12 @@
         <!-- Category Tab -->
         <div class="category-tab">
           <ul class="nav nav-justified">
-            <li class="nav-item"><a href="#graphics" class="nav-link active" data-bs-toggle="tab" >Graphics & Design</a></li>
-            <li class="nav-item"><a href="#programming" class="nav-link" data-bs-toggle="tab" >Programming & Tech</a></li>
-            <li class="nav-item"><a href="#marketing" class="nav-link" data-bs-toggle="tab" >Digital Marketing</a></li>
-            <li class="nav-item"><a href="#video" class="nav-link" data-bs-toggle="tab" >Video & Animation</a></li>
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#graphics">Graphics & Design</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#programming">Programming & Tech</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#marketing">Digital Marketing</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#video">Video & Animation</a></li>
           </ul>
         </div>
         <!-- /Category Tab -->
@@ -52,10 +54,10 @@
                       <div class="category-img">
                         <img [src]="data.img1" alt="">
                       </div>
-                      <h5>{{data.content1}}</h5>
+                      <h5>{{ data.content1 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count1}}</span>
+                      <span>{{ data.count1 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -63,10 +65,10 @@
                       <div class="category-img">
                         <img [src]="data.img2" alt="">
                       </div>
-                      <h5>{{data.content2}}</h5>
+                      <h5>{{ data.content2 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count2}}</span>
+                      <span>{{ data.count2 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -74,10 +76,10 @@
                       <div class="category-img">
                         <img [src]="data.img3" alt="">
                       </div>
-                      <h5>{{data.content3}}</h5>
+                      <h5>{{ data.content3 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count3}}</span>
+                      <span>{{ data.count3 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -85,10 +87,10 @@
                       <div class="category-img">
                         <img [src]="data.img4" alt="">
                       </div>
-                      <h5>{{data.content4}}</h5>
+                      <h5>{{ data.content4 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count4}}</span>
+                      <span>{{ data.count4 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -96,10 +98,10 @@
                       <div class="category-img">
                         <img [src]="data.img5" alt="">
                       </div>
-                      <h5>{{data.content5}}</h5>
+                      <h5>{{ data.content5 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count5}}</span>
+                      <span>{{ data.count5 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -107,10 +109,10 @@
                       <div class="category-img">
                         <img [src]="data.img6" alt="">
                       </div>
-                      <h5>{{data.content6}}</h5>
+                      <h5>{{ data.content6 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count6}}</span>
+                      <span>{{ data.count6 }}</span>
                     </div>
                   </div>
                 </div>
@@ -128,10 +130,10 @@
                       <div class="category-img">
                         <img [src]="data.img1" alt="">
                       </div>
-                      <h5>{{data.content1}}</h5>
+                      <h5>{{ data.content1 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count1}}</span>
+                      <span>{{ data.count1 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -139,10 +141,10 @@
                       <div class="category-img">
                         <img [src]="data.img2" alt="">
                       </div>
-                      <h5>{{data.content2}}</h5>
+                      <h5>{{ data.content2 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count2}}</span>
+                      <span>{{ data.count2 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -150,10 +152,10 @@
                       <div class="category-img">
                         <img [src]="data.img3" alt="">
                       </div>
-                      <h5>{{data.content3}}</h5>
+                      <h5>{{ data.content3 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count3}}</span>
+                      <span>{{ data.count3 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -161,10 +163,10 @@
                       <div class="category-img">
                         <img [src]="data.img4" alt="">
                       </div>
-                      <h5>{{data.content4}}</h5>
+                      <h5>{{ data.content4 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count4}}</span>
+                      <span>{{ data.count4 }}</span>
                     </div>
                   </div>
                 </div>
@@ -182,10 +184,10 @@
                       <div class="category-img">
                         <img [src]="data.img1" alt="">
                       </div>
-                      <h5>{{data.content1}}</h5>
+                      <h5>{{ data.content1 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count1}}</span>
+                      <span>{{ data.count1 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -193,10 +195,10 @@
                       <div class="category-img">
                         <img [src]="data.img2" alt="">
                       </div>
-                      <h5>{{data.content2}}</h5>
+                      <h5>{{ data.content2 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count2}}</span>
+                      <span>{{ data.count2 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -204,10 +206,10 @@
                       <div class="category-img">
                         <img [src]="data.img3" alt="">
                       </div>
-                      <h5>{{data.content3}}</h5>
+                      <h5>{{ data.content3 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count3}}</span>
+                      <span>{{ data.count3 }}</span>
                     </div>
                   </div>
                 </div>
@@ -225,10 +227,10 @@
                       <div class="category-img">
                         <img [src]="data.img1" alt="">
                       </div>
-                      <h5>{{data.content1}}</h5>
+                      <h5>{{ data.content1 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count1}}</span>
+                      <span>{{ data.count1 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -236,10 +238,10 @@
                       <div class="category-img">
                         <img [src]="data.img2" alt="">
                       </div>
-                      <h5>{{data.content2}}</h5>
+                      <h5>{{ data.content2 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count2}}</span>
+                      <span>{{ data.count2 }}</span>
                     </div>
                   </div>
                   <div class="category-box">
@@ -247,10 +249,10 @@
                       <div class="category-img">
                         <img [src]="data.img3" alt="">
                       </div>
-                      <h5>{{data.content3}}</h5>
+                      <h5>{{ data.content3 }}</h5>
                     </div>
                     <div class="cat-count">
-                      <span>{{data.count3}}</span>
+                      <span>{{ data.count3 }}</span>
                     </div>
                   </div>
                 </div>

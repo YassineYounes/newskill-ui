@@ -1,23 +1,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {ChartComponent,ApexAxisChartSeries,ApexChart,ApexXAxis,ApexDataLabels,ApexTooltip,ApexStroke,ApexPlotOptions,ApexLegend,ApexYAxis,ApexFill,ApexGrid,ApexMarkers} from "ng-apexcharts";
-import { bestSellingCourses } from 'src/app/models/model';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexDataLabels,
+  ApexTooltip,
+  ApexStroke,
+  ApexPlotOptions,
+  ApexLegend,
+  ApexYAxis,
+  ApexFill,
+  ApexGrid,
+  ApexMarkers
+} from "ng-apexcharts";
+import {bestSellingCourses} from 'src/app/models/model';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {routes} from 'src/app/shared/service/routes/routes';
+
 export type ChartOptions = {
-   
-  series: ApexAxisChartSeries |any;
-  chart: ApexChart |any;
-  xaxis: ApexXAxis |any;
-  yaxis: ApexYAxis |any;
-  stroke: ApexStroke |any;
-  tooltip: ApexTooltip |any;
-  dataLabels: ApexDataLabels |any;
-  plotOptions: ApexPlotOptions |any;
-  fill: ApexFill |any;
-  legend: ApexLegend |any;
-  grid: ApexGrid |any;
-  markers: ApexMarkers |any;
+
+  series: ApexAxisChartSeries | any;
+  chart: ApexChart | any;
+  xaxis: ApexXAxis | any;
+  yaxis: ApexYAxis | any;
+  stroke: ApexStroke | any;
+  tooltip: ApexTooltip | any;
+  dataLabels: ApexDataLabels | any;
+  plotOptions: ApexPlotOptions | any;
+  fill: ApexFill | any;
+  legend: ApexLegend | any;
+  grid: ApexGrid | any;
+  markers: ApexMarkers | any;
 };
 
 @Component({
@@ -30,17 +45,18 @@ export class InstructorDashboardComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   public Areachart!: Partial<ChartOptions>;
   public ColumnCharts!: Partial<ChartOptions>;
-  public bestSellingCourses : bestSellingCourses []= [];
+  public bestSellingCourses: bestSellingCourses [] = [];
+  public isClassAdded: boolean[] = [false];
 
   constructor(private DataService: DataService) {
     this.bestSellingCourses = this.DataService.bestSellingCourses;
-    }
+  }
 
   ngOnInit(): void {
     this.Areachart = {
       series: [
         {
-          name: "Current month", data: [0, 10, 40, 43, 40, 25, 35, 25, 40, 30],color: "#FF9364"
+          name: "Current month", data: [0, 10, 40, 43, 40, 25, 35, 25, 40, 30], color: "#FF9364"
         },
       ],
       chart: {
@@ -62,8 +78,8 @@ export class InstructorDashboardComponent implements OnInit {
       legend: {
         position: 'top',
         horizontalAlign: 'right',
-       },
-       grid: {
+      },
+      grid: {
         show: false,
       },
       stroke: {
@@ -121,7 +137,6 @@ export class InstructorDashboardComponent implements OnInit {
       },
     };
   }
-  public isClassAdded: boolean[] = [false];
 
   toggleClass(index: number) {
     this.isClassAdded[index] = !this.isClassAdded[index];

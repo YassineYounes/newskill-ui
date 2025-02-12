@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavigationStart, Router, Event as RouterEvent } from '@angular/router';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {NavigationStart, Router, Event as RouterEvent} from '@angular/router';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-student',
@@ -30,16 +30,13 @@ export class StudentComponent {
       this.last = 'Enrolled Courses';
     } else if (lastPart === 'chat') {
       this.last = 'Messages';
-    } else if (lastPart === 'quiz'){
+    } else if (lastPart === 'quiz') {
       this.last = 'My Quiz Attempts';
-    }
-    else if (lastPart === 'qa'){
+    } else if (lastPart === 'qa') {
       this.last = 'Question & Answer';
-    }
-    else if (lastPart === 'tickets'){
+    } else if (lastPart === 'tickets') {
       this.last = 'Support Tickets';
-    }
-    else {
+    } else {
       this.last = lastPart;
     }
   }

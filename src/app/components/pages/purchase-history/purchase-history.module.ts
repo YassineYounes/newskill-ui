@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { PurchaseHistoryRoutingModule } from './purchase-history-routing.module';
-import { PurchaseHistoryComponent } from './purchase-history.component';
+import {PurchaseHistoryRoutingModule} from './purchase-history-routing.module';
+import {PurchaseHistoryComponent} from './purchase-history.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { PurchaseHistoryComponent } from './purchase-history.component';
     PurchaseHistoryRoutingModule
   ]
 })
-export class PurchaseHistoryModule { }
+export class PurchaseHistoryModule {
+}

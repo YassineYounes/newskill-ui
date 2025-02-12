@@ -1,9 +1,9 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { CommonService } from 'src/app/shared/service/common/common.service';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { SidebarService } from 'src/app/shared/service/sidebar/sidebar.service';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { SidebarItem } from 'src/app/models/model';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {CommonService} from 'src/app/shared/service/common/common.service';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {SidebarService} from 'src/app/shared/service/sidebar/sidebar.service';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {SidebarItem} from 'src/app/models/model';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +27,9 @@ export class HeaderComponent {
   public white_bg = false;
 
   sidebar: SidebarItem[];
+  themeMode: string = 'light_mode';
+  isDarkMode: boolean = false;
+
   constructor(
     private common: CommonService,
     private data: DataService,
@@ -69,11 +72,10 @@ export class HeaderComponent {
   public toggleSidebar(): void {
     this.sidebarService.openSidebar();
   }
+
   public hideSidebar(): void {
     this.sidebarService.closeSidebar();
   }
-  themeMode: string = 'light_mode';
-  isDarkMode: boolean = false;
   // toggleMode(isDark: boolean) {
   //   this.isDarkMode = isDark;
   //   this.applyTheme();
@@ -86,11 +88,12 @@ export class HeaderComponent {
       document.body.classList.remove('dark');
     }
   }
+
   public themeChange(): void {
     this.sidebarService.themeColor();
     this.applyTheme();
-  
+
   }
- 
- 
+
+
 }

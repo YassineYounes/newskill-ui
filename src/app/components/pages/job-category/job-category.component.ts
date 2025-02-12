@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
-import { jobCategoryGraphics, jobCategoryprogramming, jobCategorymarketing, jobCategoryanimation } from 'src/app/models/model';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {
+  jobCategoryGraphics,
+  jobCategoryprogramming,
+  jobCategorymarketing,
+  jobCategoryanimation
+} from 'src/app/models/model';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-job-category',
   templateUrl: './job-category.component.html',
   styleUrls: ['./job-category.component.scss']
 })
-export class JobCategoryComponent  {
+export class JobCategoryComponent {
   public routes = routes;
   public jobCategoryGraphics: jobCategoryGraphics[] = [];
   public jobCategoryprogramming: jobCategoryprogramming[] = [];

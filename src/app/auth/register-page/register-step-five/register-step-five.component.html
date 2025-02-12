@@ -15,8 +15,8 @@
                     <img [src]="slide.img" class="img-fluid" alt="Logo">
                   </div>
                   <div class="mentor-course text-center">
-                    <h2>{{slide.content1}} <br>{{slide.content2}}</h2>
-                    <p>{{slide.paragraph}}</p>
+                    <h2>{{ slide.content1 }} <br>{{ slide.content2 }}</h2>
+                    <p>{{ slide.paragraph }}</p>
                   </div>
                 </div>
               </ng-template>
@@ -33,7 +33,7 @@
       <div class="login-wrapper">
         <div class="loginbox register-box">
           <div class="img-logo">
-            <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+            <img alt="Logo" class="img-fluid" src="assets/img/logo.svg">
             <div class="back-home">
               <a [routerLink]="routes.login">Back to Home</a>
             </div>
@@ -46,8 +46,8 @@
                   <div class="circle-progress-percent progress-bar-percent">100%</div>
                   <div class="circle-progress-text">4 of 4</div>
                 </div>
-                <circle-progress class="circle-progress-bar" [percent]="100" [clockwise]="true"
-                innerStrokeColor=#e7e8ea outerStrokeColor=#159F46></circle-progress>
+                <circle-progress [clockwise]="true" [percent]="100" class="circle-progress-bar"
+                                 innerStrokeColor=#e7e8ea outerStrokeColor=#159F46></circle-progress>
                 <h3>Profile Compleation</h3>
                 <div class="personal-detail d-flex align-items-center">
                   <span class="active-color"><i class="fa-solid fa-check"></i></span>
@@ -86,12 +86,12 @@
                   <p>If you need more info, please <a [routerLink]="routes.login">Sign In.</a></p>
                   <p>Writing headlines for blog posts is as much an art as it is a science and
                     probably warrants its own post, but for all advise is with what works for your
-                  great & amazing audience.</p>
+                    great & amazing audience.</p>
                 </div>
                 <div class="btn-group work-done d-flex">
                   <div class="back-btn">
                     <a [routerLink]="routes.register3"
-                    class="btn btn-back">back</a>
+                       class="btn btn-back">back</a>
                   </div>
                 </div>
               </div>

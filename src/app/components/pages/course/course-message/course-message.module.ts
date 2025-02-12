@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CourseMessageRoutingModule } from './course-message-routing.module';
-import { CourseMessageComponent } from './course-message.component';
+import {CourseMessageRoutingModule} from './course-message-routing.module';
+import {CourseMessageComponent} from './course-message.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { CourseMessageComponent } from './course-message.component';
     CourseMessageRoutingModule
   ]
 })
-export class CourseMessageModule { }
+export class CourseMessageModule {
+}

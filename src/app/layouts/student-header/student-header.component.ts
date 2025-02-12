@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { CommonService } from 'src/app/shared/service/common/common.service';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { SidebarService } from 'src/app/shared/service/sidebar/sidebar.service';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { SidebarItem } from 'src/app/models/model';
+import {Component} from '@angular/core';
+import {CommonService} from 'src/app/shared/service/common/common.service';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {SidebarService} from 'src/app/shared/service/sidebar/sidebar.service';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {SidebarItem} from 'src/app/models/model';
 
 @Component({
   selector: 'app-student-header',
@@ -17,6 +17,9 @@ export class StudentHeaderComponent {
   public routes = routes;
 
   sidebar: SidebarItem[] = [];
+  isDarkMode: boolean = false;
+  public showDark = false;
+
   constructor(
     private common: CommonService,
     private data: DataService,
@@ -44,11 +47,11 @@ export class StudentHeaderComponent {
   public toggleSidebar(): void {
     this.sidebarService.openSidebar();
   }
+
   public hideSidebar(): void {
     this.sidebarService.closeSidebar();
   }
-  isDarkMode: boolean = false;
-  public showDark = false;
+
   applyTheme() {
     if (this.isDarkMode) {
       document.body.classList.add('dark');
@@ -56,6 +59,7 @@ export class StudentHeaderComponent {
       document.body.classList.remove('dark');
     }
   }
+
   public themeChange(): void {
     this.sidebarService.themeColor();
     this.applyTheme();

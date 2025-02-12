@@ -7,9 +7,9 @@
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Courses</li>
-              <li class="breadcrumb-item" aria-current="page">All Courses</li>
-              <li class="breadcrumb-item" aria-current="page">The Complete Web Developer Course 2.0</li>
+              <li aria-current="page" class="breadcrumb-item">Courses</li>
+              <li aria-current="page" class="breadcrumb-item">All Courses</li>
+              <li aria-current="page" class="breadcrumb-item">The Complete Web Developer Course 2.0</li>
             </ol>
           </nav>
         </div>
@@ -26,7 +26,7 @@
       <div class="col-md-12 col-12">
         <div class="profile-info-blk">
           <a [routerLink]="routes.instructor_dashboard" class="profile-info-img">
-            <img src="assets/img/instructor/profile-avatar.jpg" alt="Img" class="img-fluid">
+            <img alt="Img" class="img-fluid" src="assets/img/instructor/profile-avatar.jpg">
           </a>
           <h4><a [routerLink]="routes.instructor_dashboard">Jenny Wilson</a><span>Beginner</span></h4>
           <p>Instructor</p>
@@ -145,7 +145,7 @@
                     <div class="product">
                       <div class="product-img">
                         <a [routerLink]="routes.page_course_details">
-                          <img class="img-fluid" alt="" [src]="data.img1" />
+                          <img class="img-fluid" alt="" [src]="data.img1"/>
                         </a>
                         <div class="price">
                           <h3>
@@ -157,10 +157,10 @@
                         <div class="course-group d-flex">
                           <div class="course-group-img d-flex">
                             <a [routerLink]="routes.instructor_instructor_profile"><img [src]="data.img2" alt=""
-                            class="img-fluid" /></a>
+                                                                                        class="img-fluid"/></a>
                             <div class="course-name">
                               <h4>
-                              <a [routerLink]="
+                                <a [routerLink]="
                                   routes.instructor_instructor_profile
                                 ">{{ data.name }}</a>
                               </h4>
@@ -168,23 +168,23 @@
                             </div>
                           </div>
                           <div class="course-share d-flex align-items-center justify-content-center">
-                          <a href="javascript:void(0)" (click)="toggleClass(data)"><i class="fa-heart" [ngClass]="
+                            <a href="javascript:void(0)" (click)="toggleClass(data)"><i class="fa-heart" [ngClass]="
                                 data.active ? 'fa-solid' : 'fa-regular'
                               "></i></a>
                           </div>
                         </div>
                         <h3 class="title instructor-text">
                           <a [routerLink]="routes.page_course_details">{{
-                            data.content1
-                          }}</a>
+                                  data.content1
+                            }}</a>
                         </h3>
                         <div class="course-info d-flex align-items-center border-0 m-0">
                           <div class="rating-img d-flex align-items-center">
-                            <img [src]="data.img3" alt="" />
+                            <img [src]="data.img3" alt=""/>
                             <p>{{ data.lesson }}</p>
                           </div>
                           <div class="course-view d-flex align-items-center">
-                            <img [src]="data.img4" alt="" />
+                            <img [src]="data.img4" alt=""/>
                             <p>{{ data.time }}</p>
                           </div>
                         </div>
@@ -195,170 +195,170 @@
                           <i class="fas fa-star filled me-1"></i>
                           <i class="fas fa-star me-1"></i>
                           <span class="d-inline-block average-rating"><span>{{ data.rating1 }}</span>
-                        {{ data.rating2 }}</span>
-                      </div>
-                      <div class="all-btn all-category d-flex align-items-center">
-                        <a [routerLink]="routes.page_checkout" class="btn btn-primary">{{ data.content2 }}</a>
+                            {{ data.rating2 }}</span>
+                        </div>
+                        <div class="all-btn all-category d-flex align-items-center">
+                          <a [routerLink]="routes.page_checkout" class="btn btn-primary">{{ data.content2 }}</a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              }
+            </div>
+          </div>
+        </div>
+        <!-- /Courses Content -->
+
+        <!-- Reviews -->
+        <div class="card review-sec">
+          <div class="card-body">
+            <h5 class="subs-title">Reviews</h5>
+            @for (data of instructorEditReviews; track data) {
+              <div class="review-item">
+                <div class="instructor-wrap border-0 m-0">
+                  <div class="about-instructor">
+                    <div class="abt-instructor-img">
+                      <img [src]="data.img" alt="img" class="img-fluid"/>
+                    </div>
+                    <div class="instructor-detail">
+                      <h5>{{ data.name }}</h5>
+                      <p>{{ data.role }}</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <i class="fas fa-star filled me-1"></i>
+                    <i class="fas fa-star filled me-1"></i>
+                    <i class="fas fa-star filled me-1"></i>
+                    <i class="fas fa-star filled me-1"></i>
+                    <i class="fas fa-star me-1"></i>
+                  </div>
+                </div>
+                <p class="rev-info">{{ data.content }}</p>
+                <a href="javascript:void(0)" class="btn btn-reply"><i class="feather icon-corner-up-left"></i>
+                  {{ data.setting }}</a>
               </div>
             }
           </div>
         </div>
-      </div>
-      <!-- /Courses Content -->
+        <!-- /Reviews -->
 
-      <!-- Reviews -->
-      <div class="card review-sec">
-        <div class="card-body">
-          <h5 class="subs-title">Reviews</h5>
-          @for (data of instructorEditReviews; track data) {
-            <div class="review-item">
-              <div class="instructor-wrap border-0 m-0">
-                <div class="about-instructor">
-                  <div class="abt-instructor-img">
-                    <img [src]="data.img" alt="img" class="img-fluid" />
-                  </div>
-                  <div class="instructor-detail">
-                    <h5>{{ data.name }}</h5>
-                    <p>{{ data.role }}</p>
+        <!-- Comment -->
+        <div class="card comment-sec">
+          <div class="card-body">
+            <h5 class="subs-title">Add a review</h5>
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-block">
+                    <input class="form-control" placeholder="Full Name" type="text"/>
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="input-block">
+                    <input class="form-control" placeholder="Email" type="email"/>
+                  </div>
+                </div>
+              </div>
+              <div class="input-block">
+                <input class="form-control" placeholder="Subject" type="email"/>
+              </div>
+              <div class="input-block">
+                <textarea class="form-control" placeholder="Your Comments" rows="4"></textarea>
+              </div>
+              <div class="submit-section">
+                <button class="btn submit-btn" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /Comment -->
+      </div>
+
+      <div class="col-lg-4">
+        <!-- Right Sidebar Tags Label -->
+        <div class="card overview-sec">
+          <div class="card-body">
+            <div class="edit-blk">
+              <h5 class="subs-title">Professional Skills</h5>
+              <a href="javascript:void(0)"><i class="fa-regular fa-pen-to-square"></i></a>
+            </div>
+            <div class="sidebar-tag-labels">
+              <ul class="list-unstyled">
+                <li>
+                  <a class="" href="javascript:void(0)">User Interface Design</a>
+                </li>
+                <li><a href="javascript:void(0)">Web Development</a></li>
+                <li><a href="javascript:void(0)">Web Design</a></li>
+                <li><a href="javascript:void(0)">UI Design</a></li>
+                <li><a href="javascript:void(0)">Mobile App Design</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /Right Sidebar Tags Label -->
+
+        <!-- Right Sidebar Profile Overview -->
+        @for (data of instructorEdit; track data) {
+          <div class="card overview-sec">
+            <div class="card-body">
+              <h5 class="subs-title">{{ data.heading }}</h5>
+              <div class="rating-grp">
                 <div class="rating">
                   <i class="fas fa-star filled me-1"></i>
                   <i class="fas fa-star filled me-1"></i>
                   <i class="fas fa-star filled me-1"></i>
                   <i class="fas fa-star filled me-1"></i>
                   <i class="fas fa-star me-1"></i>
+                  <span class="d-inline-block average-rating"><span>{{ data.rating1 }}</span> {{ data.rating2 }}</span>
+                </div>
+                <div class="course-share d-flex align-items-center justify-content-center">
+                  <a href="javascript:void(0)" (click)="toggleClass(data)"><i class="fa-heart"
+                                                                              [ngClass]="data.active ? 'fa-solid' : 'fa-regular'"></i></a>
                 </div>
               </div>
-              <p class="rev-info">{{ data.content }}</p>
-              <a href="javascript:void(0)" class="btn btn-reply"><i class="feather icon-corner-up-left"></i>
-            {{ data.setting }}</a>
+              <div class="profile-overview-list">
+                @for (data of instructorEditOverview; track data) {
+                  <div class="list-grp-blk d-flex">
+                    <div class="flex-shrink-0">
+                      <img [src]="data.img" alt="Courses"/>
+                    </div>
+                    <div class="list-content-blk flex-grow-1 ms-3">
+                      <h5>{{ data.heading }}</h5>
+                      <p>{{ data.paragraph }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
           </div>
         }
-      </div>
-    </div>
-    <!-- /Reviews -->
+        <!-- /Right Sidebar Profile Overview -->
 
-    <!-- Comment -->
-    <div class="card comment-sec">
-      <div class="card-body">
-        <h5 class="subs-title">Add a review</h5>
-        <form>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="input-block">
-                <input type="text" class="form-control" placeholder="Full Name" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-block">
-                <input type="email" class="form-control" placeholder="Email" />
-              </div>
-            </div>
-          </div>
-          <div class="input-block">
-            <input type="email" class="form-control" placeholder="Subject" />
-          </div>
-          <div class="input-block">
-            <textarea rows="4" class="form-control" placeholder="Your Comments"></textarea>
-          </div>
-          <div class="submit-section">
-            <button class="btn submit-btn" type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- /Comment -->
-  </div>
-
-  <div class="col-lg-4">
-    <!-- Right Sidebar Tags Label -->
-    <div class="card overview-sec">
-      <div class="card-body">
-        <div class="edit-blk">
-          <h5 class="subs-title">Professional Skills</h5>
-          <a href="javascript:void(0)"><i class="fa-regular fa-pen-to-square"></i></a>
-        </div>
-        <div class="sidebar-tag-labels">
-          <ul class="list-unstyled">
-            <li>
-              <a href="javascript:void(0)" class="">User Interface Design</a>
-            </li>
-            <li><a href="javascript:void(0)">Web Development</a></li>
-            <li><a href="javascript:void(0)">Web Design</a></li>
-            <li><a href="javascript:void(0)">UI Design</a></li>
-            <li><a href="javascript:void(0)">Mobile App Design</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- /Right Sidebar Tags Label -->
-
-    <!-- Right Sidebar Profile Overview -->
-    @for (data of instructorEdit; track data) {
-      <div class="card overview-sec">
-        <div class="card-body">
-          <h5 class="subs-title">{{ data.heading }}</h5>
-          <div class="rating-grp">
-            <div class="rating">
-              <i class="fas fa-star filled me-1"></i>
-              <i class="fas fa-star filled me-1"></i>
-              <i class="fas fa-star filled me-1"></i>
-              <i class="fas fa-star filled me-1"></i>
-              <i class="fas fa-star me-1"></i>
-              <span class="d-inline-block average-rating"><span>{{ data.rating1 }}</span> {{ data.rating2 }}</span>
-            </div>
-            <div class="course-share d-flex align-items-center justify-content-center">
-              <a href="javascript:void(0)" (click)="toggleClass(data)"><i class="fa-heart"
-              [ngClass]="data.active ? 'fa-solid' : 'fa-regular'"></i></a>
-            </div>
-          </div>
-          <div class="profile-overview-list">
-            @for (data of instructorEditOverview; track data) {
-              <div class="list-grp-blk d-flex">
-                <div class="flex-shrink-0">
-                  <img [src]="data.img" alt="Courses" />
+        <!-- Right Contact Details -->
+        <div class="card overview-sec">
+          <div class="card-body">
+            <h5 class="subs-title">Contact Details</h5>
+            <div class="contact-info-list">
+              @for (data of instructorEditContactDetails; track data) {
+                <div class="edu-wrap">
+                  <div class="edu-name">
+                    <span><img [src]="data.img" alt="Address"/></span>
+                  </div>
+                  <div class="edu-detail">
+                    <h6>{{ data.heading }}</h6>
+                    <p>
+                      <a href="javascript:void(0)">{{ data.paragraph }}</a>
+                    </p>
+                  </div>
                 </div>
-                <div class="list-content-blk flex-grow-1 ms-3">
-                  <h5>{{ data.heading }}</h5>
-                  <p>{{ data.paragraph }}</p>
-                </div>
-              </div>
-            }
+              }
+            </div>
           </div>
         </div>
-      </div>
-    }
-    <!-- /Right Sidebar Profile Overview -->
-
-    <!-- Right Contact Details -->
-    <div class="card overview-sec">
-      <div class="card-body">
-        <h5 class="subs-title">Contact Details</h5>
-        <div class="contact-info-list">
-          @for (data of instructorEditContactDetails; track data) {
-            <div class="edu-wrap">
-              <div class="edu-name">
-                <span><img [src]="data.img" alt="Address" /></span>
-              </div>
-              <div class="edu-detail">
-                <h6>{{ data.heading }}</h6>
-                <p>
-                  <a href="javascript:void(0)">{{ data.paragraph }}</a>
-                </p>
-              </div>
-            </div>
-          }
-        </div>
+        <!-- /Right Contact Details -->
       </div>
     </div>
-    <!-- /Right Contact Details -->
   </div>
-</div>
-</div>
 </section>
 <!-- /Pricing Plan -->

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { TermConditionRoutingModule } from './term-condition-routing.module';
-import { TermConditionComponent } from './term-condition.component';
+import {TermConditionRoutingModule} from './term-condition-routing.module';
+import {TermConditionComponent} from './term-condition.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { TermConditionComponent } from './term-condition.component';
     TermConditionRoutingModule
   ]
 })
-export class TermConditionModule { }
+export class TermConditionModule {
+}

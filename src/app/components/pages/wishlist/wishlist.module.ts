@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { WishlistRoutingModule } from './wishlist-routing.module';
-import { WishlistComponent } from './wishlist.component';
+import {WishlistRoutingModule} from './wishlist-routing.module';
+import {WishlistComponent} from './wishlist.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { WishlistComponent } from './wishlist.component';
     WishlistRoutingModule
   ]
 })
-export class WishlistModule { }
+export class WishlistModule {
+}

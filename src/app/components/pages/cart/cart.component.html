@@ -7,8 +7,8 @@
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Pages</li>
-              <li class="breadcrumb-item" aria-current="page">Cart</li>
+              <li aria-current="page" class="breadcrumb-item">Pages</li>
+              <li aria-current="page" class="breadcrumb-item">Cart</li>
             </ol>
           </nav>
         </div>
@@ -39,22 +39,22 @@
                             <img class="img-fluid" alt="" [src]="data.img1">
                           </a>
                           <div class="price" [ngClass]="{'combo': data.idle === 'FREE'}">
-                            <h3>{{data.idle}}</h3>
-                            <h3>{{data.price1}} <span>{{data.price2}}</span></h3>
+                            <h3>{{ data.idle }}</h3>
+                            <h3>{{ data.price1 }} <span>{{ data.price2 }}</span></h3>
                           </div>
                         </div>
                         <div class="product-content">
                           <div class="head-course-title">
-                            <h3 class="title"><a [routerLink]="routes.page_course_details">{{data.heading}}</a></h3>
+                            <h3 class="title"><a [routerLink]="routes.page_course_details">{{ data.heading }}</a></h3>
                           </div>
                           <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
                             <div class="rating-img d-flex align-items-center">
                               <img [src]="data.img2" alt="">
-                              <p>{{data.lesson}}</p>
+                              <p>{{ data.lesson }}</p>
                             </div>
                             <div class="course-view d-flex align-items-center">
                               <img [src]="data.img3" alt="">
-                              <p>{{data.time}}</p>
+                              <p>{{ data.time }}</p>
                             </div>
                           </div>
                           <div class="rating">
@@ -63,11 +63,12 @@
                             <i class="fas fa-star filled me-1"></i>
                             <i class="fas fa-star filled me-1"></i>
                             <i class="fas fa-star me-1"></i>
-                            <span class="d-inline-block average-rating"><span>{{data.rating1}}</span> {{data.rating2}}</span>
+                            <span
+                                class="d-inline-block average-rating"><span>{{ data.rating1 }}</span> {{ data.rating2 }}</span>
                           </div>
                         </div>
                         <div class="cart-remove">
-                          <a href="javascript:void(0)" class="btn btn-primary">{{data.setting}}</a>
+                          <a href="javascript:void(0)" class="btn btn-primary">{{ data.setting }}</a>
                         </div>
                       </div>
                     </div>

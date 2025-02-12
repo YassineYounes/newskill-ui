@@ -7,8 +7,8 @@
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Pages</li>
-              <li class="breadcrumb-item" aria-current="page">Pricing Plan</li>
+              <li aria-current="page" class="breadcrumb-item">Pages</li>
+              <li aria-current="page" class="breadcrumb-item">Pricing Plan</li>
             </ol>
           </nav>
         </div>
@@ -29,14 +29,14 @@
           <p>Improve the way your work, discover a brand new tool and drop the hassle once and for all.</p>
         </div>
         <div class="text-end">
-          <img src="assets/img/plan.png" alt="icon">
+          <img alt="icon" src="assets/img/plan.png">
         </div>
         <div class="enable-item">
-          <label for="monthly" class="mb-0 me-2">Monthly</label>
+          <label class="mb-0 me-2" for="monthly">Monthly</label>
           <div class="form-check form-switch check-on m-0">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <input checked class="form-check-input" id="flexSwitchCheckChecked" type="checkbox">
           </div>
-          <label for="annualy" class="mb-0 ms-2">Annualy</label>
+          <label class="mb-0 ms-2" for="annualy">Annualy</label>
         </div>
       </div>
     </div>
@@ -47,11 +47,11 @@
         @for (data of pricingPlan; track data) {
           <div class="plan-box">
             <div>
-              <h4>{{data.heading}}</h4>
-              <p>{{data.content1}}</p>
-              <p>{{data.content2}}</p>
+              <h4>{{ data.heading }}</h4>
+              <p>{{ data.content1 }}</p>
+              <p>{{ data.content2 }}</p>
             </div>
-            <h3><span>{{data.dollar}}</span>{{data.price}}</h3>
+            <h3><span>{{ data.dollar }}</span>{{ data.price }}</h3>
           </div>
         }
       </div>
@@ -71,7 +71,7 @@
             <li>Best seller rank</li>
             <li>Placement optimization</li>
           </ul>
-          <a href="javascript:void(0)" class="btn btn-secondary w-100">Start For Free</a>
+          <a class="btn btn-secondary w-100" href="javascript:void(0)">Start For Free</a>
         </div>
       </div>
     </div>
@@ -84,85 +84,87 @@
         <div class="table-responsive">
           <table class="table table-bordered table-price">
             <thead>
-              <tr>
-                <td></td>
-                <td class="text-center self-cell">Self-Employed & Freelance</td>
-                <td colspan="2" class="text-center business-cell">Small businesses that need accounting, invoicing or payroll</td>
-              </tr>
+            <tr>
+              <td></td>
+              <td class="text-center self-cell">Self-Employed & Freelance</td>
+              <td class="text-center business-cell" colspan="2">Small businesses that need accounting, invoicing or
+                payroll
+              </td>
+            </tr>
             </thead>
             <tbody>
-              <tr class="basic-cell">
-                <td></td>
-                <td class="text-center">Basic</td>
-                <td class="text-center">Team</td>
-                <td class="text-center">Pro</td>
-              </tr>
-              <tr>
-                <td>Separate business/personal</td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Estimate tax payments</td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Track deductible mileage</td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Download online banking</td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Multi-device</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Create invoices & estimates	</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Manage VAT	</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Manage bills & payments	</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Multiple currencies	</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Create budgets</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
-              <tr>
-                <td>Track time</td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/close-circle.svg" alt="icon"></td>
-                <td class="text-center"><img src="assets/img/icon/check-circle.svg" alt="icon"></td>
-              </tr>
+            <tr class="basic-cell">
+              <td></td>
+              <td class="text-center">Basic</td>
+              <td class="text-center">Team</td>
+              <td class="text-center">Pro</td>
+            </tr>
+            <tr>
+              <td>Separate business/personal</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Estimate tax payments</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Track deductible mileage</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Download online banking</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Multi-device</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Create invoices & estimates</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Manage VAT</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Manage bills & payments</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Multiple currencies</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Create budgets</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
+            <tr>
+              <td>Track time</td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/close-circle.svg"></td>
+              <td class="text-center"><img alt="icon" src="assets/img/icon/check-circle.svg"></td>
+            </tr>
             </tbody>
           </table>
         </div>

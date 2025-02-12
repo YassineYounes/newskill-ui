@@ -1,7 +1,12 @@
 {
-  "HOME": {
-    "pre-title": "The Leader in Online Learning",
-    "title": "Engaging & Accessible Online Courses For All",
-    "post-title": "Own your future learning new skills online"
+  "Own your future learning new skills online": "Own your future learning new skills online",
+  "Search School, Online eductional centers, etc": "Search School, Online eductional centers, etc",
+  "Category": "Category",
+  "Trusted by over 15K Users worldwide since 2022": "Trusted by over 15K Users worldwide since 2022",
+  "COURSES": {
+    "online_courses": "Online Courses",
+    "expert_tutors": "Expert Tutors",
+    "certified_courses": "Certified Courses",
+    "online_students": "Online Students"
   }
 }

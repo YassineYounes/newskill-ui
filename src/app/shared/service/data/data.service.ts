@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, map } from 'rxjs';
-import { routes } from '../routes/routes';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, BehaviorSubject, map} from 'rxjs';
+import {routes} from '../routes/routes';
 
 import {
   instructorCourseList,
@@ -25,126 +25,6 @@ import {
 export class DataService {
   messages = '';
   message: BehaviorSubject<string>;
-  constructor(private http: HttpClient) {
-    this.message = new BehaviorSubject(this.messages);
-  }
-  nextmessage(data: string) {
-    this.message.next(data);
-  }
-  public instructorCourseList(): Observable<instructorCourseList> {
-    return this.http
-      .get<instructorCourseList>('assets/JSON/instructorCourseList.json')
-      .pipe(
-        map((res: instructorCourseList) => {
-          return res;
-        })
-      );
-  }
-  public allCourseList(): Observable<courseList> {
-    return this.http.get<courseList>('assets/JSON/courseList.json').pipe(
-      map((res: courseList) => {
-        return res;
-      })
-    );
-  }
-  public gridCourseList(): Observable<courseGrid> {
-    return this.http.get<courseGrid>('assets/JSON/courseGrid.json').pipe(
-      map((res: courseGrid) => {
-        return res;
-      })
-    );
-  }
-  public allInstructorList(): Observable<allInstructorList> {
-    return this.http
-      .get<allInstructorList>('assets/JSON/allInstructorList.json')
-      .pipe(
-        map((res: allInstructorList) => {
-          return res;
-        })
-      );
-  }
-  public allInstructorGrid(): Observable<allInstructorGrid> {
-    return this.http
-      .get<allInstructorGrid>('assets/JSON/allInstructorGrid.json')
-      .pipe(
-        map((res: allInstructorGrid) => {
-          return res;
-        })
-      );
-  }
-  public instructorTicket1(): Observable<instructorTicket1> {
-    return this.http
-      .get<instructorTicket1>('assets/JSON/instructorTicket1.json')
-      .pipe(
-        map((res: instructorTicket1) => {
-          return res;
-        })
-      );
-  }
-  public instructorTicket4(): Observable<instructorTicket4> {
-    return this.http
-      .get<instructorTicket4>('assets/JSON/instructorTicket4.json')
-      .pipe(
-        map((res: instructorTicket4) => {
-          return res;
-        })
-      );
-  }
-  public instructorTicket2(): Observable<instructorTicket2> {
-    return this.http
-      .get<instructorTicket2>('assets/JSON/instructorTicket2.json')
-      .pipe(
-        map((res: instructorTicket2) => {
-          return res;
-        })
-      );
-  }
-  public instructorTicket3(): Observable<instructorTicket3> {
-    return this.http
-      .get<instructorTicket3>('assets/JSON/instructorTicket3.json')
-      .pipe(
-        map((res: instructorTicket3) => {
-          return res;
-        })
-      );
-  }
-  public latestTransactionsList(): Observable<latestTransaction> {
-    return this.http
-      .get<latestTransaction>('assets/JSON/latestTransaction.json')
-      .pipe(
-        map((res: latestTransaction) => {
-          return res;
-        })
-      );
-  }
-
-  public InstructorAnnouncement(): Observable<apiResultFormat> {
-    return this.http
-      .get<apiResultFormat>('assets/JSON/instructor-announcements.json')
-      .pipe(
-        map((res: apiResultFormat) => {
-          return res;
-        })
-      );
-  }
-  public InstructorAssignment(): Observable<apiResultFormat> {
-    return this.http
-      .get<apiResultFormat>('assets/JSON/instructor-assignment.json')
-      .pipe(
-        map((res: apiResultFormat) => {
-          return res;
-        })
-      );
-  }
-  public InstructorWithdraw(): Observable<apiResultFormat> {
-    return this.http
-      .get<apiResultFormat>('assets/JSON/instructor-withdraw.json')
-      .pipe(
-        map((res: apiResultFormat) => {
-          return res;
-        })
-      );
-  }
   public topCategories = [
     {
       img: 'assets/img/categories-icon.png',
@@ -4375,7 +4255,6 @@ export class DataService {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public sideBar: Array<any> = [
     {
@@ -5131,10 +5010,8 @@ export class DataService {
       ],
     },
   ];
-
   public getInstructorSideBarData: BehaviorSubject<Array<Instructor_sideBar>> =
     new BehaviorSubject<Array<Instructor_sideBar>>(this.Instructor_sideBar);
-
   public Student_sideBar = [
     {
       tittle: 'ACCOUNT SETTINGS',
@@ -5242,4 +5119,138 @@ export class DataService {
   ];
   public getStudentSideBarData: BehaviorSubject<Array<Student_sideBar>> =
     new BehaviorSubject<Array<Student_sideBar>>(this.Student_sideBar);
+
+  constructor(private http: HttpClient) {
+    this.message = new BehaviorSubject(this.messages);
+  }
+
+  nextmessage(data: string) {
+    this.message.next(data);
+  }
+
+  public instructorCourseList(): Observable<instructorCourseList> {
+    return this.http
+      .get<instructorCourseList>('assets/JSON/instructorCourseList.json')
+      .pipe(
+        map((res: instructorCourseList) => {
+          return res;
+        })
+      );
+  }
+
+  public allCourseList(): Observable<courseList> {
+    return this.http.get<courseList>('assets/JSON/courseList.json').pipe(
+      map((res: courseList) => {
+        return res;
+      })
+    );
+  }
+
+  public gridCourseList(): Observable<courseGrid> {
+    return this.http.get<courseGrid>('assets/JSON/courseGrid.json').pipe(
+      map((res: courseGrid) => {
+        return res;
+      })
+    );
+  }
+
+  public allInstructorList(): Observable<allInstructorList> {
+    return this.http
+      .get<allInstructorList>('assets/JSON/allInstructorList.json')
+      .pipe(
+        map((res: allInstructorList) => {
+          return res;
+        })
+      );
+  }
+
+  public allInstructorGrid(): Observable<allInstructorGrid> {
+    return this.http
+      .get<allInstructorGrid>('assets/JSON/allInstructorGrid.json')
+      .pipe(
+        map((res: allInstructorGrid) => {
+          return res;
+        })
+      );
+  }
+
+  public instructorTicket1(): Observable<instructorTicket1> {
+    return this.http
+      .get<instructorTicket1>('assets/JSON/instructorTicket1.json')
+      .pipe(
+        map((res: instructorTicket1) => {
+          return res;
+        })
+      );
+  }
+
+  public instructorTicket4(): Observable<instructorTicket4> {
+    return this.http
+      .get<instructorTicket4>('assets/JSON/instructorTicket4.json')
+      .pipe(
+        map((res: instructorTicket4) => {
+          return res;
+        })
+      );
+  }
+
+  public instructorTicket2(): Observable<instructorTicket2> {
+    return this.http
+      .get<instructorTicket2>('assets/JSON/instructorTicket2.json')
+      .pipe(
+        map((res: instructorTicket2) => {
+          return res;
+        })
+      );
+  }
+
+  public instructorTicket3(): Observable<instructorTicket3> {
+    return this.http
+      .get<instructorTicket3>('assets/JSON/instructorTicket3.json')
+      .pipe(
+        map((res: instructorTicket3) => {
+          return res;
+        })
+      );
+  }
+
+  public latestTransactionsList(): Observable<latestTransaction> {
+    return this.http
+      .get<latestTransaction>('assets/JSON/latestTransaction.json')
+      .pipe(
+        map((res: latestTransaction) => {
+          return res;
+        })
+      );
+  }
+
+  public InstructorAnnouncement(): Observable<apiResultFormat> {
+    return this.http
+      .get<apiResultFormat>('assets/JSON/instructor-announcements.json')
+      .pipe(
+        map((res: apiResultFormat) => {
+          return res;
+        })
+      );
+  }
+
+  public InstructorAssignment(): Observable<apiResultFormat> {
+    return this.http
+      .get<apiResultFormat>('assets/JSON/instructor-assignment.json')
+      .pipe(
+        map((res: apiResultFormat) => {
+          return res;
+        })
+      );
+  }
+
+  public InstructorWithdraw(): Observable<apiResultFormat> {
+    return this.http
+      .get<apiResultFormat>('assets/JSON/instructor-withdraw.json')
+      .pipe(
+        map((res: apiResultFormat) => {
+          return res;
+        })
+      );
+  }
 }

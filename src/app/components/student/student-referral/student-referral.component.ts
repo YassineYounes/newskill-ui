@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-student-referral',
@@ -12,7 +12,7 @@ export class StudentReferralComponent {
   bsRangeValue: Date[];
   maxDate = new Date();
 
-  constructor(){
+  constructor() {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsRangeValue = [this.bsValue, this.maxDate];
   }

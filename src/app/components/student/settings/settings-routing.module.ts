@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './settings.component';
-import { StudentChangePasswordComponent } from './student-change-password/student-change-password.component';
-import { StudentLinkedAccountsComponent } from './student-linked-accounts/student-linked-accounts.component';
-import { StudentNotificationsComponent } from './student-notifications/student-notifications.component';
-import { StudentSettingsComponent } from './student-settings/student-settings.component';
-import { StudentSocialProfileComponent } from './student-social-profile/student-social-profile.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {SettingsComponent} from './settings.component';
+import {StudentChangePasswordComponent} from './student-change-password/student-change-password.component';
+import {StudentLinkedAccountsComponent} from './student-linked-accounts/student-linked-accounts.component';
+import {StudentNotificationsComponent} from './student-notifications/student-notifications.component';
+import {StudentSettingsComponent} from './student-settings/student-settings.component';
+import {StudentSocialProfileComponent} from './student-social-profile/student-social-profile.component';
 
 const routes: Routes = [
   {
@@ -40,4 +40,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SettingsRoutingModule {}
+export class SettingsRoutingModule {
+}

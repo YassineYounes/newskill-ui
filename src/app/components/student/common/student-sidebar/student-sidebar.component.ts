@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { CommonService } from 'src/app/shared/service/common/common.service';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {CommonService} from 'src/app/shared/service/common/common.service';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-student-sidebar',

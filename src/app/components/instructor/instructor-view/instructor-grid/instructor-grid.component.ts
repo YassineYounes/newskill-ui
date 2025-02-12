@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { routes } from 'src/app/shared/service/routes/routes';
-import { instructorGrid, allInstructorGrid } from 'src/app/models/model';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {routes} from 'src/app/shared/service/routes/routes';
+import {instructorGrid, allInstructorGrid} from 'src/app/models/model';
+
 interface data {
   active?: boolean;
 }
+
 @Component({
   selector: 'app-instructor-grid',
   templateUrl: './instructor-grid.component.html',
@@ -30,30 +32,11 @@ export class InstructorGridComponent implements OnInit {
   public pageSelection: Array<pageSelection> = [];
   public totalPages = 0;
 
-  constructor(private data: DataService) {}
+  constructor(private data: DataService) {
+  }
 
   ngOnInit(): void {
     this.getinstructorGrid();
-  }
-  private getinstructorGrid(): void {
-    this.instructorGrid = [];
-    this.serialNumberArray = [];
-
-    this.data.allInstructorGrid().subscribe((res: allInstructorGrid) => {
-      this.totalData = res.totalData;
-      res.data.map((res: allInstructorGrid, index: number) => {
-        const serialNumber = index + 1;
-        if (index >= this.skip && serialNumber <= this.limit) {
-          res.totalData = serialNumber;
-          this.instructorGrid.push(res);
-          this.serialNumberArray.push(serialNumber);
-        }
-      });
-      this.dataSource = new MatTableDataSource<instructorGrid>(
-        this.instructorGrid
-      );
-      this.calculateTotalPages(this.totalData, this.pageSize);
-    });
   }
 
   public searchData(value: string): void {
@@ -97,6 +80,31 @@ export class InstructorGridComponent implements OnInit {
     this.getinstructorGrid();
   }
 
+  toggleClass(data: data) {
+    data.active = !data.active;
+  }
+
+  private getinstructorGrid(): void {
+    this.instructorGrid = [];
+    this.serialNumberArray = [];
+
+    this.data.allInstructorGrid().subscribe((res: allInstructorGrid) => {
+      this.totalData = res.totalData;
+      res.data.map((res: allInstructorGrid, index: number) => {
+        const serialNumber = index + 1;
+        if (index >= this.skip && serialNumber <= this.limit) {
+          res.totalData = serialNumber;
+          this.instructorGrid.push(res);
+          this.serialNumberArray.push(serialNumber);
+        }
+      });
+      this.dataSource = new MatTableDataSource<instructorGrid>(
+        this.instructorGrid
+      );
+      this.calculateTotalPages(this.totalData, this.pageSize);
+    });
+  }
+
   private calculateTotalPages(totalData: number, pageSize: number): void {
     this.pageNumberArray = [];
     this.totalPages = totalData / pageSize;
@@ -107,13 +115,11 @@ export class InstructorGridComponent implements OnInit {
       const limit = pageSize * i;
       const skip = limit - pageSize;
       this.pageNumberArray.push(i);
-      this.pageSelection.push({ skip: skip, limit: limit });
+      this.pageSelection.push({skip: skip, limit: limit});
     }
   }
-  toggleClass(data: data) {
-    data.active = !data.active;
-  }
 }
+
 export interface pageSelection {
   skip: number;
   limit: number;

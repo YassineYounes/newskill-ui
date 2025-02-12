@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CourseDetailsRoutingModule } from './course-details-routing.module';
-import { CourseDetailsComponent } from './course-details.component';
-import { FeatherIconModule } from 'src/app/shared/module/feather.module';
+import {CourseDetailsRoutingModule} from './course-details-routing.module';
+import {CourseDetailsComponent} from './course-details.component';
+import {FeatherIconModule} from 'src/app/shared/module/feather.module';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import { FeatherIconModule } from 'src/app/shared/module/feather.module';
     FeatherIconModule
   ]
 })
-export class CourseDetailsModule { }
+export class CourseDetailsModule {
+}

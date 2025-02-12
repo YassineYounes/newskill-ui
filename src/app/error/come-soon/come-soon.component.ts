@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {routes} from 'src/app/shared/service/routes/routes';
+
 interface TimeDifference {
   day: number;
   hour: number;
@@ -15,7 +16,6 @@ export class ComeSoonComponent {
   public routes = routes;
   public projectStartDate: Date = new Date(new Date().getFullYear() + 1, 0, 1);
 
-  
 
   public getDataDiff(): TimeDifference {
     const diff = this.projectStartDate.getTime() - new Date().getTime();
@@ -30,5 +30,5 @@ export class ComeSoonComponent {
     };
   }
 
- 
+
 }

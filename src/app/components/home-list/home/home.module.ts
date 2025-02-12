@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { SharedModule } from 'src/app/shared/module/shared.module';
-import {TranslatePipe} from "@ngx-translate/core";
+import {HomeRoutingModule} from './home-routing.module';
+import {HomeComponent} from './home.component';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +12,10 @@ import {TranslatePipe} from "@ngx-translate/core";
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule,
-    TranslatePipe
+    SharedModule
   ],
   providers: [],
   bootstrap: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {
+}

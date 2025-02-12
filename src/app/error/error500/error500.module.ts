@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { Error500RoutingModule } from './error500-routing.module';
-import { Error500Component } from './error500.component';
+import {Error500RoutingModule} from './error500-routing.module';
+import {Error500Component} from './error500.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { Error500Component } from './error500.component';
     Error500RoutingModule
   ]
 })
-export class Error500Module { }
+export class Error500Module {
+}

@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { RegisterStepFiveRoutingModule } from './register-step-five-routing.module';
-import { RegisterStepFiveComponent } from './register-step-five.component';
-import { SharedModule } from 'src/app/shared/module/shared.module';
+import {RegisterStepFiveRoutingModule} from './register-step-five-routing.module';
+import {RegisterStepFiveComponent} from './register-step-five.component';
+import {SharedModule} from 'src/app/shared/module/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,4 +15,5 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     SharedModule,
   ]
 })
-export class RegisterStepFiveModule { }
+export class RegisterStepFiveModule {
+}

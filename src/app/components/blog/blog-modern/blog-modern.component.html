@@ -12,12 +12,12 @@
                   <a [routerLink]="routes.blog_details"><img class="img-fluid" [src]="data.img1" alt=""></a>
                 </div>
                 <div class="blog-modern-box">
-                  <h3 class="blog-title"><a [routerLink]="routes.blog_details">{{data.content}}</a></h3>
+                  <h3 class="blog-title"><a [routerLink]="routes.blog_details">{{ data.content }}</a></h3>
                   <div class="blog-info clearfix mb-0">
                     <div class="post-left">
                       <ul>
-                        <li><img class="img-fluid" [src]="data.img2" alt="">{{data.date}}</li>
-                        <li><img class="img-fluid" [src]="data.img3" alt="">{{data.sub}}</li>
+                        <li><img class="img-fluid" [src]="data.img2" alt="">{{ data.date }}</li>
+                        <li><img class="img-fluid" [src]="data.img3" alt="">{{ data.sub }}</li>
                       </ul>
                     </div>
                   </div>
@@ -34,7 +34,7 @@
             <ul class="pagination lms-page">
               <li class="page-item prev">
                 <a class="page-link" href="javascript:void(0)" tabindex="-1"><i
-                class="fas fa-angle-left"></i></a>
+                    class="fas fa-angle-left"></i></a>
               </li>
               <li class="page-item first-page active">
                 <a class="page-link" href="javascript:void(0)">1</a>

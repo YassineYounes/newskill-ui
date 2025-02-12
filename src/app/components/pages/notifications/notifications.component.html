@@ -7,8 +7,8 @@
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Pages</li>
-              <li class="breadcrumb-item" aria-current="page">Notifications</li>
+              <li aria-current="page" class="breadcrumb-item">Pages</li>
+              <li aria-current="page" class="breadcrumb-item">Notifications</li>
             </ol>
           </nav>
         </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="col-sm-6 col-lg-7">
           <div class="text-end">
-            <a href="javascript:void(0)" class="btn btn-mark">Mark All as Read</a>
+            <a class="btn btn-mark" href="javascript:void(0)">Mark All as Read</a>
           </div>
         </div>
       </div>
@@ -50,14 +50,16 @@
                       <img class="avatar-img semirounded-circle" [src]="data.img" alt="User Image">
                     </a>
                     <div class="notify-detail">
-                      <h6><a [routerLink]="routes.instructor_instructor_profile">{{data.name}} </a><span>{{data.time}}</span></h6>
-                      <p>{{data.content}}</p>
+                      <h6><a
+                          [routerLink]="routes.instructor_instructor_profile">{{ data.name }} </a><span>{{ data.time }}</span>
+                      </h6>
+                      <p>{{ data.content }}</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="text-md-end">
-                    <a href="javascript:void(0)" class="btn">{{data.setting}}</a>
+                    <a href="javascript:void(0)" class="btn">{{ data.setting }}</a>
                   </div>
                 </div>
               </div>
@@ -73,14 +75,15 @@
                       <img class="avatar-img semirounded-circle" [src]="data.img" alt="User Image">
                     </a>
                     <div class="notify-detail">
-                      <h6><a [routerLink]="routes.instructor_instructor_profile">{{data.name}}</a> <span>{{data.time}}</span></h6>
-                      <p>{{data.content}}</p>
+                      <h6><a [routerLink]="routes.instructor_instructor_profile">{{ data.name }}</a>
+                        <span>{{ data.time }}</span></h6>
+                      <p>{{ data.content }}</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="text-md-end">
-                    <a href="javascript:void(0)" class="btn">{{data.setting}}</a>
+                    <a href="javascript:void(0)" class="btn">{{ data.setting }}</a>
                   </div>
                 </div>
               </div>

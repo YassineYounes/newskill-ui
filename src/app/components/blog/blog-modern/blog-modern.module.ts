@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { BlogModernRoutingModule } from './blog-modern-routing.module';
-import { BlogModernComponent } from './blog-modern.component';
+import {BlogModernRoutingModule} from './blog-modern-routing.module';
+import {BlogModernComponent} from './blog-modern.component';
 
 
 @NgModule({
@@ -14,4 +14,5 @@ import { BlogModernComponent } from './blog-modern.component';
     BlogModernRoutingModule
   ]
 })
-export class BlogModernModule { }
+export class BlogModernModule {
+}

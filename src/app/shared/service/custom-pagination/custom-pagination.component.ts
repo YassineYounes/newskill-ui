@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
   pageSelection,
   pageSize,
@@ -25,6 +25,7 @@ export class CustomPaginationComponent {
   public pageNumberArray: Array<number> = [];
   public pageSelection: Array<pageSelection> = [];
   public totalPages = 0;
+
   //** / pagination variables
 
   constructor(private pagination: PaginationService) {
@@ -43,7 +44,6 @@ export class CustomPaginationComponent {
     });
   }
 
-   
 
   public getMoreData(event: string): void {
     if (event == 'next') {
@@ -119,7 +119,7 @@ export class CustomPaginationComponent {
       const limit = pageSize * i;
       const skip = limit - pageSize;
       this.pageNumberArray.push(i);
-      this.pageSelection.push({ skip: skip, limit: limit });
+      this.pageSelection.push({skip: skip, limit: limit});
     }
   }
 }

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CourseComponent } from './course.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {CourseComponent} from './course.component';
 
 const routes: Routes = [
   {
@@ -51,13 +51,23 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'course-lesson', loadChildren: () => import('./course-lesson/course-lesson.module').then(m => m.CourseLessonModule) },
-  { path: 'course-details1', loadChildren: () => import('./course-details1/course-details1.module').then(m => m.CourseDetails1Module) },
-  { path: 'course-details2', loadChildren: () => import('./course-details2/course-details2.module').then(m => m.CourseDetails2Module) },
+  {
+    path: 'course-lesson',
+    loadChildren: () => import('./course-lesson/course-lesson.module').then(m => m.CourseLessonModule)
+  },
+  {
+    path: 'course-details1',
+    loadChildren: () => import('./course-details1/course-details1.module').then(m => m.CourseDetails1Module)
+  },
+  {
+    path: 'course-details2',
+    loadChildren: () => import('./course-details2/course-details2.module').then(m => m.CourseDetails2Module)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CourseRoutingModule {}
+export class CourseRoutingModule {
+}

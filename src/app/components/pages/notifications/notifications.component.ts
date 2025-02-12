@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { notificationsToday, notificationsYesterday } from 'src/app/models/model';
-import { DataService } from 'src/app/shared/service/data/data.service';
-import { routes } from 'src/app/shared/service/routes/routes';
+import {Component} from '@angular/core';
+import {notificationsToday, notificationsYesterday} from 'src/app/models/model';
+import {DataService} from 'src/app/shared/service/data/data.service';
+import {routes} from 'src/app/shared/service/routes/routes';
 
 
 @Component({
@@ -11,14 +11,14 @@ import { routes } from 'src/app/shared/service/routes/routes';
 })
 export class NotificationsComponent {
   public routes = routes;
-  public notificationsToday : notificationsToday[] = [];
-  public notificationsYesterday : notificationsYesterday[] = [];
+  public notificationsToday: notificationsToday[] = [];
+  public notificationsYesterday: notificationsYesterday[] = [];
 
   constructor(private DataService: DataService) {
     this.notificationsToday = this.DataService.notificationsToday;
     this.notificationsYesterday = this.DataService.notificationsYesterday;
-    }
-
   }
+
+}
 
 
