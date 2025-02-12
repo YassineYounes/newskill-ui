@@ -4395,31 +4395,7 @@ export class DataService {
           showSubRoute: false,
           base: 'home',
           subMenus: [],
-        },
-        {
-          menuValue: 'Home Two',
-          route: routes.home2,
-          hasSubRoute: false,
-          showSubRoute: false,
-          base: 'home-two',
-          subMenus: [],
-        },
-        {
-          menuValue: 'Home Three',
-          route: routes.home3,
-          hasSubRoute: false,
-          showSubRoute: false,
-          base: 'home-three',
-          subMenus: [],
-        },
-        {
-          menuValue: 'Home Four',
-          route: routes.home4,
-          hasSubRoute: false,
-          showSubRoute: false,
-          base: 'home-four',
-          subMenus: [],
-        },
+        }
       ],
     },
     {

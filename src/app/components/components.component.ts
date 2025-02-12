@@ -95,7 +95,6 @@ export class ComponentsComponent {
     this.common.last.next(data.url.split('/')[3]);
 
     if (
-      this.routeStatus == 'home-two' ||
       this.routeStatus == 'home-three' ||
       this.routeStatus == 'home-four'
     ) {
