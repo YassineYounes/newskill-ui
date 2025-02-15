@@ -5,59 +5,8 @@
       <div class="col-md-7">
         <div class="home-slide-face aos" data-aos="fade-up">
           <div class="home-slide-text">
-            <h5>The Leader in Online Learning</h5>
-            <h1>Engaging & Accessible Online Courses For All</h1>
-            <p>Own your future learning new skills online</p>
-          </div>
-          <div class="banner-content">
-            <div class="form">
-              <div class="form-inner">
-                <div class="input-group">
-                  <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                  <input
-                      class="form-control"
-                      placeholder="Search School, Online eductional centers, etc"
-                      type="email"
-                  />
-                  <span class="drop-detail">
-                      <mat-select [(value)]="selected" class="custom-mat-select home-one-select">
-                        <mat-option value="1">Category</mat-option>
-                        <mat-option value="angular">Angular</mat-option>
-                        <mat-option value="nodejs">Node Js hey</mat-option>
-                        <mat-option value="react">React</mat-option>
-                        <mat-option value="python">Python</mat-option>
-                      </mat-select>
-                    </span>
-                  <button
-                      (click)="directPath()"
-                      class="btn btn-primary sub-btn"
-                      type="submit"
-                  >
-                    <i class="fas fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="trust-user">
-            <p>Trusted by over 15K Users <br/>worldwide since 2022</p>
-            <div class="trust-rating d-flex align-items-center">
-              <div class="rate-head">
-                <h2>
-                    <span [countUp]="1000" [options]="{ enableScrollSpy: true }"
-                    >0</span
-                    >+
-                </h2>
-              </div>
-              <div class="rating d-flex align-items-center">
-                <h2 class="d-inline-block average-rating me-3">4.4</h2>
-                <i class="fas fa-star filled me-1"></i>
-                <i class="fas fa-star filled me-1"></i>
-                <i class="fas fa-star filled me-1"></i>
-                <i class="fas fa-star filled me-1"></i>
-                <i class="fas fa-star filled me-1"></i>
-              </div>
-            </div>
+            <h1>Learn. Improve. Grow.</h1>
+            <p>Own your future learning new skills</p>
           </div>
         </div>
       </div>
@@ -203,21 +152,14 @@
   <div class="container">
     <div class="section-header aos" data-aos="fade-up">
       <div class="section-sub-head">
-        <span>What’s New</span>
-        <h2>Featured Courses</h2>
+        <h2>Popular Courses</h2>
       </div>
       <div class="all-btn all-category d-flex align-items-center">
-        <a [routerLink]="routes.page_course_list" class="btn btn-primary"
-        >All Courses</a
-        >
+        <a [routerLink]="routes.page_course_list" class="btn btn-primary">All Courses</a>
       </div>
     </div>
     <div class="section-text aos" data-aos="fade-up">
-      <p class="mb-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean
-        accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse
-        imperdiet.
-      </p>
+      <p class="mb-0">Pick a course from these popular courses to help you develop your skills.</p>
     </div>
     <div class="course-feature">
       <div class="row">
@@ -293,8 +235,6 @@
                       <a [routerLink]="routes.page_checkout" class="btn btn-primary">BUY NOW</a>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
@@ -310,15 +250,13 @@
       <div class="col-lg-7 col-md-12">
         <div class="section-header aos" data-aos="fade-up">
           <div class="section-sub-head">
-            <span>What’s New</span>
             <h2>Master the skills to drive your career</h2>
           </div>
         </div>
         <div class="section-text aos" data-aos="fade-up">
           <p>
-            Get certified, master modern tech skills, and level up your career —
-            whether you’re starting out or a seasoned pro. 95% of eLearning
-            learners report our hands-on content directly helped their careers.
+            Join NewSkill's community of learners through carefully developed programs designed to equip you with the skills
+            you need to reach your full potential–wherever you are in your career.
           </p>
         </div>
         <div class="career-group aos" data-aos="fade-up">
@@ -674,7 +612,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div class="blogs-slide" data-aos="fade-up">
         <owl-carousel-o [options]="latestBlogsOwlOptions">
@@ -702,7 +639,6 @@
         </owl-carousel-o>
       </div>
     </div>
-
     <div class="enroll-group aos" data-aos="fade-up">
       <div class="row">
         <div class="col-lg-4 col-md-6">

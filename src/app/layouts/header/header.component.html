@@ -36,36 +36,27 @@
             <a [routerLink]="routes.home" class="menu-logo">
               <img alt="Logo" class="img-fluid" src="assets/img/logo.svg"/>
             </a>
-            <a
-                (click)="hideSidebar()"
-                class="menu-close"
-                href="javascript:void(0)"
-            >
+            <a (click)="hideSidebar()"
+               class="menu-close"
+               href="javascript:void(0)">
               <i class="fas fa-times"></i>
             </a>
           </div>
           <ul class="main-nav">
             @for (mainMenus of sidebar; track mainMenus) {
-              @if (mainMenus.separateRoute === true) {
-                <li [class.active]="base ===mainMenus.base">
+              @if (mainMenus.separateRoute) {
+                <li [class.active]="base === mainMenus.base">
                   <a [routerLink]="mainMenus.route">{{ mainMenus.tittle }}</a>
                 </li>
               }
-              @if (mainMenus.separateRoute === false) {
+              @if (!mainMenus.separateRoute) {
                 <li class="has-submenu" [class.active]="base === mainMenus.base">
-                  <a
-                      href="javascript:void(0)"
-                      (click)="mainMenus.showAsTab = !mainMenus.showAsTab"
-                  >{{ mainMenus.tittle }} <i class="fas fa-chevron-down"></i
-                  ></a>
-                  <ul
-                      class="submenu"
-                      [ngClass]="{
-                      'show-sub-menu': mainMenus.showAsTab === true
-                    }"
-                  >
+                  <a href="javascript:void(0)"
+                      (click)="mainMenus.showAsTab = !mainMenus.showAsTab">{{ mainMenus.tittle }} <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <ul class="submenu" [ngClass]="{'show-sub-menu': mainMenus.showAsTab}">
                     @for (menu of mainMenus.menu; track menu) {
-                      @if (menu.hasSubRoute === false) {
+                      @if (!menu.hasSubRoute) {
                         <li
                             [class.active]="
                             base === menu.base && page === menu.page
@@ -74,7 +65,7 @@
                           <a [routerLink]="menu.route">{{ menu.menuValue }}</a>
                         </li>
                       }
-                      @if (menu.hasSubRoute === true) {
+                      @if (menu.hasSubRoute) {
                         <li
                             class="has-submenu"
                             [class.active]="page === menu.page"
@@ -87,7 +78,7 @@
                           <ul
                               class="submenu"
                               [ngClass]="{
-                              'show-sub-menu': menu.showSubRoute === true
+                              'show-sub-menu': menu.showSubRoute
                             }"
                           >
                             @for (subMenu of menu.subMenus; track subMenu) {
@@ -116,10 +107,21 @@
             </li>
           </ul>
         </div>
+        <div class="banner-content">
+          <div class="form">
+            <div class="form-inner">
+              <div class="input-group">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input class="form-control"
+                       placeholder="Search School, Online eductional centers, etc"
+                       type="email"/>
+              </div>
+            </div>
+          </div>
+        </div>
         <ul class="nav header-navbar-rht">
           <li class="nav-item">
             <div>
-              <!-- Dark Mode Toggle -->
               <a (click)="themeChange()"
                  [class.activate]="!showDark"
                  class="dark-mode-toggle "
@@ -127,8 +129,6 @@
                  id="dark-mode-toggle">
                 <i *ngIf="!showDark" class="fa-solid fa-moon"></i>
               </a>
-
-              <!-- Light Mode Toggle -->
               <a (click)="themeChange()"
                  [class.activate]="showDark"
                  class="dark-mode-toggle"
@@ -142,15 +142,11 @@
             <a [routerLink]="routes.login" class="nav-link header-sign">Signin</a>
           </li>
           <li class="nav-item">
-            <a
-                [routerLink]="routes.register"
-                class="nav-link header-login"
-            >Signup</a
-            >
+            <a [routerLink]="routes.register"
+               class="nav-link header-login">Signup</a>
           </li>
         </ul>
       </div>
     </nav>
   </div>
 </header>
-<!-- /Header -->

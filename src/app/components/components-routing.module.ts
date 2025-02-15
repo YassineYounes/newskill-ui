@@ -34,7 +34,7 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () =>
-          import('./home-list/home/home.module').then((m) => m.HomeModule),
+          import('./home/home.module').then((m) => m.HomeModule),
       }
     ],
   },

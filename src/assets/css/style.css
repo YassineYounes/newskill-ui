@@ -2038,7 +2038,7 @@ html.menu-opened body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 1000px;
+    min-height: 800px;
 }
 
 .section-header.section-head-one .sub-title {
@@ -2067,7 +2067,6 @@ html.menu-opened body {
     font-size: 48px;
     margin-bottom: 40px;
     line-height: 1.2;
-    max-width: 500px;
 }
 
 .home-slide-text p {
@@ -2124,10 +2123,6 @@ html.menu-opened body {
     margin: 30px 0px 10px;
 }
 
-.banner-content {
-    margin-bottom: 25px;
-}
-
 .rate-head h2 {
     margin-right: 40px;
     color: #000000;
@@ -2152,18 +2147,25 @@ html.menu-opened body {
 }
 
 .banner-content .form-inner {
-    padding: 12px;
     background-color: #fff;
     border-radius: 35px;
     width: 100%;
     border: 0;
     max-width: 740px;
+    margin-top: -15px;
 }
 
 .banner-content .input-group {
+    margin-top: 10px;
     background: #fff;
     border-radius: 130px;
     padding-left: 12px;
+}
+
+.add-header-bg .banner-content .input-group {
+    background: #b4a7f5;
+    border: 3px solid #b4a7f5;
+    color: #fff;
 }
 
 .banner-content .input-group .search-icon {
@@ -2172,9 +2174,17 @@ html.menu-opened body {
     color: #f66962;
 }
 
+.add-header-bg .banner-content .input-group .search-icon {
+    color: #fff;
+}
+
 .banner-content .input-group .form-control::placeholder {
     color: #a2a2a2;
 }
+
+/*.container .navbar-header {*/
+/*    margin-top: -15px;*/
+/*}*/
 
 .banner-content .input-group .input-group-prepend {
     margin-right: 0;
@@ -2188,6 +2198,15 @@ html.menu-opened body {
     color: #000;
     font-size: 16px;
     margin-right: 10px;
+}
+
+.add-header-bg .banner-content .form-control {
+    color: #fff;
+    background: #b4a7f5;
+}
+
+.add-header-bg .banner-content .form-control::placeholder {
+    color: #fff;
 }
 
 .drop-detail .form-select {
@@ -5291,6 +5310,7 @@ b {
 .header-navbar-rht {
     margin: 0;
     margin-left: 0;
+    /*margin-top: -15px;*/
     padding: 0;
 }
 
@@ -9780,6 +9800,10 @@ textarea:focus {
     font-size: 36px;
     color: #ffffff;
     margin-bottom: 38px;
+}
+
+.home-slide-text {
+    padding-top: 130px
 }
 
 .home-slide-five-text p {

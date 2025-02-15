@@ -14,20 +14,15 @@ export class HeaderComponent {
   public routes = routes;
   @ViewChild('stickyMenu')
   menuElement!: ElementRef;
-  headerpage = false;
   sticky = false;
   elementPosition!: number;
-  public headerClass = true;
   base = '';
   page = '';
   last = '';
-  headerMenuactive = '';
-  public showDark = false;
-
-  public white_bg = false;
-
+  selectedCategory: any;
+  showDark = false;
+  white_bg = false;
   sidebar: SidebarItem[];
-  themeMode: string = 'light_mode';
   isDarkMode: boolean = false;
 
   constructor(
@@ -46,27 +41,15 @@ export class HeaderComponent {
     });
     this.sidebar = this.data.sideBar;
     this.sidebarService.showDark.subscribe((res: string | boolean) => {
-      if (res == 'true') {
-        this.showDark = true;
-      } else {
-        this.showDark = false;
-      }
+      this.showDark = res == 'true';
     });
   }
 
   @HostListener('window:scroll', ['$event'])
   handleScroll() {
     const windowScroll = window.pageYOffset;
-    if (windowScroll >= this.elementPosition) {
-      this.sticky = true;
-    } else {
-      this.sticky = false;
-    }
-    if (windowScroll == 0) {
-      this.white_bg = false;
-    } else {
-      this.white_bg = true;
-    }
+    this.sticky = windowScroll >= this.elementPosition;
+    this.white_bg = windowScroll != 0;
   }
 
   public toggleSidebar(): void {
@@ -76,10 +59,6 @@ export class HeaderComponent {
   public hideSidebar(): void {
     this.sidebarService.closeSidebar();
   }
-  // toggleMode(isDark: boolean) {
-  //   this.isDarkMode = isDark;
-  //   this.applyTheme();
-  // }
 
   applyTheme() {
     if (this.isDarkMode) {
