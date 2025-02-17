@@ -14313,9 +14313,9 @@ input[type="password"]::-ms-clear {
     padding-bottom: 12px;
 }
 
-.breadcrumb-bar {
+.complete-sec .breadcrumb-bar {
     background: #fff;
-    padding: 25px 0;
+    padding-bottom: 25px;
 }
 
 .breadcrumb-list {
@@ -14364,11 +14364,6 @@ input[type="password"]::-ms-clear {
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
-}
-
-.breadcrumb-item + .breadcrumb-item {
-    padding-right: 16px;
-    font-weight: 500;
 }
 
 .page-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
@@ -15290,6 +15285,11 @@ input[type="password"]::-ms-clear {
 
 .com-info {
     display: flex;
+}
+
+.com-info  a {
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    text-decoration: underline;
 }
 
 .com-info h2 {

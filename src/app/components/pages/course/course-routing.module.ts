@@ -56,13 +56,9 @@ const routes: Routes = [
     loadChildren: () => import('./course-lesson/course-lesson.module').then(m => m.CourseLessonModule)
   },
   {
-    path: 'course-details1',
-    loadChildren: () => import('./course-details1/course-details1.module').then(m => m.CourseDetails1Module)
-  },
-  {
-    path: 'course-details2',
-    loadChildren: () => import('./course-details2/course-details2.module').then(m => m.CourseDetails2Module)
-  },
+    path: 'course-details',
+    loadChildren: () => import('./course-details/course-details.module').then(m => m.CourseDetailsModule)
+  }
 ];
 
 @NgModule({

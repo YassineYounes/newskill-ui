@@ -348,7 +348,7 @@ export class routes {
   // Pages Routing
 
   public static get pages(): string {
-    return this.baseUrl + '/pages/';
+    return this.baseUrl + '/';
   }
 
   public static get page_notifications(): string {
