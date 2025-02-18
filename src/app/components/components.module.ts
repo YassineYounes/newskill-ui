@@ -9,6 +9,7 @@ import {HeaderComponent} from '../layouts/header/header.component';
 import {StudentHeaderComponent} from '../layouts/student-header/student-header.component';
 import {SharedModule} from '../shared/module/shared.module';
 import {FooterTopContainerComponent} from '../layouts/footer/footer-top-container/footer-top-container.component';
+import {StarRatingComponent} from "./pages/star-rating/star-rating.component";
 
 @NgModule({
   declarations: [
@@ -17,9 +18,13 @@ import {FooterTopContainerComponent} from '../layouts/footer/footer-top-containe
     FooterComponent,
     AdminHeaderComponent,
     StudentHeaderComponent,
-    FooterTopContainerComponent
+    FooterTopContainerComponent,
+    StarRatingComponent
   ],
   imports: [CommonModule, ComponentsRoutingModule, SharedModule],
+  exports: [
+    StarRatingComponent
+  ]
 })
 export class ComponentsModule {
 }

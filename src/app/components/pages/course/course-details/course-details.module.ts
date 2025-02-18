@@ -4,18 +4,26 @@ import {CommonModule} from '@angular/common';
 import {CourseDetailsRoutingModule} from './course-details-routing.module';
 import {CourseDetailsComponent} from './course-details.component';
 import {FeatherIconModule} from 'src/app/shared/module/feather.module';
-import {SecondsToMinutesPipe} from "../../../../pipes/seconds-to-minutes.pipe";
+import {TimeFormatPipe} from "../../../../pipes/time-format.pipe";
+import {ComponentsModule} from "../../../components.module";
+import {DurationFormatPipe} from "../../../../pipes/duration-format.pipe";
+import {HoursDecimalFormatPipe} from "../../../../pipes/hours-decimal-format.pipe";
+import {TndCurrencyPipe} from "../../../../pipes/tnd-currency.pipe";
 
 
 @NgModule({
   declarations: [
     CourseDetailsComponent,
-    SecondsToMinutesPipe
+    TimeFormatPipe,
+    DurationFormatPipe,
+    TndCurrencyPipe,
+    HoursDecimalFormatPipe
   ],
   imports: [
     CommonModule,
     CourseDetailsRoutingModule,
-    FeatherIconModule
+    FeatherIconModule,
+    ComponentsModule
   ]
 })
 export class CourseDetailsModule {

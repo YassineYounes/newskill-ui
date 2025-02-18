@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CourseDetailsComponent} from './course-details.component';
-import {SecondsToMinutesPipe} from "../../../../pipes/seconds-to-minutes.pipe";
+import {TimeFormatPipe} from "../../../../pipes/time-format.pipe";
 
 const routes: Routes = [
   {path: ':courseId', component: CourseDetailsComponent},

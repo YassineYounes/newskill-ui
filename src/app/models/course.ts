@@ -1,4 +1,7 @@
 export interface Course {
+  rating?: number;
+  courseLength?: number;
+  numberOfLessons?: number;
   sections?: any;
   isCertified?: boolean;
   instructorId?: string;

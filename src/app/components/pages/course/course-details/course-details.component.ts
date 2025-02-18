@@ -40,4 +40,14 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   protected readonly environment = environment;
+
+  getDiscountedPrice() {
+    if (!this.course.price) {
+      return 0
+    }
+    if (!this.course.salePercentage) {
+      return this.course.price;
+    }
+    return this.course.price * (1 - this.course.salePercentage / 100);
+  }
 }
