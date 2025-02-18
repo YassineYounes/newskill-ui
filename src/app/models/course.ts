@@ -1,4 +1,5 @@
 export interface Course {
+  reviews?: any;
   rating?: number;
   courseLength?: number;
   numberOfLessons?: number;

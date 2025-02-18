@@ -31,7 +31,7 @@
                   <div class="about-instructor align-items-center" *ngIf="course.rating">
                     <span class="me-1">{{course.rating}}</span>
                     <app-star-rating [rating]="course.rating"></app-star-rating>
-                    <span class="d-inline-block average-rating"> (15 ratings) 32 students</span>
+                    <span class="d-inline-block average-rating"> ({{course.reviews.length}} ratings) {{course.studentsNumber}} students</span>
                   </div>
                 </div>
                 <p>
