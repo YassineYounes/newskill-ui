@@ -1,29 +1,27 @@
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-12">
-        <div class="breadcrumb-list">
-          <nav aria-label="breadcrumb" class="page-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item">Courses</li>
-              <li aria-current="page" class="breadcrumb-item active">All Courses</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /Breadcrumb -->
-
+<!--&lt;!&ndash; Breadcrumb &ndash;&gt;-->
+<!--<div class="breadcrumb-bar">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-md-12 col-12">-->
+<!--        <div class="breadcrumb-list">-->
+<!--          <nav aria-label="breadcrumb" class="page-breadcrumb">-->
+<!--            <ol class="breadcrumb">-->
+<!--              <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>-->
+<!--              <li aria-current="page" class="breadcrumb-item">Courses</li>-->
+<!--              <li aria-current="page" class="breadcrumb-item active">All Courses</li>-->
+<!--            </ol>-->
+<!--          </nav>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; /Breadcrumb &ndash;&gt;-->
 <!-- Course -->
 <section class="course-content">
   <div class="container">
     <div class="row">
       <div class="col-lg-9">
-
         <!-- Filter -->
         <div class="showing-list">
           <div class="row">
@@ -71,58 +69,49 @@
           </div>
         </div>
         <!-- /Filter -->
-
         <div class="row">
-          @for (data of courseList; track data) {
+          @for (course of courseList; track course) {
             <div class="col-lg-12 col-md-12 d-flex">
               <div class="course-box course-design list-course d-flex">
                 <div class="product">
                   <div class="product-img">
                     <a [routerLink]="routes.page_course_details">
-                      <img class="img-fluid" alt="" [src]="data.img1">
+                      <img class="img-fluid" alt="" [src]="environment.courseThumbnailsUrl + course.thumbnail">
                     </a>
-                    <div class="price">
-                      <h3>{{ data.amount1 }} <span>{{ data.amount2 }}</span></h3>
-                    </div>
                   </div>
                   <div class="product-content">
                     <div class="head-course-title">
-                      <h3 class="title"><a [routerLink]="routes.page_course_details">{{ data.content1 }}</a></h3>
+                      <h3 class="title">
+                        <a [routerLink]="routes.page_course_details + '/' + course.id">{{ course.title }}</a></h3>
                       <div class="all-btn all-category d-flex align-items-center">
-                        <a [routerLink]="routes.page_checkout" class="btn btn-primary">{{ data.content2 }}</a>
+                        <!--                        <a [routerLink]="routes.page_checkout" class="btn btn-primary">{{ course.content2 }}</a>-->
+                        <a [routerLink]="routes.page_checkout" class="btn btn-primary">{{ course.price | tndCurrency }}</a>
                       </div>
                     </div>
                     <div class="course-info border-bottom-0 pb-0 d-flex align-items-center">
                       <div class="rating-img d-flex align-items-center">
-                        <img [src]="data.img2" alt="">
-                        <p>{{ data.lesson }}</p>
+                        <img [src]="'assets/img/icon/icon-01.svg'" alt="">
+                        <p>{{ course.numberOfLessons }} Lessons</p>
                       </div>
                       <div class="course-view d-flex align-items-center">
-                        <img [src]="data.img3" alt="">
-                        <p>{{ data.time }}</p>
+                        <img [src]="'assets/img/icon/icon-02.svg'" alt="">
+                        <p>{{ course.courseLength | durationFormat }}</p>
                       </div>
                     </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled me-1"></i>
-                      <i class="fas fa-star filled me-1"></i>
-                      <i class="fas fa-star filled me-1"></i>
-                      <i class="fas fa-star filled me-1"></i>
-                      <i class="fas fa-star me-1"></i>
-                      <span
-                          class="d-inline-block average-rating"><span>{{ data.rating1 }}</span> {{ data.rating2 }}</span>
-                    </div>
+                    <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
                     <div class="course-group d-flex mb-0">
                       <div class="course-group-img d-flex">
-                        <a [routerLink]="routes.instructor_instructor_profile"><img [src]="data.img4" alt=""
+                        <a [routerLink]="routes.instructor_instructor_profile"><img [src]="environment.courseThumbnailsUrl + course.thumbnail" alt=""
                                                                                     class="img-fluid"></a>
                         <div class="course-name">
-                          <h4><a [routerLink]="routes.instructor_instructor_profile">{{ data.name }}</a></h4>
-                          <p>{{ data.role }}</p>
+                          <h4>
+                            <a [routerLink]="routes.instructor_instructor_profile">{{ course.instructor?.fullName }}</a>
+                          </h4>
+                          <p>{{ course.instructor?.bio }}</p>
                         </div>
                       </div>
                       <div class="course-share d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" (click)="toggleClass(data)"><i class="fa-heart"
-                                                                                    [ngClass]="data.active ? 'fa-solid' : 'fa-regular'"></i></a>
+                        <a href="javascript:void(0)" (click)="addCourseToWishlist(course)"><i class="fa-heart" [ngClass]="course.inWishList ? 'fa-solid' : 'fa-regular'"></i></a>
                       </div>
                     </div>
                   </div>
@@ -131,7 +120,6 @@
             </div>
           }
         </div>
-
         <!-- /pagination -->
         <div class="row">
           <div class="col-md-12">
@@ -161,7 +149,6 @@
           </div>
         </div>
         <!-- /pagination -->
-
       </div>
       <div class="col-lg-3 theiaStickySidebar">
         <div class="stickybar">
@@ -172,7 +159,6 @@
                 <p>CLEAR</p>
               </div>
             </div>
-
             <!-- Search Filter -->
             <div class="card search-filter categories-filter-blk">
               <div class="card-body">
@@ -233,7 +219,6 @@
               </div>
             </div>
             <!-- /Search Filter -->
-
             <!-- Search Filter -->
             <div class="card search-filter">
               <div class="card-body">
@@ -242,35 +227,16 @@
                     <h4>Instructors</h4>
                     <i class="fas fa-angle-down"></i>
                   </div>
-                  <div class="form-check">
+                  <div class="form-check" *ngFor="let instructor of instructorList">
                     <label class="form-check-label">
                       <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Keny White (10)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Hinata Hyuga (5)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      John Doe (3)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Nicole Brown
+                      {{instructor.fullName}} (10)
                     </label>
                   </div>
                 </div>
               </div>
             </div>
             <!-- /Search Filter -->
-
             <!-- Search Filter -->
             <div class="card search-filter ">
               <div class="card-body">
@@ -301,7 +267,6 @@
               </div>
             </div>
             <!-- /Search Filter -->
-
             <!-- Latest Posts -->
             <div class="card post-widget ">
               <div class="card-body">
@@ -309,18 +274,18 @@
                   <h4 class="card-title">Latest Courses</h4>
                 </div>
                 <ul class="latest-posts">
-                  @for (data of latestCourses; track data) {
+                  @for (course of latestCourses; track course) {
                     <li>
                       <div class="post-thumb">
                         <a [routerLink]="routes.page_course_details">
-                          <img class="img-fluid" [src]="data.img" alt="">
+                          <img class="img-fluid" [src]="course.img" alt="">
                         </a>
                       </div>
-                      <div class="post-info" [ngClass]="{'free-color': data.content2 === 'FREE' }">
+                      <div class="post-info" [ngClass]="{'free-color': course.content2 === 'FREE' }">
                         <h4>
-                          <a [routerLink]="routes.page_course_details">{{ data.content1 }}</a>
+                          <a [routerLink]="routes.page_course_details">{{ course.content1 }}</a>
                         </h4>
-                        <p>{{ data.content2 }}</p>
+                        <p>{{ course.content2 }}</p>
                       </div>
                     </li>
                   }
@@ -328,7 +293,6 @@
               </div>
             </div>
             <!-- /Latest Posts -->
-
           </div>
         </div>
       </div>

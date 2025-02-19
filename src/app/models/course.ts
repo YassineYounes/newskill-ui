@@ -1,12 +1,16 @@
+import {Instructor} from "./instructor";
+
 export interface Course {
+  reviewsCount?: number;
+  instructor?: Instructor;
+  inWishList?: boolean;
+  id?: string;
   reviews?: any;
   rating?: number;
   courseLength?: number;
   numberOfLessons?: number;
   sections?: any;
   isCertified?: boolean;
-  instructorId?: string;
-  instructorName?: string;
   requirements?: any;
   skills?: any;
   description?: string;

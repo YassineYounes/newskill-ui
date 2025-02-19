@@ -2162,20 +2162,21 @@ html.menu-opened body {
     padding-left: 12px;
 }
 
-.add-header-bg .banner-content .input-group {
-    background: #b4a7f5;
+.banner-content .input-group {
     border: 3px solid #b4a7f5;
-    color: #fff;
+    color: red;
 }
+
+/*.add-header-bg .banner-content .input-group {*/
+/*    background: #b4a7f5;*/
+/*    border: 3px solid #b4a7f5;*/
+/*    color: #fff;*/
+/*}*/
 
 .banner-content .input-group .search-icon {
     display: flex;
     align-items: center;
     color: #f66962;
-}
-
-.add-header-bg .banner-content .input-group .search-icon {
-    color: #fff;
 }
 
 .banner-content .input-group .form-control::placeholder {
@@ -2200,14 +2201,14 @@ html.menu-opened body {
     margin-right: 10px;
 }
 
-.add-header-bg .banner-content .form-control {
-    color: #fff;
-    background: #b4a7f5;
-}
+/*.add-header-bg .banner-content .form-control {*/
+/*    color: #fff;*/
+/*    background: #b4a7f5;*/
+/*}*/
 
-.add-header-bg .banner-content .form-control::placeholder {
-    color: #fff;
-}
+/*.add-header-bg .banner-content .form-control::placeholder {*/
+/*    color: #fff;*/
+/*}*/
 
 .drop-detail .form-select {
     border: 0;
@@ -2661,7 +2662,7 @@ b {
 .product:hover .course-name h4 a,
 .product:hover .product-content h3 a,
 .product:hover .course-share i {
-    color: #fff;
+    /*color: #fff;*/
     transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -2698,10 +2699,11 @@ b {
     transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
 }
 
-.product-img:hover img {
+.product:hover .product-img img {
     -webkit-transform: scale(1.15);
     -moz-transform: scale(1.15);
     transform: scale(1.15);
+    opacity: .5;
 }
 
 .product-content {
@@ -14378,7 +14380,7 @@ input[type="password"]::-ms-clear {
 
 .course-content {
     background: #fafafa;
-    padding: 80px 0px;
+    padding: 160px 0px;
 }
 
 .course-design {
@@ -14393,14 +14395,14 @@ input[type="password"]::-ms-clear {
     background: #fff;
 }
 
-.course-design .product:hover .course-info p,
-.course-design .product:hover .course-name p,
-.course-design .product:hover .course-name h4 a,
-.course-design .product:hover .btn-primary,
-.course-design .product:hover .course-share i,
-.course-design .product:hover .product-content h3 a {
-    color: #000000;
-}
+/*.course-design .product:hover .course-info p,*/
+/*.course-design .product:hover .course-name p,*/
+/*.course-design .product:hover .course-name h4 a,*/
+/*.course-design .product:hover .btn-primary,*/
+/*.course-design .product:hover .course-share i,*/
+/*.course-design .product:hover .product-content h3 a {*/
+/*    color: #000000;*/
+/*}*/
 
 .course-design .product:hover .rating-img img,
 .course-design .product:hover .course-view img {
@@ -18690,7 +18692,7 @@ input[type="password"]::-ms-clear {
 }
 
 .list-course .course-view {
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 .list-course .product-content {
@@ -26699,9 +26701,9 @@ a.ck.ck-button:not(.ck-disabled):hover {
     color: #efeff2;
 }
 
-.dark .course-design .product:hover .course-info p, .course-design .product:hover .course-name p, .course-design .product:hover .course-name h4 a, .course-design .product:hover .btn-primary, .course-design .product:hover .course-share i, .course-design .product:hover .product-content h3 a {
-    color: #efeff2;
-}
+/*.dark .course-design .product:hover .course-info p, .course-design .product:hover .course-name p, .course-design .product:hover .course-name h4 a, .course-design .product:hover .btn-primary, .course-design .product:hover .course-share i, .course-design .product:hover .product-content h3 a {*/
+/*    color: #efeff2;*/
+/*}*/
 
 .dark .btn-wish {
     background: none;

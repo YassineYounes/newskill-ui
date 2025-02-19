@@ -1,5 +1,5 @@
 <div class="rating">
   <i *ngFor="let _ of getStars().fullStars" class="fas fa-star filled me-1"></i>
   <i *ngIf="getStars().halfStar" class="fas fa-star-half-alt filled me-1"></i>
-  <i *ngFor="let _ of getStars().emptyStars" class="far fa-star me-1"></i>
+  <i *ngFor="let _ of getStars().emptyStars" class="far fa-star me-1"></i>  <span *ngIf="content"> {{ content }}</span>
 </div>

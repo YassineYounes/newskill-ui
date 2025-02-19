@@ -19,6 +19,10 @@ import {TndCurrencyPipe} from "../../../../pipes/tnd-currency.pipe";
     TndCurrencyPipe,
     HoursDecimalFormatPipe
   ],
+  exports: [
+    DurationFormatPipe,
+    TndCurrencyPipe
+  ],
   imports: [
     CommonModule,
     CourseDetailsRoutingModule,

@@ -14,4 +14,7 @@ export class CourseService {
     return this.httpClient.get<Course>(environment.baseUrlWs + '/api/courses/' + courseId);
   }
 
+  getCourseList() {
+    return this.httpClient.get<Course[]>(environment.baseUrlWs + '/api/courses');
+  }
 }
