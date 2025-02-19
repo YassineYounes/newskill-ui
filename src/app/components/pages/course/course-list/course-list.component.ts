@@ -57,7 +57,7 @@ export class CourseListComponent implements OnInit {
   }
 
   private getInstructorList(): void {
-    this.instructorService.getInstructorsList().subscribe((res: Course[]) => {
+    this.instructorService.getActiveInstructorsList().subscribe((res: Course[]) => {
       this.instructorList = res;
     });
   }

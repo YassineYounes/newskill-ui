@@ -2741,10 +2741,6 @@ b {
     color: #685f78;
 }
 
-.product:hover .rating {
-    color: #fff;
-}
-
 .course-info {
     margin: 16px 0px 18px;
 }

@@ -1,6 +1,7 @@
 import {Instructor} from "./instructor";
 
 export interface Course {
+  level?: string;
   reviewsCount?: number;
   instructor?: Instructor;
   inWishList?: boolean;

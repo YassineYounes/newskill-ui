@@ -17,4 +17,8 @@ export class InstructorService {
   getInstructorsList() {
     return this.httpClient.get<Instructor[]>(environment.baseUrlWs + '/api/instructors');
   }
+
+  getActiveInstructorsList() {
+    return this.httpClient.get<Instructor[]>(environment.baseUrlWs + '/api/instructors/active');
+  }
 }

@@ -97,6 +97,10 @@
                         <img [src]="'assets/img/icon/icon-02.svg'" alt="">
                         <p>{{ course.courseLength | durationFormat }}</p>
                       </div>
+                      <div class="course-view d-flex align-items-center">
+                        <img [src]="'assets/img/icon/chart.svg'" alt="">
+                        <p>Level: <span>{{course.level}}</span></p>
+                      </div>
                     </div>
                     <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
                     <div class="course-group d-flex mb-0">
@@ -230,7 +234,7 @@
                   <div class="form-check" *ngFor="let instructor of instructorList">
                     <label class="form-check-label">
                       <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      {{instructor.fullName}} (10)
+                      {{instructor.fullName}} ({{instructor.coursesCount}})
                     </label>
                   </div>
                 </div>

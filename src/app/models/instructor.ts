@@ -1,4 +1,5 @@
 export interface Instructor {
+  coursesCount?: number;
   id?: string;
   fullName?: any;
   bio?: string;
