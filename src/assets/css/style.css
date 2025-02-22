@@ -2693,7 +2693,8 @@ b {
 }
 
 .product-img img {
-    width: 100%;
+    width: 240px;
+    height: 180px;
     border-radius: 4px 4px 0 0;
     transform: translateZ(0);
     transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
@@ -36169,4 +36170,11 @@ a.ck.ck-button:not(.ck-disabled):hover {
     .settings-pg-links li {
         width: 100%;
     }
+}
+
+.latest-courses-images {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
 }
