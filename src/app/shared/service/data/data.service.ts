@@ -4261,7 +4261,7 @@ export class DataService {
       base: 'pages',
       hasSubRoute: false,
       separateRoute: true,
-      route: routes.page_course_grid
+      route: routes.page_course_list
     },
     // {
     //   tittle: 'Home',
@@ -4664,16 +4664,6 @@ export class DataService {
     //           base: 'pages',
     //           page: 'course',
     //           last: 'course-list',
-    //           subMenus: [],
-    //         },
-    //         {
-    //           menuValue: 'Course Grid',
-    //           route: routes.page_course_grid,
-    //           hasSubRoute: false,
-    //           showSubRoute: false,
-    //           base: 'pages',
-    //           page: 'course',
-    //           last: 'course-grid',
     //           subMenus: [],
     //         },
     //         {

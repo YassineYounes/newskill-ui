@@ -8,13 +8,11 @@
             <div class="col-lg-6">
               <div class="d-flex align-items-center">
                 <div class="view-icons">
-                  <a [routerLink]="routes.page_course_grid" class="grid-view"><i class="feather icon-grid"></i></a>
-                  <a [routerLink]="routes.page_course_list" class="list-view active"><i
-                      class="feather icon-list"></i></a>
+                  <a (click)="displayType = 'grid'" class="grid-view" [ngClass]="displayType === 'grid' ? 'active' : ''"><i class="feather icon-grid"></i></a>
+                  <a (click)="displayType = 'list'" class="list-view" [ngClass]="displayType === 'list' ? 'active' : ''"><i class="feather icon-list"></i></a>
                 </div>
                 <div class="show-result">
-                  <h4>Showing {{ serialNumberArray[0] }}-{{ serialNumberArray[serialNumberArray.length - 1] }} of 50
-                    results</h4>
+                  <h4>Showing {{ serialNumberArray[0] }}-{{ serialNumberArray[serialNumberArray.length - 1] }} of 50 results</h4>
                 </div>
               </div>
             </div>
@@ -49,13 +47,13 @@
           </div>
         </div>
         <!-- /Filter -->
-        <div class="row">
+        <div class="row" *ngIf="displayType === 'list'">
           @for (course of this.dataSource?.filteredData; track course) {
             <div class="col-lg-12 col-md-12 d-flex">
               <div class="course-box course-design list-course d-flex">
                 <div class="product">
                   <div class="product-img">
-                    <a [routerLink]="routes.page_course_details">
+                    <a [routerLink]="routes.page_course_details + '/' + course.id">
                       <img class="img-fluid" alt="" [src]="environment.courseThumbnailsUrl + course.thumbnail">
                     </a>
                   </div>
@@ -80,7 +78,7 @@
                       </div>
                       <div class="course-view d-flex align-items-center">
                         <img [src]="'assets/img/icon/chart.svg'" alt="">
-                        <p>Level: <span>{{course.level}}</span></p>
+                        <p>Level: <span>{{ course.level }}</span></p>
                       </div>
                     </div>
                     <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
@@ -98,6 +96,54 @@
                       <div class="course-share d-flex align-items-center justify-content-center">
                         <a href="javascript:void(0)" (click)="addCourseToWishlist(course)"><i class="fa-heart" [ngClass]="course.inWishList ? 'fa-solid' : 'fa-regular'"></i></a>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="row" *ngIf="displayType === 'grid'">
+          @for (course of this.dataSource?.filteredData; track course) {
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="course-box course-design d-flex ">
+                <div class="product">
+                  <div class="product-img">
+                    <a [routerLink]="routes.page_course_details + '/' + course.id">
+                      <img class="img-fluid" alt="" [src]="environment.courseThumbnailsUrl + course.thumbnail">
+                    </a>
+                  </div>
+                  <div class="product-content">
+                    <div class="course-group d-flex">
+                      <div class="course-group-img d-flex">
+                        <a [routerLink]="routes.instructor_instructor_profile">
+                          <img [src]="environment.courseThumbnailsUrl + course.thumbnail" alt="" class="img-fluid"></a>
+                        <div class="course-name">
+                          <h4>
+                            <a [routerLink]="routes.instructor_instructor_profile">{{ course.instructor?.fullName }}</a>
+                          </h4>
+                          <p>{{ course.instructor?.bio }}</p>
+                        </div>
+                      </div>
+                      <div class="course-share d-flex align-items-center justify-content-center">
+                        <a href="javascript:void(0)"><i class="fa-heart" [ngClass]="course.inWishList ? 'fa-solid' : 'fa-regular'"></i></a>
+                      </div>
+                    </div>
+                    <h3 class="title"><a [routerLink]="routes.page_course_details + '/' + course.id" class="multiline-ellipsis">{{ course.title }}</a></h3>
+                    <div class="course-info d-flex align-items-center">
+                      <div class="rating-img d-flex align-items-center">
+                        <img [src]="'assets/img/icon/icon-01.svg'" alt="">
+                        <p>{{ course.numberOfLessons }} Lessons</p>
+                      </div>
+                      <div class="course-view d-flex align-items-center">
+                        <img [src]="'assets/img/icon/icon-02.svg'" alt="">
+                        <p>{{ course.courseLength | durationFormat }}</p>
+                      </div>
+                    </div>
+                    <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
+                    <div class="all-btn all-category d-flex align-items-center">
+                      <a *ngIf="!course.isFree" [routerLink]="routes.page_checkout" class="btn btn-primary">{{ course.price | tndCurrency }}</a>
+                      <a *ngIf="course.isFree" [routerLink]="routes.page_course_details + '/' + course.id" class="btn btn-primary">FREE</a>
                     </div>
                   </div>
                 </div>
@@ -183,7 +229,7 @@
                           [value]="instructor.id"
                           [checked]="instructor.id && selectedInstructors.includes(instructor.id)"
                           (change)="onInstructorChange($event, instructor.id)"/>
-                      {{instructor.fullName}} ({{instructor.coursesCount}})
+                      {{ instructor.fullName }} ({{ instructor.coursesCount }})
                     </label>
                   </div>
                 </div>
@@ -200,13 +246,13 @@
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input radio-box" name="select_specialist" type="checkbox" [(ngModel)]="selectedFreeFilter" (change)="applyFilters()">
-                      Free ({{freeCourses.length}})
+                      Free ({{ freeCourses.length }})
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input radio-box" name="select_specialist" type="checkbox" [(ngModel)]="selectedPayedFilter" (change)="applyFilters()"/>
-                      Paid ({{payedCourses.length}})
+                      Paid ({{ payedCourses.length }})
                     </label>
                   </div>
                 </div>
@@ -223,13 +269,13 @@
                   @for (course of latestCourses; track course) {
                     <li>
                       <div class="post-thumb">
-                        <a [routerLink]="routes.page_course_details">
+                        <a [routerLink]="routes.page_course_details + '/' + course.id">
                           <img class="img-fluid latest-courses-images" [src]="environment.courseThumbnailsUrl + course.thumbnail" alt="">
                         </a>
                       </div>
                       <div class="post-info" [ngClass]="{'free-color': course.isFree }">
                         <h4>
-                          <a [routerLink]="routes.page_course_details">{{ course.title }}</a>
+                          <a [routerLink]="routes.page_course_details + '/' + course.id">{{ course.title }}</a>
                         </h4>
                         <p *ngIf="!course.isFree">{{ course.price | tndCurrency }}</p>
                         <p *ngIf="course.isFree">FREE</p>

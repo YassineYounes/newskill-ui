@@ -46,6 +46,7 @@ export class CourseListComponent implements OnInit {
   public selectedInstructors: string[] = [];
   public selectedFreeFilter = true;
   public selectedPayedFilter = true;
+  public displayType = 'grid';
 
   constructor(private courseService: CourseService, private instructorService: InstructorService, private categoryService: CategoryService) {
   }

@@ -399,10 +399,6 @@ export class routes {
     return this.pages + 'course/course-lesson';
   }
 
-  public static get page_course_grid(): string {
-    return this.pages + 'course/course-grid';
-  }
-
   public static get page_course_course_wishlist(): string {
     return this.pages + 'course/course-wishlist';
   }

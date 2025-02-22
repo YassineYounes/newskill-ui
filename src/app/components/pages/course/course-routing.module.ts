@@ -22,13 +22,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'course-grid',
-        loadChildren: () =>
-          import('./course-grid/course-grid.module').then(
-            (m) => m.CourseGridModule
-          ),
-      },
-      {
         path: 'course-list',
         loadChildren: () =>
           import('./course-list/course-list.module').then(

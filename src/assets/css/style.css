@@ -36178,3 +36178,9 @@ a.ck.ck-button:not(.ck-disabled):hover {
     object-fit: cover;
     border-radius: 10px;
 }
+.multiline-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
