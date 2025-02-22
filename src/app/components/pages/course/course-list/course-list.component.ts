@@ -8,6 +8,8 @@ import {Course} from "../../../../models/course";
 import {environment} from "../../../../../environments/environment";
 import {Instructor} from "../../../../models/instructor";
 import {InstructorService} from "../../../../services/instructor.service";
+import {CategoryService} from "../../../../services/category.service";
+import {Category} from "../../../../models/category";
 
 interface data {
   active?: boolean;
@@ -38,13 +40,17 @@ export class CourseListComponent implements OnInit {
   public courseList: Course[] = [];
   public latestCourses: latestCourses[] = [];
   public instructorList: Instructor[] = [];
+  public categoriesList: Category[] = [];
+  public freeCourses: Course[] = [];
+  public payedCourses: Course[] = [];
 
-  constructor(private courseService: CourseService, private instructorService: InstructorService) {
+  constructor(private courseService: CourseService, private instructorService: InstructorService, private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
     this.getCourseList();
     this.getInstructorList();
+    this.getCategoriesList();
   }
 
   private getCourseList(): void {
@@ -53,12 +59,20 @@ export class CourseListComponent implements OnInit {
       this.courseList = res;
       this.totalData = res.length;
       this.calculateTotalPages(this.totalData, this.pageSize);
+      this.freeCourses = res.filter((re: Course) => {return re.isFree});
+      this.payedCourses = res.filter((re: Course) => {return !re.isFree});
     });
   }
 
   private getInstructorList(): void {
     this.instructorService.getActiveInstructorsList().subscribe((res: Course[]) => {
       this.instructorList = res;
+    });
+  }
+
+  private getCategoriesList(): void {
+    this.categoryService.getCategoriesList().subscribe((res: Course[]) => {
+      this.categoriesList = res;
     });
   }
 

@@ -1,6 +1,7 @@
 import {Instructor} from "./instructor";
 
 export interface Course {
+  isFree?: boolean;
   level?: string;
   reviewsCount?: number;
   instructor?: Instructor;
@@ -18,7 +19,7 @@ export interface Course {
   onSale?: boolean;
   salePercentage?: number;
   price?: number;
-  category?: string;
+  categoriesName?: any;
   shortDescription?: string;
   thumbnail?: string;
   title?: string;

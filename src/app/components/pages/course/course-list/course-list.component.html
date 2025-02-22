@@ -169,54 +169,11 @@
                 <div class="filter-widget mb-0">
                   <div class="categories-head d-flex align-items-center">
                     <h4>Course categories</h4>
-                    <i class="fas fa-angle-down"></i>
                   </div>
-                  <div class="form-check">
+                  <div class="form-check" *ngFor="let category of categoriesList">
                     <label class="form-check-label">
                       <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Backend (3)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      CSS (2)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Frontend (2)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      General (2)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      IT & Software (2)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Photography (2)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Programming Language (3)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input input-box" name="select_specialist" type="checkbox"/>
-                      Technology (2)
+                      {{category.name}} ({{category.coursesCount}})
                     </label>
                   </div>
                 </div>
@@ -229,7 +186,6 @@
                 <div class="filter-widget mb-0">
                   <div class="categories-head d-flex align-items-center">
                     <h4>Instructors</h4>
-                    <i class="fas fa-angle-down"></i>
                   </div>
                   <div class="form-check" *ngFor="let instructor of instructorList">
                     <label class="form-check-label">
@@ -247,24 +203,23 @@
                 <div class="filter-widget mb-0">
                   <div class="categories-head d-flex align-items-center">
                     <h4>Price</h4>
-                    <i class="fas fa-angle-down"></i>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input radio-box" name="select_specialist" type="checkbox"/>
-                      All (18)
+                      All ({{courseList.length}})
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input radio-box" name="select_specialist" type="checkbox"/>
-                      Free (3)
+                      Free ({{freeCourses.length}})
                     </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input radio-box" name="select_specialist" type="checkbox"/>
-                      Paid (15)
+                      Paid ({{payedCourses.length}})
                     </label>
                   </div>
                 </div>
