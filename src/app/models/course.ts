@@ -1,6 +1,8 @@
 import {Instructor} from "./instructor";
 
 export interface Course {
+  createdAt?: string;
+  updatedAt?: string;
   isFree?: boolean;
   level?: string;
   reviewsCount?: number;
@@ -24,7 +26,7 @@ export interface Course {
   thumbnail?: string;
   title?: string;
   content?: string;
-  studentsNumber?: string;
+  enrollmentsCount?: number;
   status?: string;
   lessons?: string;
   time?: string;

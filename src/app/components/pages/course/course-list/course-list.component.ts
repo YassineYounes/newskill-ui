@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from 'src/app/shared/service/data/data.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {routes} from 'src/app/shared/service/routes/routes';
 import {CourseService} from "../../../../services/course.service";
@@ -21,7 +20,7 @@ interface data {
 })
 export class CourseListComponent implements OnInit {
   public routes = routes;
-  public selected = '1';
+  public selectedSort = 'popular';
   public searchDataValue = '';
   public dataSource!: MatTableDataSource<Course>;
 
@@ -31,11 +30,8 @@ export class CourseListComponent implements OnInit {
   public skip = 0;
   public limit = this.pageSize;
   public pageIndex = 0;
-  public serialNumberArray: Array<number> = [];
-  public currentPage = 1;
   public pageNumberArray: Array<number> = [];
   public pageSelection = [];
-  public totalPages = 0;
   public courseList: Course[] = [];
   public latestCourses: Course[] = [];
   public instructorList: Instructor[] = [];
@@ -47,6 +43,10 @@ export class CourseListComponent implements OnInit {
   public selectedFreeFilter = true;
   public selectedPayedFilter = true;
   public displayType = 'grid';
+  public currentPage = 1;
+  public paginatedCourses: any[] = [];
+  public coursesPerPage: number = 9;
+  public totalPages: number = 1;
 
   constructor(private courseService: CourseService, private instructorService: InstructorService, private categoryService: CategoryService) {
   }
@@ -71,6 +71,8 @@ export class CourseListComponent implements OnInit {
         return !re.isFree
       });
       this.dataSource = new MatTableDataSource<Course>(this.courseList);
+      this.changeSort();
+      this.updatePagination();
     });
   }
 
@@ -89,10 +91,7 @@ export class CourseListComponent implements OnInit {
   public searchData(value: string): void {
     this.dataSource.filter = value.trim().toLowerCase();
     this.courseList = this.dataSource.filteredData;
-  }
-
-  toggleClass(data: data) {
-    data.active = !data.active;
+    this.updatePagination();
   }
 
   private calculateTotalPages(totalData: number, pageSize: number): void {
@@ -124,21 +123,6 @@ export class CourseListComponent implements OnInit {
     }
     this.applyFilters();
   }
-
-  // private filterCoursesByInstructor(): void {
-  //   if (this.selectedInstructors.length === 0) {
-  //     this.dataSource.filteredData = this.courseList;
-  //   } else {
-  //     this.dataSource.filteredData = this.courseList.filter(course => {
-  //       if (!course.instructor || !course.instructor.id) {
-  //         return false;
-  //       }
-  //       console.log(this.selectedInstructors)
-  //       console.log(course.instructor.id)
-  //       return this.selectedInstructors.includes(course.instructor.id)
-  //     });
-  //   }
-  // }
 
   onCategoryChange(event: any, categoryName: string | undefined): void {
     if (!categoryName) {
@@ -179,6 +163,7 @@ export class CourseListComponent implements OnInit {
 
     // Update data source
     this.dataSource.data = filteredCourses;
+    this.updatePagination();
   }
 
   clearFilter() {
@@ -187,5 +172,68 @@ export class CourseListComponent implements OnInit {
     this.selectedCategories = [];
     this.selectedInstructors = [];
     this.applyFilters()
+  }
+
+  changeSort() {
+    if (!this.courseList) return;
+
+    switch (this.selectedSort) {
+      case 'popular':
+        this.courseList.sort((a, b) => {
+          if(b.enrollmentsCount === undefined || a.enrollmentsCount === undefined) {
+            console.log('hey')
+            return -1;
+          }
+          return (b.enrollmentsCount || 0) - (a.enrollmentsCount || 0);
+        });
+        break;
+
+      case 'rated':
+        this.courseList.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+        break;
+
+      case 'newest':
+        this.courseList.sort((a, b) => {
+          if(!b.createdAt || !a.createdAt) {
+            return -1;
+          }
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        });
+        break;
+    }
+
+    // Update the filtered data after sorting
+    this.applyFilters();
+  }
+
+  updatePagination() {
+    if (!this.dataSource?.filteredData) return;
+    this.totalPages = Math.ceil(this.dataSource.filteredData.length / this.coursesPerPage);
+    this.paginatedCourses = this.getPaginatedCourses();
+  }
+
+  getPaginatedCourses(): any[] {
+    const startIndex = (this.currentPage - 1) * this.coursesPerPage;
+    return this.dataSource.filteredData.slice(startIndex, startIndex + this.coursesPerPage);
+  }
+
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.paginatedCourses = this.getPaginatedCourses();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.changePage(this.currentPage + 1);
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.changePage(this.currentPage - 1);
+    }
   }
 }
