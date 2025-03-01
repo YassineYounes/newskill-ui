@@ -10,6 +10,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CourseService} from "./services/course.service";
 import {InstructorService} from "./services/instructor.service";
 import {CategoryService} from "./services/category.service";
+import {UserService} from "./services/user.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     CourseService,
     InstructorService,
+    UserService,
     CategoryService
   ],
   bootstrap: [AppComponent]

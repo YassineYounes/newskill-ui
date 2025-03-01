@@ -1,0 +1,84 @@
+<div class="breadcrumb-bar breadcrumb-bar-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="breadcrumb-list">
+          <h5>Instructor</h5>
+          <h2 class="breadcrumb-title">{{user.title}} {{ user.fullName }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="stickybar" style="width: 25%">
+        <div class="settings-widget dash-profile">
+          <div class="settings-menu">
+            <div class="profile-bg">
+              <div class="profile-img">
+                <img alt="Img" src="{{environment.courseThumbnailsUrl + user.avatar}}">
+              </div>
+            </div>
+            <div class="profile-group">
+              <div class="profile-name text-center">
+                <h4>Eugene Andre</h4>
+                <p>Instructor</p>
+                <a [href]="user.website" target="_blank" *ngIf="user.website" class="add-course btn-primary"><i class="fa fa-link"></i> Website</a>
+                <a [href]="'https://www.linkedin.com/in/' + user.linkedin" target="_blank" *ngIf="user.linkedin" class="add-course btn-primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a [href]="'https://x.com/' + user.twitter" target="_blank" *ngIf="user.twitter" class="add-course btn-primary"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+                <a [href]="'https://youtube.com/' + user.youtube" target="_blank" *ngIf="user.youtube" class="add-course btn-primary"><i class="fa-brands fa-youtube"></i> Youtube</a>
+                <a [href]="'https://instagram.com/' + user.instagram" target="_blank" *ngIf="user.instagram" class="add-course btn-primary"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a [href]="'https://facebook.com/' + user.facebook" target="_blank" *ngIf="user.facebook" class="add-course btn-primary"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                <a [href]="'https://tiktok.com/' + user.tiktok" target="_blank" *ngIf="user.tiktok" class="add-course btn-primary"><i class="fa-brands fa-tiktok"></i> Tiktok</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-9 col-lg-9">
+        <div class="settings-widget card-details mb-0">
+          <div class="settings-menu p-0">
+            <div class="checkout-form personal-address">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="contact-info">
+                    <h6>First Name</h6>
+                    <p>{{user.firstName}}</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="contact-info">
+                    <h6>Last Name</h6>
+                    <p>{{user.lastName}}</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="contact-info">
+                    <h6>Registration Date</h6>
+                    <p>{{user.createdAt | date}}</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="contact-info">
+                    <h6>Email</h6>
+                    <p>{{user.email}}</p>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="contact-info mb-0">
+                    <h6>About me</h6>
+                    <p> {{user.bio}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Instructor profile -->
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->

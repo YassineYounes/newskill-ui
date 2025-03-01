@@ -72,6 +72,13 @@ const routes: Routes = [
             (m) => m.PrivacyPolicyModule
           ),
       },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./profile/profile.module').then(
+            (m) => m.ProfileModule
+          ),
+      },
     ],
   },
   {

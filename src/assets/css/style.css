@@ -24369,19 +24369,19 @@ ul li {
 
 .add-course.btn-primary {
     display: block;
-    background: #ff4667;
+    background: transparent;
+    color: #ff4667;
     border: 1px solid #ff4667;
-    padding: 10px 15px;
+    padding: 5px;
     border-radius: 5px;
-    margin-top: 24px;
-    color: #fff;
+    margin-top: 12px;
 }
 
 .add-course.btn-primary:hover,
 .add-course.btn-primary.active:not(:disabled):not(.disabled),
 .add-course.btn-primary:active:not(:disabled):not(.disabled) {
-    background: #fff;
-    color: #ff4667;
+    color: #fff;
+    background: #ff4667;
 }
 
 .table-course-detail .course-table-img {

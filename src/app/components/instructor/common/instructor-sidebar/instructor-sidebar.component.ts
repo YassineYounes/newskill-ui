@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {CommonService} from 'src/app/shared/service/common/common.service';
 import {routes} from 'src/app/shared/service/routes/routes';
+import {User} from "../../../../models/user";
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-instructor-sidebar',
@@ -8,6 +10,7 @@ import {routes} from 'src/app/shared/service/routes/routes';
   styleUrl: './instructor-sidebar.component.scss',
 })
 export class InstructorSidebarComponent {
+  @Input() user: User = {};
   public routes = routes;
   public base = '';
   public page = '';
@@ -24,4 +27,6 @@ export class InstructorSidebarComponent {
       this.last = last;
     });
   }
+
+  protected readonly environment = environment;
 }
