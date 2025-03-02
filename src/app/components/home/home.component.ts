@@ -6,17 +6,14 @@ import * as AOS from 'aos';
 import {routes} from 'src/app/shared/service/routes/routes';
 import {
   topCategories,
-  trendingCourses,
   featuredInstructor,
   latestBlogs,
-  featuredCourses,
   career,
   universitiesCompanies,
   testimonial,
 } from 'src/app/models/model';
 import {Course} from "../../models/course";
 import {CourseService} from "../../services/course.service";
-import {MatTableDataSource} from "@angular/material/table";
 import {environment} from "../../../environments/environment";
 
 interface data {
@@ -29,9 +26,10 @@ interface data {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  protected readonly environment = environment;
   public routes = routes;
   public topCategories: topCategories[] = [];
-  public trendingCourses: trendingCourses[] = [];
+  public trendingCourses: Course[] = [];
   public featuredInstructor: featuredInstructor[] = [];
   public latestBlogs: latestBlogs[] = [];
   public featuredCourses: Course[] = [];
@@ -128,10 +126,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private DataService: DataService, public router: Router, private courseService: CourseService,) {
     this.topCategories = this.DataService.topCategories;
-    this.trendingCourses = this.DataService.trendingCourses;
     this.featuredInstructor = this.DataService.featuredInstructor;
     this.latestBlogs = this.DataService.latestBlogs;
-    // this.featuredCourses = this.DataService.featuredCourses;
     this.career = this.DataService.career;
     this.universitiesCompanies = this.DataService.universitiesCompanies;
     this.testimonial = this.DataService.testimonial;
@@ -140,30 +136,20 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     AOS.init({duration: 1200, once: true});
     this.getCourseList();
+    this.getTrendingCourses();
   }
 
   private getCourseList(): void {
     this.featuredCourses = [];
     this.courseService.getCourseList().subscribe((res: Course[]) => {
       this.featuredCourses = res.slice(0, 6);
-      // this.latestCourses = res.slice(0, 5);
-      // this.totalData = res.length;
-      // this.calculateTotalPages(this.totalData, this.pageSize);
-      // this.freeCourses = res.filter((re: Course) => {
-      //   return re.isFree
-      // });
-      // this.payedCourses = res.filter((re: Course) => {
-      //   return !re.isFree
-      // });
-      // this.dataSource = new MatTableDataSource<Course>(this.courseList);
-      // this.changeSort();
-      // this.updatePagination();
     });
   }
 
-  toggleClass(slide: data) {
-    slide.active = !slide.active;
+  private getTrendingCourses(): void {
+    this.trendingCourses = [];
+    this.courseService.getTrendingCourses().subscribe((res: Course[]) => {
+      this.trendingCourses = res.slice(0, 9);
+    });
   }
-
-  protected readonly environment = environment;
 }

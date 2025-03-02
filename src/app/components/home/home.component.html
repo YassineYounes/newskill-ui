@@ -152,6 +152,7 @@
   <div class="container">
     <div class="section-header aos" data-aos="fade-up">
       <div class="section-sub-head">
+        <span>Learners are viewing</span>
         <h2>Popular Courses</h2>
       </div>
       <div class="all-btn all-category d-flex align-items-center">
@@ -267,96 +268,61 @@
   <div class="container">
     <div class="section-header aos" data-aos="fade-up">
       <div class="section-sub-head">
-        <span>What’s New</span>
         <h2>TRENDING COURSES</h2>
       </div>
       <div class="all-btn all-category d-flex align-items-center">
-        <a [routerLink]="routes.page_course_list" class="btn btn-primary"
-        >All Courses</a
-        >
+        <a [routerLink]="routes.page_course_list" class="btn btn-primary">All Courses</a>
       </div>
-    </div>
-    <div class="section-text aos" data-aos="fade-up">
-      <p class="mb-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean
-        accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse
-        imperdiet.
-      </p>
     </div>
     <div>
       <div class="trending-course" data-aos="fade-up">
         <owl-carousel-o [options]="trendingCoursesOwlOptions">
-          @for (slide of trendingCourses; track slide) {
+          @for (course of trendingCourses; track course) {
             <ng-template carouselSlide>
               <div class="course-box trend-box">
                 <div class="product trend-product">
                   <div class="product-img">
                     <a [routerLink]="routes.page_course_details">
-                      <img class="img-fluid" alt="" [src]="slide.img1"/>
+                      <img [src]="environment.resourcesUrl + course.thumbnail" alt="" class="img-fluid">
                     </a>
-                    <div class="price">
-                      <h3>
-                        {{ slide.newPrice }} <span>{{ slide.oldPrice }}</span>
-                      </h3>
-                    </div>
                   </div>
                   <div class="product-content">
                     <div class="course-group d-flex">
                       <div class="course-group-img d-flex">
-                        <a [routerLink]="routes.instructor_instructor_profile"
-                        ><img [src]="slide.img2" alt="" class="img-fluid"
-                        /></a>
+                        <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">
+                          <img [src]="environment.resourcesUrl + course.instructor?.avatar" alt="" class="img-fluid">
+                        </a>
                         <div class="course-name">
                           <h4>
-                            <a
-                                [routerLink]="
-                                routes.instructor_instructor_profile
-                              "
-                            >{{ slide.name }}</a
-                            >
+                            <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">{{ course.instructor?.fullName }}</a>
                           </h4>
-                          <p>{{ slide.role }}</p>
+                          <p>{{ course.instructor?.title }}</p>
                         </div>
                       </div>
-                      <div
-                          class="course-share d-flex align-items-center justify-content-center"
-                      >
-                        <a
-                            href="javascript:void(0)"
-                            (click)="toggleClass(slide)"
-                        ><i
-                            class="fa-heart"
-                            [ngClass]="slide.active ? 'fa-solid' : 'fa-regular'"
-                        ></i
-                        ></a>
+                      <div class="course-share d-flex align-items-center justify-content-center">
+                        <a href="javascript:void(0)">
+                          <i class="fa-heart" [ngClass]="true ? 'fa-solid' : 'fa-regular'"></i>
+                        </a>
                       </div>
                     </div>
                     <h3 class="title">
-                      <a [routerLink]="routes.page_course_details">{{
-                              slide.subject
-                        }}</a>
+                      <a [routerLink]="routes.page_course_details + '/' + course.id">{{ course.title }}</a>
                     </h3>
                     <div class="course-info d-flex align-items-center">
                       <div class="rating-img d-flex align-items-center">
-                        <img [src]="slide.img3" alt="" class="img-fluid"/>
-                        <p>{{ slide.lesson }}</p>
+                        <img [src]="'assets/img/icon/icon-01.svg'" alt=""/>
+                        <p>{{ course.numberOfLessons }} Lessons</p>
                       </div>
                       <div class="course-view d-flex align-items-center">
-                        <img [src]="slide.img4" alt="" class="img-fluid"/>
-                        <p>{{ slide.time }}</p>
+                        <img [src]="'assets/img/icon/icon-02.svg'" alt=""/>
+                        <p>{{ course.courseLength | durationFormat }}</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
-                      <div class="rating m-0">
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="d-inline-block average-rating"><span>4.0</span> (15)</span>
-                      </div>
+                      <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
                       <div class="all-btn all-category d-flex align-items-center">
-                        <a [routerLink]="routes.page_checkout" class="btn btn-primary">BUY NOW</a>
+                        <a *ngIf="!course.isFree" [routerLink]="routes.page_checkout" class="btn btn-primary">{{ course.price | tndCurrency }}</a>
+                        <a *ngIf="course.isFree" [routerLink]="routes.page_course_details + '/' + course.id" class="btn btn-primary">FREE</a>
                       </div>
                     </div>
                   </div>

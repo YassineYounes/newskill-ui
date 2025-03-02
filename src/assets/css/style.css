@@ -2676,6 +2676,15 @@ b {
     color: #fff;
 }
 
+.owl-item .product:hover .course-info p,
+.owl-item .product:hover .course-name p,
+.owl-item .product:hover .btn-primary,
+.owl-item .product:hover .course-name h4 a,
+.owl-item .product:hover .product-content h3 a,
+.owl-item .product:hover .course-share i {
+    color: #fff;
+}
+
 .product:hover .course-name h4 a:hover,
 .product:hover .product-content h3 a:hover {
     color: #f66962;

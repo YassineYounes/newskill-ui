@@ -21,7 +21,8 @@ import {TndCurrencyPipe} from "../../../../pipes/tnd-currency.pipe";
   ],
   exports: [
     DurationFormatPipe,
-    TndCurrencyPipe
+    TndCurrencyPipe,
+    TimeFormatPipe
   ],
   imports: [
     CommonModule,
