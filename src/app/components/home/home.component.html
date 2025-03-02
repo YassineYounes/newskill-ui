@@ -378,31 +378,6 @@
     </div>
   </div>
 </section>
-<section class="section lead-companies">
-  <div class="container">
-    <div class="section-header aos" data-aos="fade-up">
-      <div class="section-sub-head feature-head text-center">
-        <span>Trusted By</span>
-        <h2>500+ Leading Universities And Companies</h2>
-      </div>
-    </div>
-    <div class="lead-group aos" data-aos="fade-up">
-      <div data-aos="fade-up">
-        <owl-carousel-o [options]="universitiesCompaniesOwlOptions">
-          @for (slide of universitiesCompanies; track slide) {
-            <ng-template carouselSlide>
-              <div class="item">
-                <div class="lead-img">
-                  <img class="img-fluid" alt="" [src]="slide.img"/>
-                </div>
-              </div>
-            </ng-template>
-          }
-        </owl-carousel-o>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="section share-knowledge">
   <div class="container">
     <div class="row">

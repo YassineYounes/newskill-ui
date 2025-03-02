@@ -11,6 +11,7 @@ import {routes} from 'src/app/shared/service/routes/routes';
 export class FooterComponent implements OnInit {
   public base = '';
   public routes = routes;
+  public currentYear: number = new Date().getFullYear();
 
   constructor(private common: CommonService) {
     this.common.base.subscribe((res: string) => {
