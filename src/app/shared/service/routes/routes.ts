@@ -100,7 +100,7 @@ export class routes {
   }
 
   public static get instructor_instructor_profile(): string {
-    return this.instructor + 'instructor-profile';
+    return this.baseUrl + '/profile/';
   }
 
   public static get instructor_withdrawal_instructor(): string {

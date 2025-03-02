@@ -118,12 +118,12 @@
                   <div class="product-content">
                     <div class="course-group d-flex">
                       <div class="course-group-img d-flex">
-                        <a [routerLink]="routes.instructor_instructor_profile">
+                        <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">
                           <img [src]="environment.courseThumbnailsUrl + course.thumbnail" alt="" class="img-fluid">
                         </a>
                         <div class="course-name">
                           <h4>
-                            <a [routerLink]="routes.instructor_instructor_profile">{{ course.instructor?.fullName }}</a>
+                            <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">{{ course.instructor?.fullName }}</a>
                           </h4>
                           <p>{{ course.instructor?.title }}</p>
                         </div>

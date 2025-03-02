@@ -4,7 +4,8 @@
       <div class="col-md-12 col-12">
         <div class="breadcrumb-list">
           <h5>Instructor</h5>
-          <h2 class="breadcrumb-title">{{user.title}} {{ user.fullName }}</h2>
+          <h2 class="breadcrumb-title">{{user.abv}} {{ user.fullName }}</h2>
+          <app-star-rating [rating]="user.rating"></app-star-rating>
         </div>
       </div>
     </div>
@@ -23,8 +24,7 @@
             </div>
             <div class="profile-group">
               <div class="profile-name text-center">
-                <h4>Eugene Andre</h4>
-                <p>Instructor</p>
+                <p>{{user.title}}</p>
                 <a [href]="user.website" target="_blank" *ngIf="user.website" class="add-course btn-primary"><i class="fa fa-link"></i> Website</a>
                 <a [href]="'https://www.linkedin.com/in/' + user.linkedin" target="_blank" *ngIf="user.linkedin" class="add-course btn-primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 <a [href]="'https://x.com/' + user.twitter" target="_blank" *ngIf="user.twitter" class="add-course btn-primary"><i class="fa-brands fa-x-twitter"></i> Twitter</a>

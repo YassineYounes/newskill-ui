@@ -1,4 +1,6 @@
 export interface User {
+  rating?: number;
+  abv?: string;
   linkedin?: string;
   fullName?: string;
   title?: string;
