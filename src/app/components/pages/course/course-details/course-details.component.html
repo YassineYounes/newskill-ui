@@ -14,7 +14,7 @@
                           <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
                           <li aria-current="page" class="breadcrumb-item">
                             <a [routerLink]="routes.page_course_list">Courses</a></li>
-                          <li aria-current="page" class="breadcrumb-item active">The Complete Web Developer Course 2.0
+                          <li aria-current="page" class="breadcrumb-item active">{{course.title}}
                           </li>
                         </ol>
                       </nav>
@@ -35,7 +35,7 @@
                   </div>
                 </div>
                 <p>
-                  Created by <a href="https://www.youtube.com/embed/1trvO6dqQUI">{{ course.instructor?.fullName }}</a>
+                  Created by <a [routerLink]="routes.instructor_instructor_profile + instructor?.id">{{ instructor?.fullName }}</a>
                 </p>
                 <p class="mb-0">
                   <img alt="" src="assets/img/icon/timer-icon.svg">
@@ -48,7 +48,7 @@
                 <div class="play-icon">
                   <i class="fa-solid fa-play"></i>
                 </div>
-                <img alt="" class="img-fluid" src="{{environment.courseThumbnailsUrl + course.thumbnail}}">
+                <img alt="" class="img-fluid" src="{{environment.resourcesUrl + course.thumbnail}}">
               </a>
             </div>
           </div>
@@ -125,51 +125,36 @@
             <div class="instructor-wrap">
               <div class="about-instructor">
                 <div class="abt-instructor-img">
-                  <a [routerLink]="routes.instructor_instructor_profile">
-                    <img alt="img" class="img-fluid" src="assets/img/user/user1.jpg">
+                  <a [routerLink]="routes.instructor_instructor_profile + instructor?.id">
+                    <img [src]="environment.resourcesUrl + instructor?.avatar" alt="" class="img-fluid">
                   </a>
                 </div>
                 <div class="instructor-detail">
-                  <h5><a [routerLink]="routes.instructor_instructor_profile">Nicole Brown</a></h5>
-                  <p>UX/UI Designer</p>
+                  <h5><a [routerLink]="routes.instructor_instructor_profile + instructor?.id">{{instructor?.fullName}}</a></h5>
+                  <p>{{instructor?.title}}</p>
+                  <app-star-rating [rating]="instructor?.rating"></app-star-rating>
                 </div>
-              </div>
-              <div style="display: flex">
-                <app-star-rating [rating]="2.6"></app-star-rating>
-                <span style="margin-top: -5px"> 2.6 Instructor Rating</span>
               </div>
             </div>
             <div class="course-info d-flex align-items-center">
               <div class="cou-info">
                 <img alt="" src="assets/img/icon/play.svg">
-                <p>5 Courses</p>
+                <p>{{instructor.teachingCoursesCount}} Courses</p>
               </div>
               <div class="cou-info">
                 <img alt="" src="assets/img/icon/icon-01.svg">
-                <p>{{ course.numberOfLessons }} Lesson</p>
+                <p>{{ instructor.teachingLessonsCount }} Lesson</p>
               </div>
               <div class="cou-info">
-                <img alt="" src="assets/img/icon/icon-02.svg">
-                <p>9hr 30min</p>
+                <i class="fas fa-star filled me-1" style="color: #f66962"></i>
+                <p>{{instructor.reviews.length}} Reviews</p>
               </div>
               <div class="cou-info">
-                <img alt="" src="assets/img/icon/people.svg">
-                <p>270,866 students enrolled</p>
+                <img alt="" src="assets/img/icon/people.svg" >
+                <p>{{instructor.enrollmentCount}} students enrolled</p>
               </div>
             </div>
-            <p>UI/UX Designer, with 7+ Years Experience. Guarantee of High Quality Work.</p>
-            <p>Skills: Web Design, UI Design, UX/UI Design, Mobile Design, User Interface Design, Sketch,
-              Photoshop, GUI, Html, Css, Grid Systems, Typography, Minimal, Template, English, Bootstrap,
-              Responsive Web Design, Pixel Perfect, Graphic Design, Corporate, Creative, Flat, Luxury and
-              much more.</p>
-            <p>Available for:</p>
-            <ul>
-              <li>1. Full Time Office Work</li>
-              <li>2. Remote Work</li>
-              <li>3. Freelance</li>
-              <li>4. Contract</li>
-              <li>5. Worldwide</li>
-            </ul>
+            <p>{{instructor.bio}}</p>
           </div>
         </div>
         <!-- /Instructor -->

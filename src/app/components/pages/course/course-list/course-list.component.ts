@@ -44,7 +44,7 @@ export class CourseListComponent implements OnInit {
   public selectedPayedFilter = true;
   public displayType = 'grid';
   public currentPage = 1;
-  public paginatedCourses: any[] = [];
+  public paginatedCourses: Course[] = [];
   public coursesPerPage: number = 9;
   public totalPages: number = 1;
 

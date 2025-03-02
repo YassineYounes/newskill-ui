@@ -5,5 +5,5 @@
 export const environment = {
   production: false,
   baseUrlWs: 'http://127.0.0.1:3000',
-  courseThumbnailsUrl: 'http://127.0.0.1:3000/uploads/courses/'
+  resourcesUrl: 'http://127.0.0.1:3000/uploads/courses/'
 };

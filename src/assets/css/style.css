@@ -36195,3 +36195,9 @@ a.ck.ck-button:not(.ck-disabled):hover {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.instructor-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

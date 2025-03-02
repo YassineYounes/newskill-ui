@@ -5,4 +5,6 @@ export interface Instructor {
   bio?: string;
   firstName?: any;
   lastName?: any;
+  avatar?: any;
+  title?: any;
 }

@@ -1,4 +1,8 @@
 export interface User {
+  enrollmentCount?: number;
+  reviews?: any;
+  teachingCoursesCount?: number;
+  teachingLessonsCount?: number;
   rating?: number;
   abv?: string;
   linkedin?: string;

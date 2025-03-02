@@ -1,4 +1,4 @@
-import {Instructor} from "./instructor";
+import {User} from "./user";
 
 export interface Course {
   createdAt?: string;
@@ -6,7 +6,8 @@ export interface Course {
   isFree?: boolean;
   level?: string;
   reviewsCount?: number;
-  instructor?: Instructor;
+  instructor?: User;
+  instructorId?: string;
   inWishList?: boolean;
   id?: string;
   reviews?: any;

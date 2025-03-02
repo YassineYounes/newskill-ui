@@ -56,7 +56,7 @@
                 <div class="product">
                   <div class="product-img">
                     <a [routerLink]="routes.page_course_details + '/' + course.id">
-                      <img class="img-fluid" alt="" [src]="environment.courseThumbnailsUrl + course.thumbnail">
+                      <img class="img-fluid" alt="" [src]="environment.resourcesUrl + course.thumbnail">
                     </a>
                   </div>
                   <div class="product-content">
@@ -86,11 +86,12 @@
                     <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
                     <div class="course-group d-flex mb-0">
                       <div class="course-group-img d-flex">
-                        <a [routerLink]="routes.instructor_instructor_profile"><img [src]="environment.courseThumbnailsUrl + course.thumbnail" alt=""
-                                                                                    class="img-fluid"></a>
+                        <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">
+                          <img [src]="environment.resourcesUrl + course.instructor?.avatar" alt="" class="img-fluid">
+                        </a>
                         <div class="course-name">
                           <h4>
-                            <a [routerLink]="routes.instructor_instructor_profile">{{ course.instructor?.fullName }}</a>
+                            <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">{{ course.instructor?.fullName }}</a>
                           </h4>
                           <p>{{ course.instructor?.title }}</p>
                         </div>
@@ -112,20 +113,20 @@
                 <div class="product">
                   <div class="product-img">
                     <a [routerLink]="routes.page_course_details + '/' + course.id">
-                      <img class="img-fluid" alt="" [src]="environment.courseThumbnailsUrl + course.thumbnail">
+                      <img class="img-fluid" alt="" [src]="environment.resourcesUrl + course.thumbnail">
                     </a>
                   </div>
                   <div class="product-content">
                     <div class="course-group d-flex">
                       <div class="course-group-img d-flex">
                         <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">
-                          <img [src]="environment.courseThumbnailsUrl + course.thumbnail" alt="" class="img-fluid">
+                          <img [src]="environment.resourcesUrl + course.instructor?.avatar" alt="" class="img-fluid">
                         </a>
                         <div class="course-name">
                           <h4>
                             <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">{{ course.instructor?.fullName }}</a>
                           </h4>
-                          <p>{{ course.instructor?.title }}</p>
+                          <p class="instructor-title">{{ course.instructor?.title }}</p>
                         </div>
                       </div>
                       <div class="course-share d-flex align-items-center justify-content-center">
@@ -274,7 +275,7 @@
                     <li>
                       <div class="post-thumb">
                         <a [routerLink]="routes.page_course_details + '/' + course.id">
-                          <img class="img-fluid latest-courses-images" [src]="environment.courseThumbnailsUrl + course.thumbnail" alt="">
+                          <img class="img-fluid latest-courses-images" [src]="environment.resourcesUrl + course.thumbnail" alt="">
                         </a>
                       </div>
                       <div class="post-info" [ngClass]="{'free-color': course.isFree }">
