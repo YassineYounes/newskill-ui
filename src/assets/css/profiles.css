@@ -1,0 +1,780 @@
+
+/*-----------------
+	48. Student Profile
+-----------------------*/
+
+.settings-widget.account-settings .settings-menu {
+    border-radius: 5px;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+.settings-widget {
+    border: 1px solid #e9ecef;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.settings-menu {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.account-settings .settings-menu h3 {
+    font-size: 20px;
+    color: #002058;
+    font-weight: 600;
+    margin: 0 0 20px;
+}
+
+.account-settings .settings-menu ul {
+    display: block;
+    border: 0;
+    padding: 0px;
+    margin: 0 0 40px;
+    list-style: none;
+}
+
+.account-settings .settings-menu ul:last-child {
+    margin-bottom: 0;
+}
+
+.account-settings .settings-menu ul li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.account-settings .settings-menu ul li:last-child {
+    margin-bottom: 0;
+}
+
+.account-settings .settings-menu ul li a {
+    color: #685f78;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+    border: 0;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.account-settings .settings-menu ul li:hover,
+.account-settings .settings-menu ul li:focus {
+    color: #303030;
+}
+
+.account-settings .settings-menu ul li:hover a,
+.account-settings .settings-menu ul li.active a {
+    color: #ff4667;
+}
+
+.account-settings .settings-menu ul li a i {
+    margin-right: 8px;
+}
+
+.settings-widget.account-settings {
+    margin-bottom: 0;
+}
+
+.go-dashboard .btn-primary {
+    background: #392c7d;
+    border: 1px solid #392c7d;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    padding: 13px 28px;
+}
+
+.go-dashboard .btn-primary:hover {
+    opacity: 0.86;
+}
+
+.profile-bg img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.profile-bg {
+    position: relative;
+}
+
+.profile-bg h5 {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 3px 10px;
+    color: #000000;
+    font-size: 14px;
+    right: 20px;
+    top: 20px;
+    margin: 0;
+}
+
+.dash-profile .settings-menu {
+    padding: 24px;
+}
+
+.dash-profile .profile-img {
+    text-align: center;
+}
+
+.profile-img img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+}
+
+.profile-name h4 {
+    font-size: 20px;
+    color: #22100d;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-name h4 a {
+    color: #002058;
+}
+
+.profile-name p {
+    color: #685f78;
+    margin-bottom: 0;
+}
+
+.profile-group {
+    padding: 15px 0 0;
+}
+
+.profile-heading {
+    padding: 24px 24px 19px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.profile-heading h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    margin-top: 0;
+}
+
+.profile-heading p {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.profile-details .course-group {
+    padding: 25px;
+    border-bottom: 1px solid rgb(199 199 199 / 25%);
+}
+
+.course-box .product {
+    border: 1px solid #e9ecef;
+}
+
+.profile-share {
+    margin-left: auto;
+}
+
+.profile-share .btn-success {
+    background: transparent;
+    color: #159f46;
+    border: 1px solid #159f46;
+    margin-right: 10px;
+    border-radius: 0;
+    padding: 7px 22px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.profile-share .btn-success:hover {
+    background: #159f46;
+    color: #fff;
+    border: 1px solid #159f46;
+}
+
+.profile-share .btn-danger {
+    background: transparent;
+    color: #ff0000;
+    border-radius: 0;
+    padding: 7px 22px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.profile-share .btn-danger:hover {
+    background: #ff0000;
+    color: #fff;
+    border: 1px solid #ff0000;
+}
+
+.profile-details .course-name h4 a {
+    color: #392c7d;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profile-details .course-name h4 a:hover {
+    color: #f66962;
+}
+
+.profile-details .course-name p {
+    color: #303030;
+    font-size: 14px;
+}
+
+.profile-details .course-group-img img {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.checkout-form.personal-address {
+    padding: 24px;
+    margin-bottom: 0;
+}
+
+.personal-address h4 {
+    font-size: 20px;
+    color: #392c7d;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.personal-address p {
+    color: #685f78;
+}
+
+.country-select {
+    color: #c4c4c4;
+    font-size: 14px;
+}
+
+.update-profile {
+    margin-top: 10px;
+}
+
+.update-profile .btn-primary {
+    font-size: 16px;
+    padding: 7px 15px;
+    font-weight: 700;
+    border: 1px solid #ff875a;
+    border-radius: 5px;
+    min-width: 200px;
+}
+
+.update-profile .btn-primary:hover {
+    background-color: #fff;
+    border: 1px solid #fc7f50;
+    color: #fc7f50;
+}
+
+.border-line {
+    border-bottom: 1px solid rgb(199 199 199 / 25%);
+}
+
+.personal-info-head p span {
+    color: #f66962;
+}
+
+.save-social .btn-primary {
+    min-width: 237px;
+}
+
+.secure-alert .check-on label {
+    margin-bottom: 0;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.secure-alert .check-on {
+    margin: 0px 0px 25px;
+}
+
+.un-subscribe {
+    padding: 25px;
+}
+
+.un-subscribe .btn-danger {
+    background: transparent;
+    color: #ff0000;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.un-subscribe .btn-danger:hover {
+    background: #ff0000;
+    color: #fff;
+}
+
+.link-accounts.personal-form {
+    border: 0;
+    padding: 25px;
+    border-radius: 0;
+    background: transparent;
+}
+
+.comman-space {
+    padding: 25px;
+}
+
+.edit-new-address {
+    margin-bottom: 30px;
+}
+
+.edit-new-address label {
+    font-size: 14px;
+    color: #303030;
+    font-weight: 400;
+}
+
+.wallet-radio-blk .custom_radio {
+    margin-bottom: 0px;
+}
+
+.wallet-radio-blk .custom_radio input:checked ~ .checkmark {
+    background-color: #ff5364;
+}
+
+.wallet-radio-blk .custom_radio .checkmark:after {
+    background: #fff;
+}
+
+.wallet-radio-blk .custom_radio input:checked ~ .checkmark:after {
+    opacity: 1;
+}
+
+.address-edits {
+    margin-left: auto;
+}
+
+.edit-new-address .form-check-input {
+    width: 20px;
+    height: 20px;
+}
+
+.address-edits .edit-btn-blk {
+    padding: 5px 7px;
+    background-color: #455a64;
+    border: 1px solid #455a64;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.add-new-address {
+    margin-bottom: 40px;
+}
+
+.grad-border .btn-primary {
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image: linear-gradient(#fff, #fff),
+    linear-gradient(to right, #392c7d, #ff5364);
+    border-radius: 10px;
+}
+
+.grad-border .btn-default {
+    background: rgba(227, 227, 227, 0.41);
+    border-radius: 10px;
+    color: #c7c7c7;
+    min-width: 173px;
+    padding: 7px 15px;
+    cursor: not-allowed;
+}
+
+.add-new-address .btn-primary {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff5364;
+    padding: 8px 20px;
+}
+
+.add-new-address .btn-primary:hover:focus,
+.active-change-plan .btn-primary:hover:focus,
+.upgrade-now .btn-primary:hover:focus {
+    color: #fff;
+}
+
+.upgrade-now .btn-primary {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff5364;
+    padding: 8px 16px;
+}
+
+.upgrade-now {
+    margin-left: auto;
+}
+
+.active-btns .btn-success {
+    background-color: #159f46;
+    border: 1px solid #159f46;
+    color: #fff;
+    font-size: 14px;
+    padding: 1px 11px;
+}
+
+.active-btns .btn-danger {
+    color: #fff;
+    font-size: 14px;
+    padding: 1px 11px;
+}
+
+.subscribtion-active h5 {
+    color: #303030;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0px;
+}
+
+.subscribtion-active p {
+    color: #303030;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.active-change-plan {
+    margin-left: auto;
+}
+
+.active-change-plan .btn-primary {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff5364;
+    padding: 8px 39px;
+}
+
+.bill-widget {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.monthly-subscribtion.comman-space {
+    padding-bottom: 15px;
+}
+
+.monthly-group {
+    margin-bottom: 30px;
+}
+
+.bill-name-group h5 {
+    font-size: 14px;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.bill-name-group p {
+    font-size: 14px;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.plan-icons i {
+    font-size: 18px;
+}
+
+.plan-icons {
+    background: #ff875a;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+}
+
+/*-----------------
+    47. Instructor Profile
+-----------------------*/
+
+.btn-dark {
+    font-weight: 600;
+    background: #392c7d;
+    border: 1px solid #392c7d;
+    color: #fff;
+    border-radius: 5px;
+    padding: 12px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+}
+
+.btn-dark:hover {
+    background: #fff;
+    border: 1px solid #392c7d;
+    color: #392c7d;
+}
+
+.btn-black {
+    font-weight: 600;
+    background: #263238;
+    border: 1px solid #263238;
+    color: #fff;
+    border-radius: 5px;
+    padding: 12px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+}
+
+.btn-black:hover {
+    background: #fff;
+    border: 1px solid #263238;
+    color: #263238;
+}
+
+.btn-success-dark {
+    font-weight: 600;
+    background: #159f46;
+    border: 1px solid #159f46;
+    color: #fff;
+    border-radius: 5px;
+    padding: 12px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+}
+
+.btn-success-dark:hover {
+    background: #fff;
+    border: 1px solid #159f46;
+    color: #159f46;
+}
+
+.instructor-profile {
+    text-align: left;
+}
+
+.instructor-profile-pic {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    border: 5px solid #ffffff;
+    margin-right: 10px;
+}
+
+.instructor-profile-content h4 {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.instructor-profile-content h4 a {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.instructor-profile-content h4 a:hover {
+    color: #f66962;
+}
+
+.instructor-profile-content h4 span {
+    background: #fff;
+    color: #000000;
+    padding: 2px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.instructor-profile-content p {
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.instructor-profile-menu {
+    background: rgba(10, 20, 47, 0.33);
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-align: left;
+    max-width: 480px;
+    margin-left: auto;
+}
+
+.instructor-profile-menu ul {
+    justify-content: space-between;
+}
+
+.instructor-profile-menu-img {
+    margin-right: 10px;
+}
+
+.instructor-profile-menu-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.instructor-profile-menu-content p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.instructor-profile-text {
+    text-align: left;
+    padding-top: 30px;
+}
+
+.instructor-profile-text p {
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.instructor-card .card-header {
+    background: transparent;
+    border-bottom: 1px solid rgb(199 199 199 / 25%);
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: space-between;
+}
+
+.instructor-card .card-header h4 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #392c7d;
+    margin-bottom: 0;
+}
+
+.instructor-card .btn {
+    font-size: 14px;
+    min-width: 170px;
+    padding: 13px 15px;
+}
+
+.instructor-card .card-body {
+    padding: 20px;
+}
+
+.instructor-grid {
+    background: #ffffff;
+    border: 1px solid rgb(199 199 199 / 25%);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.instructor-grid .product {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.instructor-grid .product-img {
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px;
+    margin-right: 0;
+    width: 240px;
+    border-radius: 10px;
+}
+
+.instructor-grid .instructor-product-content {
+    margin-left: 15px;
+}
+
+.instructor-grid .instructor-product-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+    font-family: "Poppins", sans-serif;
+    max-width: 460px;
+    line-height: 30px;
+}
+
+.instructor-grid .instructor-product-content h3 a {
+    color: #000;
+}
+
+.instructor-grid .instructor-product-content h3 a:hover {
+    color: #f66962;
+}
+
+.instructor-grid .course-view {
+    margin-left: 30px;
+}
+
+.instructor-grid .course-info p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.latest-courses-images {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.multiline-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.instructor-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

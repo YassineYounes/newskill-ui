@@ -14,6 +14,10 @@ import {
   universitiesCompanies,
   testimonial,
 } from 'src/app/models/model';
+import {Course} from "../../models/course";
+import {CourseService} from "../../services/course.service";
+import {MatTableDataSource} from "@angular/material/table";
+import {environment} from "../../../environments/environment";
 
 interface data {
   active?: boolean;
@@ -30,7 +34,7 @@ export class HomeComponent implements OnInit {
   public trendingCourses: trendingCourses[] = [];
   public featuredInstructor: featuredInstructor[] = [];
   public latestBlogs: latestBlogs[] = [];
-  public featuredCourses: featuredCourses[] = [];
+  public featuredCourses: Course[] = [];
   public career: career[] = [];
   public universitiesCompanies: universitiesCompanies[] = [];
   public testimonial: testimonial[] = [];
@@ -122,12 +126,12 @@ export class HomeComponent implements OnInit {
     infinite: true,
   };
 
-  constructor(private DataService: DataService, public router: Router) {
+  constructor(private DataService: DataService, public router: Router, private courseService: CourseService,) {
     this.topCategories = this.DataService.topCategories;
     this.trendingCourses = this.DataService.trendingCourses;
     this.featuredInstructor = this.DataService.featuredInstructor;
     this.latestBlogs = this.DataService.latestBlogs;
-    this.featuredCourses = this.DataService.featuredCourses;
+    // this.featuredCourses = this.DataService.featuredCourses;
     this.career = this.DataService.career;
     this.universitiesCompanies = this.DataService.universitiesCompanies;
     this.testimonial = this.DataService.testimonial;
@@ -135,13 +139,31 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     AOS.init({duration: 1200, once: true});
+    this.getCourseList();
+  }
+
+  private getCourseList(): void {
+    this.featuredCourses = [];
+    this.courseService.getCourseList().subscribe((res: Course[]) => {
+      this.featuredCourses = res.slice(0, 6);
+      // this.latestCourses = res.slice(0, 5);
+      // this.totalData = res.length;
+      // this.calculateTotalPages(this.totalData, this.pageSize);
+      // this.freeCourses = res.filter((re: Course) => {
+      //   return re.isFree
+      // });
+      // this.payedCourses = res.filter((re: Course) => {
+      //   return !re.isFree
+      // });
+      // this.dataSource = new MatTableDataSource<Course>(this.courseList);
+      // this.changeSort();
+      // this.updatePagination();
+    });
   }
 
   toggleClass(slide: data) {
     slide.active = !slide.active;
   }
 
-  directPath() {
-    this.router.navigate(['/pages/course/course-list']);
-  }
+  protected readonly environment = environment;
 }

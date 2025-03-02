@@ -163,76 +163,53 @@
     </div>
     <div class="course-feature">
       <div class="row">
-        @for (slide of featuredCourses; track slide) {
-          <div
-              class="col-lg-4 col-md-6 d-flex"
-          >
+        @for (course of featuredCourses; track course) {
+          <div class="col-lg-4 col-md-6 d-flex">
             <div class="course-box d-flex aos" data-aos="fade-up">
               <div class="product">
                 <div class="product-img">
-                  <a [routerLink]="routes.page_course_details">
-                    <img class="img-fluid" alt="" [src]="slide.img1"/>
+                  <a [routerLink]="routes.page_course_details + '/' + course.id">
+                    <img class="img-fluid" alt="" [src]="environment.resourcesUrl + course.thumbnail"/>
                   </a>
-                  <div class="price" [ngClass]="{ combo: slide.idle === 'FREE' }">
-                    <h3>{{ slide.idle }}</h3>
-                    <h3>
-                      {{ slide.amount1 }}<span>{{ slide.amount2 }}</span>
-                    </h3>
-                  </div>
                 </div>
                 <div class="product-content">
                   <div class="course-group d-flex">
                     <div class="course-group-img d-flex">
-                      <a [routerLink]="routes.instructor_instructor_profile"
-                      ><img [src]="slide.img2" alt="" class="img-fluid"
-                      /></a>
+                      <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">
+                        <img [src]="environment.resourcesUrl + course.instructor?.avatar" alt="" class="img-fluid">
+                      </a>
                       <div class="course-name">
                         <h4>
-                          <a
-                              [routerLink]="routes.instructor_instructor_profile"
-                          >{{ slide.name }}</a
-                          >
+                          <a [routerLink]="routes.instructor_instructor_profile + course.instructor?.id">{{ course.instructor?.fullName }}</a>
                         </h4>
                         <p>Instructor</p>
                       </div>
                     </div>
-                    <div
-                        class="course-share d-flex align-items-center justify-content-center"
-                    >
-                      <a href="javascript:void(0)" (click)="toggleClass(slide)"
-                      ><i
-                          class="fa-heart"
-                          [ngClass]="slide.active ? 'fa-solid' : 'fa-regular'"
-                      ></i
-                      ></a>
+                    <div class="course-share d-flex align-items-center justify-content-center">
+                      <a href="javascript:void(0)">
+                        <i class="fa-heart" [ngClass]="true ? 'fa-solid' : 'fa-regular'"></i>
+                      </a>
                     </div>
                   </div>
                   <h3 class="title instructor-text">
-                    <a [routerLink]="routes.page_course_details">{{
-                            slide.content
-                      }}</a>
+                    <a [routerLink]="routes.page_course_details + '/' + course.id">{{ course.title }}</a>
                   </h3>
                   <div class="course-info d-flex align-items-center">
                     <div class="rating-img d-flex align-items-center">
-                      <img [src]="slide.img3" alt=""/>
-                      <p>{{ slide.lesson }}</p>
+                      <img [src]="'assets/img/icon/icon-01.svg'" alt="">
+                      <p>{{ course.numberOfLessons }} Lessons</p>
                     </div>
                     <div class="course-view d-flex align-items-center">
-                      <img [src]="slide.img4" alt=""/>
-                      <p>{{ slide.time }}</p>
+                      <img [src]="'assets/img/icon/icon-02.svg'" alt=""/>
+                      <p>{{ course.courseLength | durationFormat }}</p>
                     </div>
                   </div>
                   <div class="d-flex align-items-center justify-content-between">
-                    <div class="rating m-0">
-                      <i class="fas fa-star filled"></i>
-                      <i class="fas fa-star filled"></i>
-                      <i class="fas fa-star filled"></i>
-                      <i class="fas fa-star filled"></i>
-                      <i class="fas fa-star"></i>
-                      <span class="d-inline-block average-rating"><span>4.0</span> (15)</span>
-                    </div>
+
+                    <app-star-rating [rating]="course.rating" [content]="course.rating + ' (' + course.reviewsCount + ')'"></app-star-rating>
                     <div class="all-btn all-category d-flex align-items-center">
-                      <a [routerLink]="routes.page_checkout" class="btn btn-primary">BUY NOW</a>
+                      <a *ngIf="!course.isFree" [routerLink]="routes.page_checkout" class="btn btn-primary">{{ course.price | tndCurrency }}</a>
+                      <a *ngIf="course.isFree" [routerLink]="routes.page_course_details + '/' + course.id" class="btn btn-primary">FREE</a>
                     </div>
                   </div>
                 </div>

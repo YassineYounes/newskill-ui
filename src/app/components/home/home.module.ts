@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common';
 import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
 import {SharedModule} from 'src/app/shared/module/shared.module';
+import {CourseDetailsModule} from "../pages/course/course-details/course-details.module";
+import {ComponentsModule} from "../components.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import {SharedModule} from 'src/app/shared/module/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    CourseDetailsModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [HomeComponent],

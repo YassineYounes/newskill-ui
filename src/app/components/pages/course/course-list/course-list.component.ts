@@ -9,10 +9,6 @@ import {InstructorService} from "../../../../services/instructor.service";
 import {CategoryService} from "../../../../services/category.service";
 import {Category} from "../../../../models/category";
 
-interface data {
-  active?: boolean;
-}
-
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -23,15 +19,11 @@ export class CourseListComponent implements OnInit {
   public selectedSort = 'popular';
   public searchDataValue = '';
   public dataSource!: MatTableDataSource<Course>;
-
-  // pagination variables
   public pageSize = 10;
   public totalData = 0;
   public skip = 0;
   public limit = this.pageSize;
-  public pageIndex = 0;
   public pageNumberArray: Array<number> = [];
-  public pageSelection = [];
   public courseList: Course[] = [];
   public latestCourses: Course[] = [];
   public instructorList: Instructor[] = [];
