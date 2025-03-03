@@ -67,13 +67,6 @@ const routes: Routes = [
         component: InstructorTicketsComponent,
       },
       {
-        path: 'instructor-view',
-        loadChildren: () =>
-          import('./instructor-view/instructor-view.module').then(
-            (m) => m.InstructorViewModule
-          ),
-      },
-      {
         path: 'instructor-edit',
         component: InstructorEditComponent,
       },

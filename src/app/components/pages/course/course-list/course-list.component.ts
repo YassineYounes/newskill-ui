@@ -4,7 +4,6 @@ import {routes} from 'src/app/shared/service/routes/routes';
 import {CourseService} from "../../../../services/course.service";
 import {Course} from "../../../../models/course";
 import {environment} from "../../../../../environments/environment";
-import {Instructor} from "../../../../models/instructor";
 import {InstructorService} from "../../../../services/instructor.service";
 import {CategoryService} from "../../../../services/category.service";
 import {Category} from "../../../../models/category";
@@ -20,10 +19,7 @@ export class CourseListComponent implements OnInit {
   public selectedSort = 'popular';
   public searchDataValue = '';
   public dataSource!: MatTableDataSource<Course>;
-  public pageSize = 10;
   public totalData = 0;
-  public skip = 0;
-  public limit = this.pageSize;
   public pageNumberArray: Array<number> = [];
   public courseList: Course[] = [];
   public latestCourses: Course[] = [];
@@ -56,7 +52,7 @@ export class CourseListComponent implements OnInit {
       this.courseList = res;
       this.latestCourses = res.slice(0, 5);
       this.totalData = res.length;
-      this.calculateTotalPages(this.totalData, this.pageSize);
+      this.calculateTotalPages(this.totalData, this.coursesPerPage);
       this.freeCourses = res.filter((re: Course) => {
         return re.isFree
       });
@@ -94,7 +90,6 @@ export class CourseListComponent implements OnInit {
       this.totalPages = Math.trunc(this.totalPages + 1);
     }
     for (let i = 1; i <= this.totalPages; i++) {
-      const limit = pageSize * i;
       this.pageNumberArray.push(i);
     }
   }
