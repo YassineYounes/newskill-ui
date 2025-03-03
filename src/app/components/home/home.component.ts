@@ -15,6 +15,9 @@ import {
 import {Course} from "../../models/course";
 import {CourseService} from "../../services/course.service";
 import {environment} from "../../../environments/environment";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user";
+import {InstructorService} from "../../services/instructor.service";
 
 interface data {
   active?: boolean;
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit {
   public routes = routes;
   public topCategories: topCategories[] = [];
   public trendingCourses: Course[] = [];
-  public featuredInstructor: featuredInstructor[] = [];
+  public featuredInstructor: User[] = [];
   public latestBlogs: latestBlogs[] = [];
   public featuredCourses: Course[] = [];
   public career: career[] = [];
@@ -124,9 +127,13 @@ export class HomeComponent implements OnInit {
     infinite: true,
   };
 
-  constructor(private DataService: DataService, public router: Router, private courseService: CourseService,) {
+  constructor(
+    private DataService: DataService,
+    public router: Router,
+    private courseService: CourseService,
+    private instructorService: InstructorService,
+    private userService: UserService,) {
     this.topCategories = this.DataService.topCategories;
-    this.featuredInstructor = this.DataService.featuredInstructor;
     this.latestBlogs = this.DataService.latestBlogs;
     this.career = this.DataService.career;
     this.universitiesCompanies = this.DataService.universitiesCompanies;
@@ -137,6 +144,7 @@ export class HomeComponent implements OnInit {
     AOS.init({duration: 1200, once: true});
     this.getCourseList();
     this.getTrendingCourses();
+    this.getInstructors();
   }
 
   private getCourseList(): void {
@@ -150,6 +158,13 @@ export class HomeComponent implements OnInit {
     this.trendingCourses = [];
     this.courseService.getTrendingCourses().subscribe((res: Course[]) => {
       this.trendingCourses = res.slice(0, 9);
+    });
+  }
+
+  private getInstructors(): void {
+    this.featuredInstructor = [];
+    this.instructorService.getInstructorsList().subscribe((res: User[]) => {
+      this.featuredInstructor = res.slice(0, 9);
     });
   }
 }

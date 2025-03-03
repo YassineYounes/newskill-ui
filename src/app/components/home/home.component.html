@@ -337,36 +337,29 @@
       <div class="section-header aos" data-aos="fade-up">
         <div class="section-sub-head feature-head text-center">
           <h2>Featured Instructor</h2>
-          <div class="section-text aos" data-aos="fade-up">
-            <p class="mb-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-              aenean accumsan bibendum gravida maecenas augue elementum et
-              neque. Suspendisse imperdiet.
-            </p>
-          </div>
         </div>
       </div>
       <div>
         <div class="instructors-course" data-aos="fade-up">
           <owl-carousel-o [options]="featuredInstructorOwlOptions">
-            @for (slide of featuredInstructor; track slide) {
+            @for (instructor of featuredInstructor; track instructor) {
               <ng-template carouselSlide>
                 <div class="instructors-widget">
                   <div class="instructors-img">
-                    <a [routerLink]="routes.instructor_list">
-                      <img class="img-fluid" alt="" [src]="slide.img"/>
+                    <a [routerLink]="routes.instructor_instructor_profile + instructor?.id">
+                      <img [src]="environment.resourcesUrl + instructor?.avatar" alt="" class="img-fluid">
                     </a>
                   </div>
                   <div class="instructors-content text-center">
                     <h5>
-                      <a [routerLink]="routes.instructor_instructor_profile">{{
-                              slide.name
-                        }}</a>
+                      <a [routerLink]="routes.instructor_instructor_profile + instructor?.id">{{instructor.fullName}}</a>
                     </h5>
-                    <p>{{ slide.domain }}</p>
+                    <p class="instructor-title">{{instructor.title}}</p>
                     <div class="student-count d-flex justify-content-center">
                       <i class="fa-solid fa-user-group"></i>
-                      <span>{{ slide.students }}</span>
+                      <span>{{ instructor.enrollmentCount }} students</span>
+                      <i class="fa-solid fa-play" style="margin-left: 13px"></i>
+                      <span>{{instructor.teachingCoursesCount}} Courses</span>
                     </div>
                   </div>
                 </div>

@@ -8,6 +8,7 @@ import {Instructor} from "../../../../models/instructor";
 import {InstructorService} from "../../../../services/instructor.service";
 import {CategoryService} from "../../../../services/category.service";
 import {Category} from "../../../../models/category";
+import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-course-list',
@@ -26,7 +27,7 @@ export class CourseListComponent implements OnInit {
   public pageNumberArray: Array<number> = [];
   public courseList: Course[] = [];
   public latestCourses: Course[] = [];
-  public instructorList: Instructor[] = [];
+  public instructorList: User[] = [];
   public categoriesList: Category[] = [];
   public freeCourses: Course[] = [];
   public payedCourses: Course[] = [];

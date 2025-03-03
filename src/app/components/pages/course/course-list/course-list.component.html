@@ -234,7 +234,7 @@
                           [value]="instructor.id"
                           [checked]="instructor.id && selectedInstructors.includes(instructor.id)"
                           (change)="onInstructorChange($event, instructor.id)"/>
-                      {{ instructor.fullName }} ({{ instructor.coursesCount }})
+                      {{ instructor.fullName }} ({{ instructor.teachingCoursesCount }})
                     </label>
                   </div>
                 </div>
