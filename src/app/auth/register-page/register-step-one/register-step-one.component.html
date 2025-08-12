@@ -38,18 +38,43 @@
               <a [routerLink]="routes.login">Back to Home</a>
             </div>
           </div>
-          <h1>Become An Instructor</h1>
+          <h1>Create Your Account</h1>
+          
+          <!-- Role Selection -->
+          <div class="role-selection mb-4">
+            <h5>I want to join as:</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="role-card" [class.active]="selectedRole === 'Student'" (click)="onRoleChange('Student')">
+                  <div class="role-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <h6>Student</h6>
+                  <p>Learn new skills and advance your career</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="role-card" [class.active]="selectedRole === 'Instructor'" (click)="onRoleChange('Instructor')">
+                  <div class="role-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                  </div>
+                  <h6>Instructor</h6>
+                  <p>Share your knowledge and teach others</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-lg-5">
               <div class="profile-box">
                 <div class="circle-progressbar">
-                  <div class="circle-progress-percent">25%</div>
-                  <div class="circle-progress-text">1 of 4</div>
+                  <div class="circle-progress-percent">33%</div>
+                  <div class="circle-progress-text">1 of 3</div>
                 </div>
-                <circle-progress [clockwise]="true" [percent]="25" class="circle-progress-bar"
+                <circle-progress [clockwise]="true" [percent]="33" class="circle-progress-bar"
                                  innerStrokeColor=#e7e8ea outerStrokeColor=#159F46>
                 </circle-progress>
-                <h3>Profile Compleation</h3>
+                <h3>Registration Progress</h3>
                 <div class="personal-detail d-flex align-items-center">
                   <span class="active-color active-bar">1</span>
                   <div class="personal-text">
@@ -60,113 +85,144 @@
                 <div class="personal-detail d-flex align-items-center">
                   <span>2</span>
                   <div class="personal-text">
-                    <h4>Social Profiles</h4>
-                    <p class="mb-0">Setup Your Social Profiles links</p>
+                    <h4>Professional & Social Info</h4>
+                    <p class="mb-0">{{ selectedRole === 'Instructor' ? 'Professional details and social profiles' : 'Social profiles (optional)' }}</p>
                   </div>
                 </div>
                 <div class="personal-detail d-flex align-items-center">
                   <span>3</span>
                   <div class="personal-text">
-                    <h4>Profile Privacy Settings</h4>
-                    <p class="mb-0">Setup Your Profile Privacy Settings</p>
-                  </div>
-                </div>
-                <div class="personal-detail d-flex align-items-center">
-                  <span>4</span>
-                  <div class="personal-text">
-                    <h4>Link Accounts</h4>
-                    <p class="mb-0">Setup Your Linked Accounts</p>
+                    <h4>Review & Complete</h4>
+                    <p class="mb-0">Review information and complete registration</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
-              <div class="personal-form">
-                <h4>Personal Details</h4>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="first-name">First Name</label>
-                      <input class="form-control" placeholder="Enter your first Name" type="text">
-                    </div>
+              <form [formGroup]="registrationForm" (ngSubmit)="registerPath()">
+                <div class="personal-form">
+                  <h4>Personal Details</h4>
+                  
+                  <!-- Error Messages -->
+                  <div *ngIf="errors.length > 0" class="alert alert-danger">
+                    <ul class="mb-0">
+                      <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="last-name">Last Name</label>
-                      <input class="form-control" placeholder="Enter your last Name" type="text">
+                  
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="firstName">First Name *</label>
+                        <input 
+                          id="firstName"
+                          formControlName="firstName"
+                          class="form-control" 
+                          placeholder="Enter your first name" 
+                          type="text"
+                          [class.is-invalid]="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.errors">
+                        <div class="invalid-feedback" *ngIf="getFieldError('firstName')">
+                          {{ getFieldError('firstName') }}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="email">Email</label>
-                      <input class="form-control" placeholder="Enter your email address"
-                             type="email">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="lastName">Last Name *</label>
+                        <input 
+                          id="lastName"
+                          formControlName="lastName"
+                          class="form-control" 
+                          placeholder="Enter your last name" 
+                          type="text"
+                          [class.is-invalid]="registrationForm.get('lastName')?.touched && registrationForm.get('lastName')?.errors">
+                        <div class="invalid-feedback" *ngIf="getFieldError('lastName')">
+                          {{ getFieldError('lastName') }}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="phone">Phone</label>
-                      <input class="form-control" placeholder="Enter your phone number"
-                             type="text">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="email">Email *</label>
+                        <input 
+                          id="email"
+                          formControlName="email"
+                          class="form-control" 
+                          placeholder="Enter your email address"
+                          type="email"
+                          [class.is-invalid]="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors">
+                        <div class="invalid-feedback" *ngIf="getFieldError('email')">
+                          {{ getFieldError('email') }}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="website">Website</label>
-                      <input class="form-control" placeholder="Enter your website url"
-                             type="text">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="phoneNumber">Phone Number</label>
+                        <input 
+                          id="phoneNumber"
+                          formControlName="phoneNumber"
+                          class="form-control" 
+                          placeholder="Enter your phone number"
+                          type="tel">
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-label" for="sel1">Country</label>
-                      <mat-select class="custom-mat-select" id="sel1" name="sellist1"
-                                  placeholder="Select country">
-                        <mat-option value="India">India</mat-option>
-                        <mat-option value="America">America</mat-option>
-                        <mat-option value="London">London</mat-option>
-                      </mat-select>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="userName">Username</label>
+                        <input 
+                          id="userName"
+                          formControlName="userName"
+                          class="form-control" 
+                          placeholder="Choose a username"
+                          type="text">
+                        <small class="form-text text-muted">This will be your unique identifier on the platform</small>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="address-line1">Address Line1</label>
-                      <input class="form-control" placeholder="Address Line1" type="text">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="password">Password *</label>
+                        <input 
+                          id="password"
+                          formControlName="password"
+                          class="form-control" 
+                          placeholder="Enter your password"
+                          type="password"
+                          [class.is-invalid]="registrationForm.get('password')?.touched && registrationForm.get('password')?.errors">
+                        <div class="invalid-feedback" *ngIf="getFieldError('password')">
+                          {{ getFieldError('password') }}
+                        </div>
+                        <small class="form-text text-muted">Must be at least 8 characters long</small>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="address-line2">Address Line2</label>
-                      <input class="form-control" placeholder="Address Line2" type="text">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="confirmPassword">Confirm Password *</label>
+                        <input 
+                          id="confirmPassword"
+                          formControlName="confirmPassword"
+                          class="form-control" 
+                          placeholder="Confirm your password"
+                          type="password"
+                          [class.is-invalid]="registrationForm.get('confirmPassword')?.touched && registrationForm.get('confirmPassword')?.errors">
+                        <div class="invalid-feedback" *ngIf="getFieldError('confirmPassword')">
+                          {{ getFieldError('confirmPassword') }}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="city">City</label>
-                      <input class="form-control" placeholder="Enter your city" type="text">
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-block">
-                      <label class="form-control-label" for="zipcode">ZipCode</label>
-                      <input class="form-control" placeholder="Enter your zipcode" type="text">
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-check form-switch check-on">
-                      <input checked class="form-check-input" id="flexSwitchCheckChecked"
-                             type="checkbox">
-                      <label class="form-check-label" for="flexSwitchCheckChecked">Use same
-                        address for Billing.</label>
-                    </div>
-                    <div class="next-btn">
-                      <button (click)="registerPath()" class="btn btn-primary btn-start"
-                              type="submit">Next
-                      </button>
+                    <div class="col-lg-12">
+                      <div class="next-btn">
+                        <button 
+                          type="button"
+                          (click)="registerPath()" 
+                          class="btn btn-primary btn-start">
+                          Next
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -38,17 +38,17 @@
               <a [routerLink]="routes.login">Back to Home</a>
             </div>
           </div>
-          <h1>Become An Instructor</h1>
+          <h1>{{ isInstructor ? 'Professional Information' : 'Social Profiles' }}</h1>
           <div class="row">
             <div class="col-lg-5">
               <div class="profile-box">
                 <div class="circle-progressbar">
-                  <div class="circle-progress-percent">50%</div>
-                  <div class="circle-progress-text">2 of 4</div>
+                  <div class="circle-progress-percent">67%</div>
+                  <div class="circle-progress-text">2 of 3</div>
                 </div>
-                <circle-progress [clockwise]="true" [percent]="50" class="circle-progress-bar"
+                <circle-progress [clockwise]="true" [percent]="67" class="circle-progress-bar"
                                  innerStrokeColor=#e7e8ea outerStrokeColor=#159F46></circle-progress>
-                <h3>Profile Compleation</h3>
+                <h3>Registration Progress</h3>
                 <div class="personal-detail d-flex align-items-center">
                   <span class="active-color"><i class="fa-solid fa-check"></i></span>
                   <div class="personal-text">
@@ -59,59 +59,186 @@
                 <div class="personal-detail d-flex align-items-center">
                   <span class="active-color active-bar">2</span>
                   <div class="personal-text">
-                    <h4>Social Profiles</h4>
-                    <p class="mb-0">Setup Your Social Profiles links</p>
+                    <h4>Professional & Social Info</h4>
+                    <p class="mb-0">{{ isInstructor ? 'Professional details and social profiles' : 'Social profiles (optional)' }}</p>
                   </div>
                 </div>
                 <div class="personal-detail d-flex align-items-center">
                   <span>3</span>
                   <div class="personal-text">
-                    <h4>Profile Privacy Settings</h4>
-                    <p class="mb-0">Setup Your Profile Privacy Settings</p>
-                  </div>
-                </div>
-                <div class="personal-detail d-flex align-items-center">
-                  <span>4</span>
-                  <div class="personal-text">
-                    <h4>Link Accounts</h4>
-                    <p class="mb-0">Setup Your Linked Accounts</p>
+                    <h4>Review & Complete</h4>
+                    <p class="mb-0">Review information and complete registration</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
-              <div class="personal-form">
-                <h4>Social Profiles</h4>
-                <div class="input-block">
-                  <label class="form-control-label" for="twitter">Twitter</label>
-                  <input class="form-control" placeholder="Twitter Profile URL" type="text">
-                </div>
-                <div class="input-block">
-                  <label class="form-control-label" for="facebook">Facebook</label>
-                  <input class="form-control" placeholder="Facebook Profile URL" type="text">
-                </div>
-                <div class="input-block">
-                  <label class="form-control-label" for="instagram">Instagram</label>
-                  <input class="form-control" placeholder="Instagram Profile URL" type="text">
-                </div>
-                <div class="input-block">
-                  <label class="form-control-label" for="linkedin">LinkedIn Profile URL</label>
-                  <input class="form-control" placeholder="LinkedIn Profile URL" type="text">
-                </div>
-                <div class="input-block">
-                  <label class="form-control-label" for="youtube">YouTube</label>
-                  <input class="form-control" placeholder="Youtube URL" type="text">
-                </div>
-                <div class="btn-group d-flex">
-                  <div class="back-btn">
-                    <a [routerLink]="routes.register1" class="btn btn-back"
-                       type="submit">back</a>
+              <form [formGroup]="professionalForm" (ngSubmit)="directPath()">
+                <div class="personal-form">
+                  
+                  <!-- Error Messages -->
+                  <div *ngIf="errors.length > 0" class="alert alert-danger">
+                    <ul class="mb-0">
+                      <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
                   </div>
-                  <div class="next-btn">
-                    <button (click)="directPath()" class="btn btn-primary btn-start">Next</button>
+                  
+                  <!-- Professional Information for Instructors -->
+                  <div *ngIf="isInstructor" class="professional-section mb-4">
+                    <h4>Professional Information</h4>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="input-block">
+                          <label class="form-control-label" for="title">Professional Title *</label>
+                          <input 
+                            id="title"
+                            formControlName="title"
+                            class="form-control" 
+                            placeholder="e.g., Software Engineer, Data Scientist, Marketing Manager"
+                            type="text"
+                            [class.is-invalid]="professionalForm.get('title')?.touched && professionalForm.get('title')?.errors">
+                          <div class="invalid-feedback" *ngIf="getFieldError('title')">
+                            {{ getFieldError('title') }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="input-block">
+                          <label class="form-control-label" for="bio">Professional Bio *</label>
+                          <textarea 
+                            id="bio"
+                            formControlName="bio"
+                            class="form-control" 
+                            placeholder="Tell us about your professional background, expertise, and teaching experience..."
+                            rows="4"
+                            [class.is-invalid]="professionalForm.get('bio')?.touched && professionalForm.get('bio')?.errors"></textarea>
+                          <div class="invalid-feedback" *ngIf="getFieldError('bio')">
+                            {{ getFieldError('bio') }}
+                          </div>
+                          <small class="form-text text-muted">This will be displayed on your instructor profile</small>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="input-block">
+                          <label class="form-control-label" for="website">Professional Website</label>
+                          <input 
+                            id="website"
+                            formControlName="website"
+                            class="form-control" 
+                            placeholder="https://yourwebsite.com"
+                            type="url">
+                          <small class="form-text text-muted">Your portfolio, company website, or personal blog</small>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                  </div>
+                  
+                  <!-- Social Profiles Section -->
+                  <h4>{{ isInstructor ? 'Social Profiles (Optional)' : 'Social Profiles' }}</h4>
+                  <p class="text-muted mb-4">{{ isInstructor ? 'Add your social media profiles to build credibility and connect with students.' : 'Connect your social media profiles (all optional).' }}</p>
+                  
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="linkedin">
+                          <i class="fab fa-linkedin text-primary me-2"></i>LinkedIn
+                        </label>
+                        <input 
+                          id="linkedin"
+                          formControlName="linkedin"
+                          class="form-control" 
+                          placeholder="https://linkedin.com/in/username"
+                          type="url">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="twitter">
+                          <i class="fab fa-twitter text-info me-2"></i>Twitter
+                        </label>
+                        <input 
+                          id="twitter"
+                          formControlName="twitter"
+                          class="form-control" 
+                          placeholder="https://twitter.com/username"
+                          type="url">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="facebook">
+                          <i class="fab fa-facebook text-primary me-2"></i>Facebook
+                        </label>
+                        <input 
+                          id="facebook"
+                          formControlName="facebook"
+                          class="form-control" 
+                          placeholder="https://facebook.com/username"
+                          type="url">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="instagram">
+                          <i class="fab fa-instagram text-danger me-2"></i>Instagram
+                        </label>
+                        <input 
+                          id="instagram"
+                          formControlName="instagram"
+                          class="form-control" 
+                          placeholder="https://instagram.com/username"
+                          type="url">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="youtube">
+                          <i class="fab fa-youtube text-danger me-2"></i>YouTube
+                        </label>
+                        <input 
+                          id="youtube"
+                          formControlName="youtube"
+                          class="form-control" 
+                          placeholder="https://youtube.com/channel/..."
+                          type="url">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-block">
+                        <label class="form-control-label" for="tiktok">
+                          <i class="fab fa-tiktok text-dark me-2"></i>TikTok
+                        </label>
+                        <input 
+                          id="tiktok"
+                          formControlName="tiktok"
+                          class="form-control" 
+                          placeholder="https://tiktok.com/@username"
+                          type="url">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="btn-group d-flex mt-4">
+                    <div class="back-btn">
+                      <button 
+                        type="button"
+                        (click)="goBack()" 
+                        class="btn btn-back">
+                        <i class="fas fa-arrow-left me-2"></i>Back
+                      </button>
+                    </div>
+                    <div class="next-btn">
+                      <button 
+                        type="button"
+                        (click)="directPath()" 
+                        class="btn btn-primary btn-start">
+                        Next<i class="fas fa-arrow-right ms-2"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

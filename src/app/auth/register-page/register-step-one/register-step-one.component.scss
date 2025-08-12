@@ -1,1 +1,142 @@
+.role-selection {
+  margin-bottom: 2rem;
 
+  h5 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .role-card {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    
+    &:hover {
+      border-color: #159F46;
+      box-shadow: 0 4px 12px rgba(21, 159, 70, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    &.active {
+      border-color: #159F46;
+      background: #f8fffe;
+      box-shadow: 0 4px 12px rgba(21, 159, 70, 0.15);
+      
+      .role-icon i {
+        color: #159F46;
+      }
+      
+      h6 {
+        color: #159F46;
+      }
+    }
+    
+    .role-icon {
+      margin-bottom: 1rem;
+      
+      i {
+        font-size: 2.5rem;
+        color: #6c757d;
+        transition: color 0.3s ease;
+      }
+    }
+    
+    h6 {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    p {
+      color: #6c757d;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.input-block {
+  margin-bottom: 1.5rem;
+  
+  label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    
+    &:focus {
+      border-color: #159F46;
+      box-shadow: 0 0 0 0.2rem rgba(21, 159, 70, 0.25);
+    }
+    
+    &.is-invalid {
+      border-color: #dc3545;
+      
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+      }
+    }
+  }
+  
+  .invalid-feedback {
+    display: block;
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.25rem;
+  }
+  
+  .form-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+  }
+}
+
+.alert {
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  
+  ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+}
+
+.btn-start {
+  background: #159F46;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #0f7a35;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(21, 159, 70, 0.3);
+  }
+  
+  &:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.next-btn {
+  margin-top: 2rem;
+  text-align: right;
+}
